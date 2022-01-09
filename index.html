@@ -11,7 +11,7 @@
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     </head>
-    <body>
+    <body style="background: #0B1121;">
 
         <style>
             * {
@@ -174,7 +174,7 @@
                 </span>
             </div>
         </section>
-        <section id="about" class="bg-gradient-to-r from-[#0c1222] to-gray-900 pb-44 w-full border-2 border-gray-900" style="/* background: #0c1222; */">
+        <section id="about" class="bg-gradient-to-r from-[#0c1222] to-gray-900 pb-44 w-full border-b-2 border-gray-900" style="/* background: #0c1222; */">
             <div class="flex items-center justify-between relative max-w-5xl mx-auto pt-20 sm:pt-24 lg:pt-32">
                 <div data-aos="zoom-in" data-aos-delay="200" class="bg-sky-800 absolute bottom-10 right-20 w-3/6 h-3/6 rounded-full blur-3xl" style="opacity: .3;"></div>
 
@@ -203,7 +203,7 @@
                                 <div class="bg-gray-700 rounded-full w-2 h-2"></div>
                                 <div class="bg-gray-700 rounded-full w-2 h-2"></div>
                             </div>
-                            <h6 class="font-sans font-bold text-gray-700 text-xs text-center mx-auto my-auto px-4">index.js</h6>
+                            <h6 class="font-sans font-bold text-gray-700 text-xs text-center mx-auto my-auto px-4">index.py</h6>
                         </div>
                         <div class="text-white grid grid-flow-row bg-transparent space-y-0 mt-2 mb-4">
                             <div class="flex flex-row"><span
@@ -259,7 +259,7 @@
                             <div class="flex flex-row"><span
                                     class="font-mono text-xs my-auto text-right align-right w-8 pl-4 pr-1 text-gray-700 font-bold">10</span><span
                                     class="font-mono text-xs bg-transparent my-auto bg-opacity-0 ml-4 mr-6 text-light-grayed-out">
-                                    <pre>       <span class="text-pink-500">return</span> json.<span class="text-sky-500">dumps</span>(<span class="text-sky-500">asdict</span>(self), <span class="text-yellow-500">indent</span>=<span class="text-orange-500">4</span>)</pre>
+                                    <pre>       <span class="text-pink-500">return</span> json.<span class="text-sky-500">dumps</span>(<span class="text-sky-500">asdict</span>(self), <span class="text-yellow-500">indent</span>=<span class="text-orange-500">4</span>)                    </pre>
                                 </span></div>
                             <div class="flex flex-row"><span
                                     class="font-mono text-xs my-auto text-right align-right w-8 pl-4 pr-1 text-gray-700 font-bold">11</span><span
@@ -287,22 +287,6 @@
                 </div>
             </div>
         </section>
-        from __future__ import annotations
-
-import json
-from dataclasses import asdict, dataclass
-
-
-@dataclass
-class Profile:
-    name: tuple[str, ...] = ("Mauro Balades")
-
-    def jsonify(self) -> str:
-        return json.dumps(asdict(self), indent=4)
-
-
-me = Profile()
-print(me.jsonify())
 
         <script>
             AOS.init();
