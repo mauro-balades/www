@@ -1,4 +1,4 @@
-<!-- <img src="./images/og.png" style="width: 100%;" /> -->
+<!-- <img src="./cdn/images/og.png" style="width: 100%;" /> -->
 # Portfolio
 
 This is a portfolio made to introduce my-self and for everyone to see my projects.

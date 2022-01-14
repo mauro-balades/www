@@ -15,30 +15,46 @@
 # for people with not a lot of experience with
 # Python but they know a lot about express.js
 from expross import Expross
+from src.app import Application
+from os import getenv
 
 # Define costants
 VIEWS: str = "src/views"
 STATIC: str = "src/static"
+PORT: int = getenv("PORT", 8000)
 
 # Define application's web server
 app: Expross = None
+
+# Define main application's site
+site: Application = None
 
 def initiate_site():
     """Initiate web server application.
     """
     global app
+    global site
 
     # Define application
     app = Expross()
 
     # Set templates and static folders.
     app.set_templates("src/views")
-    app.serve_static(folder="src/static")
+    app.serve_static(
+        folder="./src/static",
+        route="/cdn/"
+    )
+
+    # Define main application's site
+    site = Application(app=app)
+
+def server_callback():
+    print(f"Server running on http://localhost:{PORT}")
 
 def serve_site():
     """This function is used to serve the serve.
     """
     global app
 
-    app.listen()
+    app.listen(serverPort=PORT, cb=server_callback)
 

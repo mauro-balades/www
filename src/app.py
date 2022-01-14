@@ -9,8 +9,32 @@
 # This project is under the license of MIT
 # -----------------------------------------------------------------------------
 
+# Imports
+from expross import Expross
+from src.errors import UndefinedApp
+
 class Application:
     """ This is the main website's application class """
 
-    def __init__(self, **kwargs):
-        pass
+    app: Expross = None
+
+    def __init__(self, *argv, **kwargs):
+        self.app = kwargs.get("app", None)
+
+        if self.app is None:
+            raise UndefinedApp("App has no been defined")
+
+        self.set_routes()
+
+    def set_routes(self):
+        self.app.get("/", self.main())
+
+    # --------------- ROUTES
+
+    def main(self):
+
+        def route(req, res):
+            content = self.app.render_template("index.html")
+            return content, 200
+
+        return route
