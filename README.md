@@ -17,6 +17,16 @@ This site uses a variaety of libraries, here are all libraries imported and thei
 
 The portfolio is one-paged with simple HTML and all CSS has been made thanks to `tailwindcss`. That means that you can just clone the website and paste it to the browser to see the end result.
 
+
+### Get it up and runing
+
+First, install the requirements from `requirements.txt`. Then, run the main file wich is called `setup.py`.
+
+```
+$ pip3 install -r requirements.txt
+$ python3 setup.py
+```
+
 ### Page structure
 
 As mentioned before, this is a one-paged website. In the codeblock below, you can see the main sections of my portfolio.
@@ -32,10 +42,6 @@ Portfolio /
 ```
 
 note that more sections are more to come!
-
-### GitHub pages
-
-Since this site only haves static files, I will use GitHub pages to serve them to a custom domain. That is why when you enter the deployment it redirects you to the home page
 
 ### License
 
