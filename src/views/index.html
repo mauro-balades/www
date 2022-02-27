@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.14.0/devicon.min.css">
 
         <!-- COMMON TAGS -->
         <meta charset="utf-8">
@@ -56,6 +57,63 @@
                 overflow-x: hidden;
                 height: fit-content;
             }
+
+            @keyframes float {
+                0% {
+                    transform: translatey(0px);
+                }
+                50% {
+                    transform: translatey(-20px);
+                }
+                100% {
+                    transform: translatey(0px);
+                }
+            }
+
+            @keyframes float_diagonal {
+                0% {
+                    transform: translate(0px, 0px);
+                }
+                50% {
+                    transform: translate(-30px, -30px);
+                }
+                100% {
+                    transform: translate(0px, 0px);
+                }
+            }
+
+            @keyframes float_random {
+                0% {
+                    transform: translate(0px, 0px);
+                }
+                33% {
+                    transform: translate(-20px, -20px);
+                }
+                66% {
+                    transform: translate(-40px, 40px);
+                }
+                100% {
+                    transform: translate(0px, 0px);
+                }
+            }
+
+            @keyframes float_random2 {
+                0% {
+                    transform: translate(0px, 0px);
+                }
+                25% {
+                    transform: translate(-20px, -20px);
+                }
+                50% {
+                    transform: translate(-55px, 20px);
+                }
+                75% {
+                    transform: translate(20px, 40px);
+                }
+                100% {
+                    transform: translate(0px, 0px);
+                }
+            }
         </style>
 
         <header class="shadow-lg z-10 relative h-screen w-full border-gray-900 flex items-center" style="background: #0B1121;">
@@ -71,18 +129,38 @@
                     </ul>
                 </div>
             </nav>
-            <img data-aos="zoom-in" data-aos-delay="700" src="/cdn/images/header_blob.svg" class="absolute" style="top: 50%; left: 50%; width: 200%; transform: translate(-50%, -50%);" alt="Header blobs" />
+            <img data-aos="zoom-in" data-aos-delay="700" src="/cdn/images/header_blob.svg" class="absolute" style="opacity: 0.15 !important; top: 50%; left: 50%; width: 150%; transform: translate(-50%, -50%);" alt="Header blobs" />
             <div class="relative max-w-5xl mx-auto">
-                <h4 class="text-center text-gray-800 text-3xl font-bold mb-7" data-aos="fade-down">Mauro Balades</h4>
-                <h1 class="font-extrabold text-9xl tracking-tight text-center text-transparent bg-gradient-to-r from-pink-400 to-indigo-400 cursor-pointer bg-clip-text" data-aos-delay="400" data-aos="zoom-in">
-                    A software &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;developer.
+                <h1 class="w-min font-extrabold text-9xl tracking-tight text-center text-white cursor-pointer bg-clip-text" data-aos-delay="400" data-aos="zoom-in">
+                    <svg class="absolute top-[-1rem] left-5" transform="scale(1.5,1.5)" width="39" height="33" viewBox="0 0 39 33" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M32.6754 0.417965C33.1683 0.168783 33.7699 0.366337 34.019 0.859213L38.4326 9.58905C38.6817 10.0819 38.4842 10.6835 37.9913 10.9327C37.4984 11.1818 36.8969 10.9843 36.6477 10.4914L32.2342 1.76158C31.985 1.2687 32.1825 0.667147 32.6754 0.417965ZM11.0439 4.14571C10.6412 3.76778 10.0083 3.78789 9.63042 4.19061C9.25249 4.59334 9.2726 5.22619 9.67533 5.60411L22.7052 17.8315C23.1079 18.2095 23.7407 18.1894 24.1187 17.7866C24.4966 17.3839 24.4765 16.7511 24.0738 16.3731L11.0439 4.14571ZM1.9426 27.2436C1.40486 27.1177 0.866853 27.4515 0.740923 27.9893C0.614993 28.527 0.948827 29.065 1.48656 29.1909L16.0914 32.6112C16.6292 32.7371 17.1672 32.4033 17.2931 31.8655C17.419 31.3278 17.0852 30.7898 16.5475 30.6639L1.9426 27.2436Z" fill="#8B8AF3"></path></svg>
+                    <span>
+                        A software &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bg-gradient-to-r from-pink-400 to-indigo-400 bg-clip-text text-transparent">developer</span>.
+                    </span>
+                    <svg class="absolute right-[-2rem] bottom-[-2rem]" width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="white" d="M13.9906 1.05612C14.7227 0.485328 15.7698 1.13333 15.5855 2.04318L14.3364 8.21283C14.2785 8.49888 14.3485 8.79596 14.5279 9.02613L18.3984 13.9904C18.9692 14.7225 18.3212 15.7696 17.4114 15.5854L11.2417 14.3363C10.9557 14.2784 10.6586 14.3483 10.4284 14.5278L5.46412 18.3983C4.73203 18.9691 3.68493 18.3211 3.86914 17.4112L5.11824 11.2416C5.17615 10.9555 5.1062 10.6584 4.92675 10.4283L1.05626 5.46398C0.485471 4.73188 1.13347 3.68479 2.04332 3.86899L8.21297 5.11809C8.49903 5.17601 8.79611 5.10606 9.02627 4.92661L13.9906 1.05612Z" fill=""></path></svg>
                 </h1>
                 <!-- <p class="mt-6 text-lg text-gray-600 text-center max-w-3xl mx-auto dark:text-gray-400" data-aos="zoom-in" data-aos-delay="100">I am a developer, student and musician. I love to contribute to <code class="font-mono font-medium text-sky-500 dark:text-sky-400">open source</code>. I know a variaety of programming languages and made a lot of personal projects.</p> -->
-                <div class="flex items-center justify-center text-xl mt-10">
-                    <a data-aos="fade-up" data-aos-delay="100" href="https://github.com/mauro-balades" target="_blank" class="mr-7 fab fa-github"></a>
-                    <a data-aos="fade-up" data-aos-delay="200" href="mailto:mauro.balades@tutanota.com" target="_blank" class="far fa-envelope mx-7"></a>
-                    <a data-aos="fade-up" data-aos-delay="300" href="https://twitter.com/Mauro60715204" target="_blank" class="fab fa-twitter mx-7"></a>
-                </div>
+                <!-- <div class="flex color-white items-center justify-center text-xl mt-10">
+                    <a data-aos="fade-up" data-aos-delay="100" href="https://github.com/mauro-balades" target="_blank" class="color-white mr-7 fab fa-github"></a>
+                    <a data-aos="fade-up" data-aos-delay="200" href="mailto:mauro.balades@tutanota.com" target="_blank" class="color-white far fa-envelope mx-7"></a>
+                    <a data-aos="fade-up" data-aos-delay="300" href="https://twitter.com/Mauro60715204" target="_blank" class="color-white fab fa-twitter mx-7"></a>
+                </div> -->
+            </div>
+
+            <!-- SKILLS DOTS -->
+            <div style="animation: float_random2 11s ease-in-out infinite;" class="transition-all transition-500 border border-transparent hover:border-pink-400 text-pink-400 cursor-pointer absolute top-20 left-40 rounded-full w-14 h-14 shadow-lg bg-[#12172F] flex items-center justify-center text-2xl">
+                <i class="devicon-cplusplus-plain"></i>
+            </div>
+            <div style="animation: float_diagonal 10s ease-in-out infinite;" class="transition-all transition-500 border border-transparent hover:border-blue-400 cursor-pointer text-blue-400 absolute bottom-48 left-56 rounded-full w-16 h-16 shadow-lg bg-[#12172F] flex items-center justify-center text-2xl">
+                <i class="devicon-python-plain"></i>
+            </div>
+            <div style="animation: float_random 8s ease-in-out infinite;" class="transition-all transition-500 border border-transparent hover:border-emerald-400 cursor-pointer text-emerald-400 absolute top-30 right-56 rounded-full w-12 h-12 shadow-lg bg-[#12172F] flex items-center justify-center text-2xl">
+                <i class="devicon-nodejs-plain"></i>
+            </div>
+            <div style="animation: float 8s ease-in-out infinite;" class="transition-all transition-500 border border-transparent hover:border-orange-400 cursor-pointer text-orange-400 absolute top-15 left-80 rounded-full w-14 h-14 shadow-lg bg-[#12172F] flex items-center justify-center text-2xl">
+                <i class="devicon-git-plain"></i>
+            </div>
+            <div style="animation: float 7s ease-in-out infinite;" class="transition-all transition-500 border border-transparent hover:border-orange-700 cursor-pointer text-orange-700 absolute top-48 right-1/4 rounded-full w-16 h-16 shadow-lg bg-[#12172F] flex items-center justify-center text-3xl">
+                <i class="devicon-rust-plain"></i>
             </div>
         </header>
         <section id="projects" class="shadow-lg bg-gradient-to-r from-[#0c1222] to-gray-900 pb-44 w-full border-2 border-gray-900" style="/* background: #0c1222; */">
@@ -295,7 +373,7 @@
                             <div class="flex flex-row"><span
                                     class="font-mono text-xs my-auto text-right align-right w-8 pl-4 pr-1 text-gray-700 font-bold">7</span><span
                                     class="font-mono text-xs bg-transparent my-auto bg-opacity-0 ml-4 mr-6 text-light-grayed-out">
-                                    <pre>   name<span class="text-yellow-500">:</span> tuple[str, <span class="text-yellow-500">...</span>] <span class="text-yellow-500">=</span> (<span class="text-green-500">"Mauro Balades"</span>)</pre>
+                                    <pre>   name<span class="text-yellow-500">:</span> tuple[str, <span class="text-yellow-500">...</span>] <span class="text-yellow-500">=</span> (<span class="text-green-500">"Mauro Baladés"</span>)</pre>
                                 </span></div>
                             <div class="flex flex-row"><span
                                     class="font-mono text-xs my-auto text-right align-right w-8 pl-4 pr-1 text-gray-700 font-bold">8</span><span
