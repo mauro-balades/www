@@ -13,13 +13,17 @@
 from expross import Expross
 from src.errors import UndefinedApp
 
+from markdown2 import Markdown
+
 class Application:
     """ This is the main website's application class """
 
     app: Expross = None
+    markdowner: Markdown = None
 
     def __init__(self, *argv, **kwargs):
         self.app = kwargs.get("app", None)
+        self.markdowner = Markdown()
 
         if self.app is None:
             raise UndefinedApp("App has no been defined")
@@ -28,6 +32,10 @@ class Application:
 
     def set_routes(self):
         self.app.get("/", self.main())
+        self.app.get("/blog/{blog}", self.blog())
+
+        # TODO: blog list
+        # self.app.get("/blogs/", self.main())
 
     # --------------- ROUTES
 
@@ -39,4 +47,17 @@ class Application:
 
         return route
 
+    def blog(self):
     
+        def route(req, res):
+            blog = self.app.context.blog
+
+            with open(f'./src/blogs/{blog}.md', 'r') as f:
+                text = f.read()
+                html = self.markdowner.convert(text)
+
+            content = self.app.render_template("blog.html", blog=html)
+            return content, 200
+
+        return route
+

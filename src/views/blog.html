@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mauro Baladés</title>
+
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link
+            rel="stylesheet"
+            href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+            integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+            crossorigin="anonymous"
+        />
+        <link
+            href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+            rel="stylesheet"
+        />
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.14.0/devicon.min.css"
+        />
+
+        <!-- COMMON TAGS -->
+        <meta charset="utf-8" />
+        <title>Mauro Baladés</title>
+        <!-- Search Engine -->
+        <meta
+            name="description"
+            content="Check out some of my favorite projects I made. If you want to check all of them and see my contributions, check my GitHub."
+        />
+        <meta name="image" content="https://maucode.com/cdn/images/og.png" />
+
+        <!-- Schema.org for Google -->
+        <meta itemprop="name" content="Mauro Baladés" />
+        <meta
+            itemprop="description"
+            content="Check out some of my favorite projects I made. If you want to check all of them and see my contributions, check my GitHub."
+        />
+        <meta
+            itemprop="image"
+            content="https://maucode.com/cdn/images/og.png"
+        />
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Mauro Balades" />
+        <meta
+            name="twitter:description"
+            content="Check out some of my favorite projects I made. If you want to check all of them and see my contributions, check my GitHub."
+        />
+        <meta name="twitter:site" content="@Mauro60715204" />
+        <meta name="twitter:creator" content="@Mauro60715204" />
+        <meta
+            name="twitter:image:src"
+            content="https://maucode.com/cdn/images/og.png"
+        />
+        <meta
+            name="twitter:image"
+            content="https://maucode.com/cdn/images/og.png"
+        />
+        <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+        <meta name="og:title" content="Mauro Balades" />
+        <meta
+            name="og:description"
+            content="Check out some of my favorite projects I made. If you want to check all of them and see my contributions, check my GitHub."
+        />
+        <meta name="og:image" content="https://maucode.com/cdn/images/og.png" />
+        <meta name="og:url" content="https://maucode.com" />
+        <meta name="og:site_name" content="Mauro's portfolio" />
+        <meta name="og:type" content="website" />
+
+        <script>
+            tailwind.config = {
+                darkMode: "class",
+                important: true,
+            };
+        </script>
+    </head>
+    <body style="background: #141b2e">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                overflow-x: hidden;
+                height: fit-content;
+            }
+        </style>
+
+        <style>
+            /* BLOG STYLES */
+            .blog_space html,
+            .blog_space body,
+            .blog_space div,
+            .blog_space span,
+            .blog_space applet,
+            .blog_space object,
+            .blog_space iframe,
+            .blog_space h1,
+            .blog_space h2,
+            .blog_space h3,
+            .blog_space h4,
+            .blog_space h5,
+            .blog_space h6,
+            .blog_space p,
+            .blog_space blockquote,
+            .blog_space pre,
+            .blog_space a,
+            .blog_space abbr,
+            .blog_space acronym,
+            .blog_space address,
+            .blog_space big,
+            .blog_space cite,
+            .blog_space code,
+            .blog_space del,
+            .blog_space dfn,
+            .blog_space em,
+            .blog_space img,
+            .blog_space ins,
+            .blog_space kbd,
+            .blog_space q,
+            .blog_space s,
+            .blog_space samp,
+            .blog_space small,
+            .blog_space strike,
+            .blog_space strong,
+            .blog_space sub,
+            .blog_space sup,
+            .blog_space tt,
+            .blog_space var,
+            .blog_space b,
+            .blog_space u,
+            .blog_space i,
+            .blog_space center,
+            .blog_space dl,
+            .blog_space dt,
+            .blog_space dd,
+            .blog_space ol,
+            .blog_space ul,
+            .blog_space li,
+            .blog_space fieldset,
+            .blog_space form,
+            .blog_space label,
+            .blog_space legend,
+            .blog_space table,
+            .blog_space caption,
+            .blog_space tbody,
+            .blog_space tfoot,
+            .blog_space thead,
+            .blog_space tr,
+            .blog_space th,
+            .blog_space td,
+            .blog_space article,
+            .blog_space aside,
+            .blog_space canvas,
+            .blog_space details,
+            .blog_space embed,
+            .blog_space figure,
+            .blog_space figcaption,
+            .blog_space footer,
+            .blog_space header,
+            .blog_space hgroup,
+            .blog_space menu,
+            .blog_space nav,
+            .blog_space output,
+            .blog_space ruby,
+            .blog_space section,
+            .blog_space summary,
+            .blog_space time,
+            .blog_space mark,
+            .blog_space audio,
+            .blog_space video {
+                margin: 0;
+                padding: 0;
+                border: 0;
+            }
+
+            /* Body
+            =============================================================================*/
+
+            .blog_space body > *:first-child {
+                margin-top: 0 !important;
+            }
+
+            .blog_space body > *:last-child {
+                margin-bottom: 0 !important;
+            }
+
+            /* Blocks
+            =============================================================================*/
+
+            .blog_space p,
+            .blog_space blockquote,
+            .blog_space ul,
+            .blog_space ol,
+            .blog_space dl,
+            .blog_space table,
+            .blog_space pre {
+                margin: 15px 0;
+            }
+
+            /* Headers
+            =============================================================================*/
+
+            .blog_space h1,
+            .blog_space h2,
+            .blog_space h3,
+            .blog_space h4,
+            .blog_space h5,
+            .blog_space h6 {
+                font-weight: bold;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            .blog_space h1 tt,
+            .blog_space h1 code,
+            .blog_space h2 tt,
+            .blog_space h2 code,
+            .blog_space h3 tt,
+            .blog_space h3 code,
+            .blog_space h4 tt,
+            .blog_space h4 code,
+            .blog_space h5 tt,
+            .blog_space h5 code,
+            .blog_space h6 tt,
+            .blog_space h6 code {
+                font-size: inherit;
+            }
+
+            .blog_space h1 {
+                font-size: 3em;
+                color: #fff;
+            }
+
+            .blog_space h2 {
+                font-size: 2em;
+                color: rgb(170, 100, 187);
+            }
+
+            .blog_space h3 {
+                font-size: 1.6em;
+                color: rgb(207, 153, 53);
+            }
+
+            .blog_space h4 {
+                font-size: 1.2em;
+                color: rgb(98, 184, 218);
+            }
+
+            .blog_space body > h2:first-child,
+            .blog_space body > h1:first-child,
+            .blog_space body > h1:first-child + h2,
+            .blog_space body > h3:first-child,
+            .blog_space body > h4:first-child,
+            .blog_space body > h5:first-child,
+            .blog_space body > h6:first-child {
+                margin-top: 0;
+                padding-top: 0;
+            }
+
+            .blog_space a:first-child h1,
+            .blog_space a:first-child h2,
+            .blog_space a:first-child h3,
+            .blog_space a:first-child h4,
+            .blog_space a:first-child h5,
+            .blog_space a:first-child h6 {
+                margin-top: 0;
+                padding-top: 0;
+            }
+
+            .blog_space h1 + p,
+            .blog_space h2 + p,
+            .blog_space h3 + p,
+            .blog_space h4 + p,
+            .blog_space h5 + p,
+            .blog_space h6 + p {
+                margin-top: 10px;
+            }
+
+            /* Lists
+            =============================================================================*/
+
+            .blog_space ul,
+            .blog_space ol {
+                padding-left: 30px;
+            }
+
+
+            .blog_space li {
+                list-style: circle;
+            }
+
+            .blog_space ul li > :first-child,
+            .blog_space ol li > :first-child,
+            .blog_space ul li ul:first-of-type,
+            .blog_space ol li ol:first-of-type,
+            .blog_space ul li ol:first-of-type,
+            .blog_space ol li ul:first-of-type {
+                margin-top: 0px;
+            }
+
+            .blog_space ul ul,
+            .blog_space ul ol,
+            .blog_space ol ol,
+            .blog_space ol ul {
+                margin-bottom: 0;
+            }
+
+            .blog_space dl {
+                padding: 0;
+            }
+
+            .blog_space dl dt {
+                font-size: 14px;
+                font-weight: bold;
+                font-style: italic;
+                padding: 0;
+                margin: 15px 0 5px;
+            }
+
+            .blog_space dl dt:first-child {
+                padding: 0;
+            }
+
+            .blog_space dl dt > :first-child {
+                margin-top: 0px;
+            }
+
+            .blog_space dl dt > :last-child {
+                margin-bottom: 0px;
+            }
+
+            .blog_space dl dd {
+                margin: 0 0 15px;
+                padding: 0 15px;
+            }
+
+            .blog_space dl dd > :first-child {
+                margin-top: 0px;
+            }
+
+            .blog_space dl dd > :last-child {
+                margin-bottom: 0px;
+            }
+
+            /* Code
+            =============================================================================*/
+
+            .blog_space pre,
+            .blog_space code,
+            .blog_space tt {
+                font-size: 12px;
+                font-family: Consolas, "Liberation Mono", Courier, monospace;
+            }
+
+            .blog_space code,
+            .blog_space tt {
+                margin: 0 0px;
+                padding: 0px 0px;
+                white-space: nowrap;
+                border: 1px solid #1a1a1a;
+                background-color: #0a091a;
+                border-radius: 3px;
+                padding: 5px;
+                border-radius: 5px;
+            }
+
+            .blog_space pre > code {
+                margin: 0;
+                padding: 0;
+                white-space: pre;
+                border: none;
+                background: transparent;
+                word-wrap: break-word;
+            }
+
+            .blog_space pre {
+                background-color: #0c111f;
+                box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+                font-size: 13px;
+                line-height: 19px;
+                overflow: auto;
+                padding: 10px 15px;
+                border-radius: 5px;
+            }
+
+            .blog_space pre code,
+            .blog_space pre tt {
+                background-color: transparent;
+                border: none;
+            }
+
+            .blog_space kbd {
+                -moz-border-bottom-colors: none;
+                -moz-border-left-colors: none;
+                -moz-border-right-colors: none;
+                -moz-border-top-colors: none;
+                background-color: #dddddd;
+                background-image: linear-gradient(#f1f1f1, #dddddd);
+                background-repeat: repeat-x;
+                border-color: #dddddd #cccccc #cccccc #dddddd;
+                border-image: none;
+                border-radius: 2px 2px 2px 2px;
+                border-style: solid;
+                border-width: 1px;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                line-height: 10px;
+                padding: 1px 4px;
+            }
+
+            /* Quotes
+            =============================================================================*/
+
+            .blog_space blockquote {
+                border-left: 4px solid #ddd;
+                padding: 0 15px;
+                color: #777;
+            }
+
+            .blog_space blockquote > :first-child {
+                margin-top: 0px;
+            }
+
+            .blog_space blockquote > :last-child {
+                margin-bottom: 0px;
+            }
+
+            /* Horizontal Rules
+            =============================================================================*/
+
+            .blog_space hr {
+                clear: both;
+                margin: 15px 0;
+                height: 0px;
+                overflow: hidden;
+                border: none;
+                background: transparent;
+                border-bottom: 2px solid #ddd;
+                padding: 0;
+            }
+
+            /* Table
+            =============================================================================*/
+
+            .blog_space table {
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                margin: 1em 0;
+                width: 100%;
+                max-width: 100%;
+                border-width: 1px;
+                border-style: solid;
+                background-color: transparent;
+            }
+
+            .blog_space table,
+            .blog_space table tr,
+            .blog_space table tr td,
+            .blog_space table tr th {
+                border-color: #e5e5e5;
+            }
+
+            .blog_space table th {
+                color: #666666;
+                background-color: #fdfdfd;
+            }
+
+            .blog_space tr th,
+            .blog_space tr td {
+                padding: 6px 13px;
+            }
+
+            .blog_space table tbody > tr:nth-child(odd) > td,
+            .blog_space table tbody > tr:nth-child(odd) > th {
+                background-color: #f9f9f9;
+            }
+
+            /* Images
+            =============================================================================*/
+
+            .blog_space img {
+                max-width: 100%;
+            }
+
+            /* Text
+            =============================================================================*/
+
+            .blog_space {
+                color: #fff;
+            }
+
+            .blog_space p {
+                font-size: 20px;
+            }
+
+            .blog_space a {
+                color: rgb(141, 140, 140);
+                text-decoration: underline;
+                font-weight: 600;
+            }
+        </style>
+
+        <header
+            class="shadow-lg z-10 relative h-96 w-full border-gray-900 flex items-center"
+            style="background: #0b1121"
+        >
+            <nav
+                class="text-white absolute top-4 left-0 flex flex-row z-20 w-full h-12 py-2 px-8 bg-transparent"
+            >
+                <div class="ml-auto my-auto">
+                    <ul
+                        class="flex flex-row space-x-1 md:space-x-2 lg:space-x-4 2xl:space-x-6"
+                    >
+                        <li data-aos="fade-up">
+                            <a
+                                class="text-xs md:text-sm font-sans font-medium text-light rounded-md bg-gray-50 bg-opacity-0 hover:bg-opacity-10 opacity-30 hover:opacity-90 py-2 px-2 md:px-5 leading-none"
+                                href="#projects"
+                                >Projects</a
+                            >
+                        </li>
+                        <li data-aos="fade-up" data-aos-delay="100">
+                            <a
+                                class="text-xs md:text-sm font-sans font-medium text-light rounded-md bg-gray-50 bg-opacity-0 hover:bg-opacity-10 opacity-30 hover:opacity-90 py-2 px-2 md:px-5 leading-none"
+                                href="#about"
+                                >About</a
+                            >
+                        </li>
+                        <li data-aos="fade-up" data-aos-delay="200">
+                            <a
+                                class="text-xs md:text-sm font-sans font-medium text-light rounded-md bg-gray-50 bg-opacity-0 hover:bg-opacity-10 opacity-30 hover:opacity-90 py-2 px-2 md:px-5 leading-none"
+                                href="#contact"
+                                >Contact</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <img
+                data-aos="zoom-in"
+                data-aos-delay="700"
+                src="/cdn/images/header_blob.svg"
+                class="absolute"
+                style="
+                    opacity: 0.15 !important;
+                    top: 50%;
+                    left: 30%;
+                    width: 40%;
+                    transform: translate(-50%, -50%);
+                "
+                alt="Header blobs"
+            />
+            <div class="relative px-[10%]">
+                <h1
+                    class="font-extrabold text-7xl tracking-tight text-white cursor-pointer bg-clip-text"
+                    data-aos-delay="400"
+                    data-aos="zoom-in"
+                >
+                    <span>
+                        My super duper
+                        <span
+                            class="bg-gradient-to-r from-pink-400 to-indigo-400 bg-clip-text text-transparent"
+                            >blog</span
+                        >.
+                    </span>
+                </h1>
+            </div>
+        </header>
+
+        <div class="blog_space w-full my-20 px-[30%]">
+            {{ blog }}
+        </div>
+
+        <script>
+            AOS.init();
+        </script>
+    </body>
+</html>

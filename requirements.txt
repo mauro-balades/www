@@ -1,4 +1,12 @@
+click==8.0.4
 Expross==1.1.2
 falcon==3.0.1
-jinja2==3.0.3
-minify_html==0.6.10
+importlib-metadata==4.11.1
+itsdangerous==2.1.0
+Jinja2==3.0.3
+Markdown==3.3.6
+markdown2==2.4.2
+MarkupSafe==2.0.1
+minify-html==0.6.10
+Werkzeug==2.0.3
+zipp==3.7.0
