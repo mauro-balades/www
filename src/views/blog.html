@@ -92,6 +92,63 @@
                 overflow-x: hidden;
                 height: fit-content;
             }
+
+            @keyframes float {
+                0% {
+                    transform: translatey(0px);
+                }
+                50% {
+                    transform: translatey(-20px);
+                }
+                100% {
+                    transform: translatey(0px);
+                }
+            }
+
+            @keyframes float_diagonal {
+                0% {
+                    transform: translate(0px, 0px);
+                }
+                50% {
+                    transform: translate(-30px, -30px);
+                }
+                100% {
+                    transform: translate(0px, 0px);
+                }
+            }
+
+            @keyframes float_random {
+                0% {
+                    transform: translate(0px, 0px);
+                }
+                33% {
+                    transform: translate(-20px, -20px);
+                }
+                66% {
+                    transform: translate(-40px, 40px);
+                }
+                100% {
+                    transform: translate(0px, 0px);
+                }
+            }
+
+            @keyframes float_random2 {
+                0% {
+                    transform: translate(0px, 0px);
+                }
+                25% {
+                    transform: translate(-20px, -20px);
+                }
+                50% {
+                    transform: translate(-55px, 20px);
+                }
+                75% {
+                    transform: translate(20px, 40px);
+                }
+                100% {
+                    transform: translate(0px, 0px);
+                }
+            }
         </style>
 
         <style>
@@ -521,21 +578,21 @@
                         <li data-aos="fade-up">
                             <a
                                 class="text-xs md:text-sm font-sans font-medium text-light rounded-md bg-gray-50 bg-opacity-0 hover:bg-opacity-10 opacity-30 hover:opacity-90 py-2 px-2 md:px-5 leading-none"
-                                href="#projects"
+                                href="/#projects"
                                 >Projects</a
                             >
                         </li>
                         <li data-aos="fade-up" data-aos-delay="100">
                             <a
                                 class="text-xs md:text-sm font-sans font-medium text-light rounded-md bg-gray-50 bg-opacity-0 hover:bg-opacity-10 opacity-30 hover:opacity-90 py-2 px-2 md:px-5 leading-none"
-                                href="#about"
+                                href="/#about"
                                 >About</a
                             >
                         </li>
                         <li data-aos="fade-up" data-aos-delay="200">
                             <a
                                 class="text-xs md:text-sm font-sans font-medium text-light rounded-md bg-gray-50 bg-opacity-0 hover:bg-opacity-10 opacity-30 hover:opacity-90 py-2 px-2 md:px-5 leading-none"
-                                href="#contact"
+                                href="/#contact"
                                 >Contact</a
                             >
                         </li>
@@ -548,14 +605,15 @@
                 src="/cdn/images/header_blob.svg"
                 class="absolute"
                 style="
-                    opacity: 0.15 !important;
+                    opacity: 0.25 !important;
                     top: 50%;
                     left: 30%;
-                    width: 40%;
+                    width: 30%;
                     transform: translate(-50%, -50%);
                 "
                 alt="Header blobs"
             />
+
             <div class="relative px-[10%]">
                 <h1
                     class="font-extrabold text-7xl tracking-tight text-white cursor-pointer bg-clip-text"
@@ -570,6 +628,21 @@
                         >.
                     </span>
                 </h1>
+            </div>
+            <div style="animation: float_random2 11s ease-in-out infinite;" class="transition-all transition-500 border border-transparent hover:border-pink-400 text-pink-400 cursor-pointer absolute top-20 left-40 rounded-full w-14 h-14 shadow-lg bg-[#12172F] flex items-center justify-center text-2xl">
+                <i class="devicon-cplusplus-plain"></i>
+            </div>
+            <div style="animation: float_diagonal 10s ease-in-out infinite;" class="transition-all transition-500 border border-transparent hover:border-blue-400 cursor-pointer text-blue-400 absolute bottom-8 left-56 rounded-full w-16 h-16 shadow-lg bg-[#12172F] flex items-center justify-center text-2xl">
+                <i class="devicon-python-plain"></i>
+            </div>
+            <div style="animation: float_random 8s ease-in-out infinite;" class="transition-all transition-500 border border-transparent hover:border-emerald-400 cursor-pointer text-emerald-400 absolute top-30 right-56 rounded-full w-12 h-12 shadow-lg bg-[#12172F] flex items-center justify-center text-2xl">
+                <i class="devicon-nodejs-plain"></i>
+            </div>
+            <div style="animation: float 8s ease-in-out infinite;" class="transition-all transition-500 border border-transparent hover:border-orange-400 cursor-pointer text-orange-400 absolute top-10 right-2/4 rounded-full w-14 h-14 shadow-lg bg-[#12172F] flex items-center justify-center text-2xl">
+                <i class="devicon-git-plain"></i>
+            </div>
+            <div style="animation: float 7s ease-in-out infinite;" class="transition-all transition-500 border border-transparent hover:border-orange-700 cursor-pointer text-orange-700 absolute top-48 right-1/4 rounded-full w-16 h-16 shadow-lg bg-[#12172F] flex items-center justify-center text-3xl">
+                <i class="devicon-rust-plain"></i>
             </div>
         </header>
 
