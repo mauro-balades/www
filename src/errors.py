@@ -9,5 +9,6 @@
 # This project is under the license of MIT
 # -----------------------------------------------------------------------------
 
+
 class UndefinedApp(Exception):
-    """ Thrown when a app has not been declared """
+    """Thrown when a app has not been declared"""

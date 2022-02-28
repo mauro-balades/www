@@ -12,9 +12,11 @@
 # Imports
 from src import serve_site, initiate_site
 
+
 def main():
     initiate_site()
     serve_site()
+
 
 if __name__ == "__main__":
     main()

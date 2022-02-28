@@ -29,9 +29,9 @@ app: Expross = None
 # Define main application's site
 site: Application = None
 
+
 def initiate_site():
-    """Initiate web server application.
-    """
+    """Initiate web server application."""
     global app
     global site
 
@@ -40,21 +40,18 @@ def initiate_site():
 
     # Set templates and static folders.
     app.set_templates("src/views")
-    app.serve_static(
-        folder="./src/static",
-        route="/cdn/"
-    )
+    app.serve_static(folder="./src/static", route="/cdn/")
 
     # Define main application's site
     site = Application(app=app)
 
+
 def server_callback():
     print(f"Server running on http://localhost:{PORT}")
 
+
 def serve_site():
-    """This function is used to serve the serve.
-    """
+    """This function is used to serve the serve."""
     global app
 
     app.listen(serverPort=PORT, cb=server_callback)
-

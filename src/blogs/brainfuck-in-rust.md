@@ -10,6 +10,7 @@ You will also be able to learn brainfuck's basics and how it does work in the ba
 
 The idea behind `brainfuck` is memory manipulation. Basically you are given an array of 30,000 1byte memory blocks. The array size is actually dependent upon the implementation used in the compiler or interpretor, but standard brainfuck states 30,000. Within this array, you can increase the memory pointer, increase the value at the memory pointer, etc. Let me first present to you the 8 operators available to us.
 
+```bf
     > = increases memory pointer, or moves the pointer to the right 1 block.
     < = decreases memory pointer, or moves the pointer to the left 1 block.
     + = increases value stored at the block pointed to by the memory pointer
@@ -18,6 +19,7 @@ The idea behind `brainfuck` is memory manipulation. Basically you are given an a
     ] = if block currently pointed to's value is not zero, jump back to [
     , = like c getchar(). input 1 character.
     . = like c putchar(). print 1 character to the console
+```
 
 **Some rules:**
 
@@ -30,7 +32,9 @@ The idea behind `brainfuck` is memory manipulation. Basically you are given an a
 
 To initialize a new rust project, simply run the following command on the terminal.
 
-<pre><code class="language-shell">$ cargo new brainfuck</code></pre>
+```shell
+$ cargo new brainfuck
+```
 
 **note**: You can replace `brainfuck` with whatever the name you whant for your project.
 
@@ -38,34 +42,39 @@ To initialize a new rust project, simply run the following command on the termin
 
 We need to include this imports to read from `stdin` and to split the source code into an array of characters and iterate it.
 
-    use std::io::Read;
-    use std::str::Chars;
+```rust
+use std::io::Read;
+use std::str::Chars;
+```
 
 ## Function declarations
 
 In `src/main.rs`, the file will contain nothing, we are declaring the function declaration. We will fill those code blocks and understand what they are doing.
 
-    fn do_left_bracket(chars: Chars, index: i32) -> i32 {
+```rust
+fn do_left_bracket(chars: Chars, index: i32) -> i32 {
 
-    }
+}
 
-    fn do_right_bracket(chars: Chars, index: i32) -> i32 {
+fn do_right_bracket(chars: Chars, index: i32) -> i32 {
 
-    }
+}
 
-    fn brainfuck(programm: String) -> [u8; 3000] {
+fn brainfuck(programm: String) -> [u8; 3000] {
 
-    }
+}
 
-    fn main() {
+fn main() {
 
-    }
+}
+```
 
 ### Main function
 
 First things first. We are going to declare the brainfuck's source code and parse it's content. Note that the function returns an array of 3000 `u8`s (`[u8; 3000]`).
 
-<pre><code class="language-rust">fn main() {
+```rust
+fn main() {
 
     // Declare the source code for the brainfuck programm
     let code = String::from("...");
@@ -73,7 +82,7 @@ First things first. We are going to declare the brainfuck's source code and pars
     // Interpret the source code
     brainfuck(code);
 }
-</code></pre>
+```
 
 **note**: You need to replace `...` with your brainfuck code (e.g. `++++>-.`).
 
@@ -83,105 +92,107 @@ The `brainfuck()` function will be the main function to interpret the source cod
 
 We are using a switch/match statement and it is very well commented so that you can easelly add a new characters and expand the language so that you can make it what ever you whant to be.
 
-    fn brainfuck(programm: String) -> [u8; 3000] {
-        let mut cells: [u8; 3000] = [0; 3000];
-        let possition: &mut usize = &mut 0;
-        let chars: Chars = programm.chars();
+```rust
+fn brainfuck(programm: String) -> [u8; 3000] {
+    let mut cells: [u8; 3000] = [0; 3000];
+    let possition: &mut usize = &mut 0;
+    let chars: Chars = programm.chars();
 
-        let mut index: i32 = 0;
-        while index < chars.clone().count().try_into().unwrap() {
-            let cur_char = chars.clone().nth(index.try_into().unwrap()).unwrap();
+    let mut index: i32 = 0;
+    while index < chars.clone().count().try_into().unwrap() {
+        let cur_char = chars.clone().nth(index.try_into().unwrap()).unwrap();
 
-            match cur_char {
+        match cur_char {
 
-                // Increment value by 1 in current cell possition.
-                // if the curren't value for the cell is 255,
-                // we will set it to 0.
-                '+' => {
-                    let mut cell: u8 = cells[*possition];
+            // Increment value by 1 in current cell possition.
+            // if the curren't value for the cell is 255,
+            // we will set it to 0.
+            '+' => {
+                let mut cell: u8 = cells[*possition];
 
-                    if cell == 255 {
-                        cell = 0;
-                    } else {
-                        cell = cell.wrapping_add(1);
-                    }
-
-                    cells[*possition] = cell;
+                if cell == 255 {
+                    cell = 0;
+                } else {
+                    cell = cell.wrapping_add(1);
                 }
 
-                // Decrement value by 1 in current cell possition
-                '-' => {
-                    let mut cell: u8 = cells[*possition];
-
-                    if cell == 0 {
-                        cell = 255;
-                    } else {
-                        cell = cell.wrapping_sub(1);
-                    }
-
-                    cells[*possition] = cell;
-                }
-
-                // Move the current possition to the next cell
-                '>' => {
-                    if *possition as i32 == 2999 {
-                        *possition = 0
-                    } else {
-                        *possition += 1
-                    }
-                }
-
-                // Go back one cell
-                '<' => {
-                    if (*possition as i32) == 0 {
-                        *possition = 2999;
-                    } else {
-                        *possition =
-                            *&mut ((*possition as usize).checked_sub(1)).unwrap_or_default() as usize;
-                    }
-                }
-
-                // Print the current cell's ASCII value.
-                '.' => print!("{}", cells[*possition] as char),
-
-                // Set value from stdin to the current cell
-                ',' => {
-                    // declare a new buffer array containing a
-                    // 'u8' type number to store a character code
-                    let mut buf = [0; 1];
-
-                    // Read input and check if an error has occoured.
-                    match std::io::stdin().read_exact(&mut buf) {
-                        Ok(_) => cells[*possition] = buf[0], // Add buffer from input
-                        Err(_) => {} // Throw an error or do what ever you whant.
-                    }
-                }
-
-                // Left brackets are like c while(cur_block_value != 0) loop.
-                '[' => {
-                    if cells[*possition] == 0 {
-                        index = do_left_bracket(chars.clone(), index)
-                    }
-                }
-
-                // if block currently pointed to's value is not zero, jump back to [
-                ']' => {
-                    if cells[*possition] != 0 {
-                        index = do_right_bracket(chars.clone(), index)
-                    }
-                }
-
-                // In Brainfuck, other ASCII characters that
-                // are not ["+", ",", "-", "<", ">", ".", "[", "]"]
-                // they are considered as comments, so we do nothing.
-                _ => (),
+                cells[*possition] = cell;
             }
 
-            index += 1;
+            // Decrement value by 1 in current cell possition
+            '-' => {
+                let mut cell: u8 = cells[*possition];
+
+                if cell == 0 {
+                    cell = 255;
+                } else {
+                    cell = cell.wrapping_sub(1);
+                }
+
+                cells[*possition] = cell;
+            }
+
+            // Move the current possition to the next cell
+            '>' => {
+                if *possition as i32 == 2999 {
+                    *possition = 0
+                } else {
+                    *possition += 1
+                }
+            }
+
+            // Go back one cell
+            '<' => {
+                if (*possition as i32) == 0 {
+                    *possition = 2999;
+                } else {
+                    *possition =
+                        *&mut ((*possition as usize).checked_sub(1)).unwrap_or_default() as usize;
+                }
+            }
+
+            // Print the current cell's ASCII value.
+            '.' => print!("{}", cells[*possition] as char),
+
+            // Set value from stdin to the current cell
+            ',' => {
+                // declare a new buffer array containing a
+                // 'u8' type number to store a character code
+                let mut buf = [0; 1];
+
+                // Read input and check if an error has occoured.
+                match std::io::stdin().read_exact(&mut buf) {
+                    Ok(_) => cells[*possition] = buf[0], // Add buffer from input
+                    Err(_) => {} // Throw an error or do what ever you whant.
+                }
+            }
+
+            // Left brackets are like c while(cur_block_value != 0) loop.
+            '[' => {
+                if cells[*possition] == 0 {
+                    index = do_left_bracket(chars.clone(), index)
+                }
+            }
+
+            // if block currently pointed to's value is not zero, jump back to [
+            ']' => {
+                if cells[*possition] != 0 {
+                    index = do_right_bracket(chars.clone(), index)
+                }
+            }
+
+            // In Brainfuck, other ASCII characters that
+            // are not ["+", ",", "-", "<", ">", ".", "[", "]"]
+            // they are considered as comments, so we do nothing.
+            _ => (),
         }
 
-        return cells;
+        index += 1;
     }
+
+    return cells;
+}
+```
 
 **note**: Everything that is not one of those character will be considered as a comment. This is not because I am too lazy to write errors, but because it is a brainfuck standard,
 
@@ -209,59 +220,67 @@ We are using a switch/match statement and it is very well commented so that you 
 
 In this function, we are handling the `[` character. We increment the index by `1` until we find the closing `]`. After we found the respective closing character, we return the index of the ending character.
 
-    fn do_left_bracket(chars: Chars, index: i32) -> i32 {
-        let mut ix: i32 = index;
-        let mut open = 1;
-        while open != 0 {
-            ix += 1;
+```rust
+fn do_left_bracket(chars: Chars, index: i32) -> i32 {
+    let mut ix: i32 = index;
+    let mut open = 1;
+    while open != 0 {
+        ix += 1;
 
-            match chars.clone().nth(ix.try_into().unwrap()).unwrap() {
-                '[' => open += 1,
-                ']' => open -= 1,
-                _ => (),
-            }
+        match chars.clone().nth(ix.try_into().unwrap()).unwrap() {
+            '[' => open += 1,
+            ']' => open -= 1,
+            _ => (),
         }
-
-        return ix
     }
+
+    return ix
+}
+```
 
 ### Right bracket
 
 The purpose of this function haves (nearly) the same functionality as the `do_left_bracket()` function. We basically get back to the left character and return it's index.
 
-    fn do_right_bracket(chars: Chars, index: i32) -> i32 {
-        let mut ix: i32 = index;
-        let mut close = 1;
-        while close != 0 {
-            ix -= 1;
+```rust
+fn do_right_bracket(chars: Chars, index: i32) -> i32 {
+    let mut ix: i32 = index;
+    let mut close = 1;
+    while close != 0 {
+        ix -= 1;
 
-            if ix >= chars.clone().count().try_into().unwrap() {
-                panic!("couldn't find next matching ']'");
-            }
-
-            match chars.clone().nth(ix.try_into().unwrap()).unwrap() {
-                '[' => close -= 1,
-                ']' => close += 1,
-                _ => (),
-            }
-
+        if ix >= chars.clone().count().try_into().unwrap() {
+            panic!("couldn't find next matching ']'");
         }
 
-        return ix
+        match chars.clone().nth(ix.try_into().unwrap()).unwrap() {
+            '[' => close -= 1,
+            ']' => close += 1,
+            _ => (),
+        }
+
     }
+
+    return ix
+}
+```
 
 ### We are done!
 
 To run the programm, just run the following command on the terminal to compile and run.
 
-<pre><code class="language-shell">$ cargo run</code></pre>
+```shell
+$ cargo run
+```
 
 ## Example programm
 
 Whant an example of a brainfuck programm?
 
-<pre><code class="language-bf">>++++++++[<+++++++++>-]<.>++++[<+++++++>-]<+.+++++++..+++.>>++++++[<+++++++>-]<+
+```brainfuck
+>++++++++[<+++++++++>-]<.>++++[<+++++++>-]<+.+++++++..+++.>>++++++[<+++++++>-]<+
 +.------------.>++++++[<+++++++++>-]<+.<.+++.------.--------.>>>++++[<++++++++>-
-]<+.</code></pre>
+]<+.
+```
 
 Try it out and see what it does.
