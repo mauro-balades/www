@@ -114,6 +114,15 @@
                     transform: translate(0px, 0px);
                 }
             }
+
+            @keyframes rotate {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(365deg);
+                }
+            }
         </style>
 
         <header class="shadow-lg z-10 relative h-screen w-full border-gray-900 flex items-center" style="background: #0B1121;">
@@ -136,7 +145,7 @@
                     <span>
                         A software &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bg-gradient-to-r from-pink-400 to-indigo-400 bg-clip-text text-transparent">developer</span>.
                     </span>
-                    <svg class="absolute right-[-2rem] bottom-[-2rem]" width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="white" d="M13.9906 1.05612C14.7227 0.485328 15.7698 1.13333 15.5855 2.04318L14.3364 8.21283C14.2785 8.49888 14.3485 8.79596 14.5279 9.02613L18.3984 13.9904C18.9692 14.7225 18.3212 15.7696 17.4114 15.5854L11.2417 14.3363C10.9557 14.2784 10.6586 14.3483 10.4284 14.5278L5.46412 18.3983C4.73203 18.9691 3.68493 18.3211 3.86914 17.4112L5.11824 11.2416C5.17615 10.9555 5.1062 10.6584 4.92675 10.4283L1.05626 5.46398C0.485471 4.73188 1.13347 3.68479 2.04332 3.86899L8.21297 5.11809C8.49903 5.17601 8.79611 5.10606 9.02627 4.92661L13.9906 1.05612Z" fill=""></path></svg>
+                    <svg style="animation: rotate 20s ease-in-out infinite;" class="absolute right-[-2rem] bottom-[-2rem]" width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="white" d="M13.9906 1.05612C14.7227 0.485328 15.7698 1.13333 15.5855 2.04318L14.3364 8.21283C14.2785 8.49888 14.3485 8.79596 14.5279 9.02613L18.3984 13.9904C18.9692 14.7225 18.3212 15.7696 17.4114 15.5854L11.2417 14.3363C10.9557 14.2784 10.6586 14.3483 10.4284 14.5278L5.46412 18.3983C4.73203 18.9691 3.68493 18.3211 3.86914 17.4112L5.11824 11.2416C5.17615 10.9555 5.1062 10.6584 4.92675 10.4283L1.05626 5.46398C0.485471 4.73188 1.13347 3.68479 2.04332 3.86899L8.21297 5.11809C8.49903 5.17601 8.79611 5.10606 9.02627 4.92661L13.9906 1.05612Z" fill=""></path></svg>
                 </h1>
                 <!-- <p class="mt-6 text-lg text-gray-600 text-center max-w-3xl mx-auto dark:text-gray-400" data-aos="zoom-in" data-aos-delay="100">I am a developer, student and musician. I love to contribute to <code class="font-mono font-medium text-sky-500 dark:text-sky-400">open source</code>. I know a variaety of programming languages and made a lot of personal projects.</p> -->
                 <!-- <div class="flex color-white items-center justify-center text-xl mt-10">
@@ -228,7 +237,7 @@
                         <br />
                         <span class="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent relative">
                             favourite repositories
-                            <svg class="absolute right-[-4%] bottom-14" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.1368 3.16832C14.6594 2.40111 15.8544 2.69813 15.9571 3.62075L16.6531 9.87697C16.6854 10.167 16.8428 10.4285 17.084 10.5929L22.2864 14.1369C23.0536 14.6595 22.7566 15.8545 21.834 15.9572L15.5777 16.6532C15.2877 16.6855 15.0262 16.8429 14.8619 17.0841L11.3178 22.2865C10.7952 23.0537 9.60018 22.7567 9.49753 21.8341L8.80147 15.5778C8.7692 15.2878 8.61182 15.0263 8.37061 14.862L3.16823 11.3179C2.40102 10.7953 2.69804 9.60027 3.62065 9.49762L9.87688 8.80157C10.1669 8.7693 10.4284 8.61191 10.5928 8.3707L14.1368 3.16832Z" fill="#FFA10B"></path></svg>
+                            <svg style="animation: rotate 20s ease-in-out infinite;" class="absolute right-[-4%] bottom-14" width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.1368 3.16832C14.6594 2.40111 15.8544 2.69813 15.9571 3.62075L16.6531 9.87697C16.6854 10.167 16.8428 10.4285 17.084 10.5929L22.2864 14.1369C23.0536 14.6595 22.7566 15.8545 21.834 15.9572L15.5777 16.6532C15.2877 16.6855 15.0262 16.8429 14.8619 17.0841L11.3178 22.2865C10.7952 23.0537 9.60018 22.7567 9.49753 21.8341L8.80147 15.5778C8.7692 15.2878 8.61182 15.0263 8.37061 14.862L3.16823 11.3179C2.40102 10.7953 2.69804 9.60027 3.62065 9.49762L9.87688 8.80157C10.1669 8.7693 10.4284 8.61191 10.5928 8.3707L14.1368 3.16832Z" fill="#FFA10B"></path></svg>
                         </span>
                     </h1>
                     <p data-aos="fade-up" data-aos-delay="50" class="mt-6 text-lg text-gray-600 max-w-3xl dark:text-gray-400">This are some of my GitHub repositories. If you whant, you can <br />contribute to it and maybe star it.</p>
@@ -301,7 +310,7 @@
             <div class="flex items-center justify-center mx-auto relative pt-20 sm:pt-24 lg:pt-60">
                 <div class="mr-48 max-w-lg relative">
                     <h1 data-aos="fade-down" class="relative font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-yellow-400">
-                        <svg class="absolute top-[-5%] left-[-3%]" data-aos="fade-down" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.74849 4.05485C8.41589 4.95731 9.68851 5.14786 10.591 4.48046C11.4934 3.81306 11.684 2.54044 11.0166 1.63799C10.3492 0.735532 9.07655 0.544981 8.1741 1.21238C7.27164 1.87978 7.08109 3.1524 7.74849 4.05485ZM12.5821 10.591C13.2495 11.4934 14.5221 11.684 15.4246 11.0166C16.3271 10.3492 16.5176 9.07658 15.8502 8.17412C15.1828 7.27167 13.9102 7.08111 13.0077 7.74851C12.1053 8.41591 11.9147 9.68853 12.5821 10.591ZM8.88849 15.8503C7.98604 16.5177 6.71342 16.3272 6.04602 15.4247C5.37862 14.5223 5.56917 13.2497 6.47163 12.5823C7.37408 11.9149 8.6467 12.1054 9.3141 13.0079C9.9815 13.9103 9.79095 15.1829 8.88849 15.8503ZM1.21226 8.88857C1.87966 9.79102 3.15228 9.98158 4.05473 9.31418C4.95719 8.64678 5.14774 7.37416 4.48034 6.4717C3.81294 5.56925 2.54032 5.3787 1.63787 6.0461C0.735415 6.7135 0.544864 7.98611 1.21226 8.88857Z" fill="#E24444"></path></svg>
+                        <svg style="animation: rotate 20s ease-in-out infinite;" class="absolute top-[-5%] left-[-3%]" data-aos="fade-down" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.74849 4.05485C8.41589 4.95731 9.68851 5.14786 10.591 4.48046C11.4934 3.81306 11.684 2.54044 11.0166 1.63799C10.3492 0.735532 9.07655 0.544981 8.1741 1.21238C7.27164 1.87978 7.08109 3.1524 7.74849 4.05485ZM12.5821 10.591C13.2495 11.4934 14.5221 11.684 15.4246 11.0166C16.3271 10.3492 16.5176 9.07658 15.8502 8.17412C15.1828 7.27167 13.9102 7.08111 13.0077 7.74851C12.1053 8.41591 11.9147 9.68853 12.5821 10.591ZM8.88849 15.8503C7.98604 16.5177 6.71342 16.3272 6.04602 15.4247C5.37862 14.5223 5.56917 13.2497 6.47163 12.5823C7.37408 11.9149 8.6467 12.1054 9.3141 13.0079C9.9815 13.9103 9.79095 15.1829 8.88849 15.8503ZM1.21226 8.88857C1.87966 9.79102 3.15228 9.98158 4.05473 9.31418C4.95719 8.64678 5.14774 7.37416 4.48034 6.4717C3.81294 5.56925 2.54032 5.3787 1.63787 6.0461C0.735415 6.7135 0.544864 7.98611 1.21226 8.88857Z" fill="#E24444"></path></svg>
                         About me</h1>
                     <p data-aos="fade-up" data-aos-delay="50" class="mt-6 text-lg text-gray-600 max-w-3xl mx-auto dark:text-gray-400">My name is <span class="text-transparent bg-gradient-to-r from-pink-400 to-indigo-400 bg-clip-text">Mauro Baladés</span>. I am a student who lives in Spain. I love computers 🤓 and I am always focusing on improving my programming skills. <br /><br /> I have been learning programming since 12 and in the meanwhile I was a music passonist. As for programming, I know a variaety of diferent programming languages such as: Rust 🦀, Python 🐍 and more.</span></p>
                     <div class="items-center flex mt-10">
@@ -325,7 +334,7 @@
                         </div>
                     </div>
                     <div style="transform: perspective(400px) rotateY(-2deg) rotateX(2deg);" data-aos="zoom-in" data-aos-delay="400"
-                        class="dark:backdrop-blur flex flex-col flex-shrink z-10 my-auto min-w-min max-w-full bg-gradient-to-br from-gray-900/90 to-gray-950/90 rounded-lg shadow-2xl ring-1 ring-gray-500 ring-opacity-10">
+                        class="hover:!transform-none hover:!delay-75 dark:backdrop-blur flex flex-col flex-shrink z-10 my-auto min-w-min max-w-full bg-gradient-to-br from-gray-900/90 to-gray-950/90 rounded-lg shadow-2xl ring-1 ring-gray-500 ring-opacity-10">
                         <div class="grid gird-flow-col grid-cols-3 w-full h-6 px-4 rounded-t-md">
                             <div class="flex flex-row space-x-1 my-auto">
                                 <div class="bg-gray-700 rounded-full w-2 h-2"></div>
@@ -509,113 +518,7 @@
             </div>
         </section>
         <footer class="bg-dark pb-44 w-full" style="/* background: #0c1222; */">
-            <div class="flex items-center justify-center mx-auto relative pt-20 sm:pt-24 lg:pt-60">
-                <div class="mr-48 max-w-lg">
-                    <h1 data-aos="fade-down" class="font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-white">That's all <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-500">folks</span>!</h1>
-                    <p data-aos="fade-up" data-aos-delay="50" class="mt-6 text-lg text-gray-600 max-w-3xl mx-auto dark:text-gray-400" style="transform: translateY(-15px);">This is the end of the portfolio 😔.</p>
-                    <p data-aos="fade-up" data-aos-delay="100" class="mt-6 text-md text-gray-600 max-w-3xl mx-auto dark:text-gray-400" style="transform: translateY(-15px);">Copyright &copy; <a href="https://github.com/mauro-balades" target="_blank" class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-cyan-400">Mauro Baladés</a> (2021 - <script>document.write(new Date().getFullYear())</script>)</p>
-                </div>
-                <div class="hidden lg:flex flex-row relative my-auto animate-fadeupwards">
-                    <div class="absolute z-0 opacity-30 -left-1/3 -top-2/3">
-                        <div
-                            style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;">
-                            <div style="box-sizing: border-box; display: block; max-width: 100%;">
-                                <img alt="" aria-hidden="true"
-                                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzI0IiBoZWlnaHQ9IjcyMyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4="
-                                    style="max-width: 100%; display: block; margin: 0px; border: none; padding: 0px;"></div>
-                                <img alt=""
-                                    src="/cdn/images/repo_glow.png"
-                                    decoding="async" data-nimg="intrinsic"
-                                    style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; filter: none; background-size: cover; background-image: none; background-position: 0% 0%;" />
-                                <noscript></noscript>
-                        </div>
-                    </div>
-                    <div data-aos="zoom-in" data-aos-delay="400"
-                        class="dark:backdrop-blur flex flex-col flex-shrink z-10 my-auto min-w-min max-w-full bg-gradient-to-br from-gray-900/90 to-gray-950/90 rounded-lg shadow-2xl ring-1 ring-gray-500 ring-opacity-10">
-                        <div class="grid gird-flow-col grid-cols-3 w-full h-6 px-4 rounded-t-md">
-                            <div class="flex flex-row space-x-1 my-auto">
-                                <div class="bg-gray-700 rounded-full w-2 h-2"></div>
-                                <div class="bg-gray-700 rounded-full w-2 h-2"></div>
-                                <div class="bg-gray-700 rounded-full w-2 h-2"></div>
-                            </div>
-                            <h6 class="font-sans font-bold text-gray-700 text-xs text-center mx-auto my-auto px-4">index.hs</h6>
-                        </div>
-                        <div class="font-bold text-white grid grid-flow-row bg-transparent space-y-0 mt-2 mb-4">
-                            <div class="flex flex-row"><span
-                                    class="font-mono text-xs my-auto text-right align-right w-8 pl-4 pr-1 text-gray-700 font-bold">0</span><span
-                                    class="font-mono text-xs bg-transparent my-auto bg-opacity-0 ml-4 mr-6 text-light-grayed-out">
-                                    <pre class="text-gray-600">--   __  __                                                      </pre>
-                                </span></div>
-                            <div class="flex flex-row"><span
-                                    class="font-mono text-xs my-auto text-right align-right w-8 pl-4 pr-1 text-gray-700 font-bold">1</span><span
-                                    class="font-mono text-xs bg-transparent my-auto bg-opacity-0 ml-4 mr-6 text-light-grayed-out">
-                                    <pre class="text-gray-600">--  |  \/  |__ _ _  _ _ _ ___                                      </pre>
-                                </span></div>
-                            <div class="flex flex-row"><span
-                                    class="font-mono text-xs my-auto text-right align-right w-8 pl-4 pr-1 text-gray-700 font-bold">2</span><span
-                                    class="font-mono text-xs bg-transparent my-auto bg-opacity-0 ml-4 mr-6 text-light-grayed-out">
-                                    <pre class="text-gray-600">--  | |\/| / _` | || | '_/ _ \                                     </pre>
-                                </span></div>
-                            <div class="flex flex-row"><span
-                                    class="font-mono text-xs my-auto text-right align-right w-8 pl-4 pr-1 text-gray-700 font-bold">3</span><span
-                                    class="font-mono text-xs bg-transparent my-auto bg-opacity-0 ml-4 mr-6 text-light-grayed-out">
-                                    <pre class="text-gray-600">--  |_|  |_\__,_|\_,_|_| \___/                                                 </pre>
-                                </span></div>
-                            <div class="flex flex-row"><span
-                                class="font-mono text-xs my-auto text-right align-right w-8 pl-4 pr-1 text-gray-700 font-bold">4</span><span
-                                class="font-mono text-xs bg-transparent my-auto bg-opacity-0 ml-4 mr-6 text-light-grayed-out">
-                                <pre class="text-gray-600">-- -----------------------------</pre>
-                            </span></div>
-                            <div class="flex flex-row"><span
-                                class="font-mono text-xs my-auto text-right align-right w-8 pl-4 pr-1 text-gray-700 font-bold">5</span><span
-                                class="font-mono text-xs bg-transparent my-auto bg-opacity-0 ml-4 mr-6 text-light-grayed-out">
-                                <pre></pre>
-                            </span></div>
-                            <div class="flex flex-row"><span
-                                class="font-mono text-xs my-auto text-right align-right w-8 pl-4 pr-1 text-gray-700 font-bold">6</span><span
-                                class="font-mono text-xs bg-transparent my-auto bg-opacity-0 ml-4 mr-6 text-light-grayed-out">
-                                <pre><span class="text-yellow-500">byePerson</span> :: <span class="text-sky-500">String</span> -> <span class="text-sky-500">String</span></pre>
-                            </span></div>
-                            <div class="flex flex-row"><span
-                                class="font-mono text-xs my-auto text-right align-right w-8 pl-4 pr-1 text-gray-700 font-bold">7</span><span
-                                class="font-mono text-xs bg-transparent my-auto bg-opacity-0 ml-4 mr-6 text-light-grayed-out">
-                                <pre><span class="text-yellow-500">byePerson</span> name = <span class="text-green-500">"Goodbye, "</span> ++ name ++ <span class="text-green-500">"!"</span></pre>
-                            </span></div>
-                            <div class="flex flex-row"><span
-                                class="font-mono text-xs my-auto text-right align-right w-8 pl-4 pr-1 text-gray-700 font-bold">8</span><span
-                                class="font-mono text-xs bg-transparent my-auto bg-opacity-0 ml-4 mr-6 text-light-grayed-out">
-                                <pre></pre>
-                            </span></div>
-                            <div class="flex flex-row"><span
-                                class="font-mono text-xs my-auto text-right align-right w-8 pl-4 pr-1 text-gray-700 font-bold">9</span><span
-                                class="font-mono text-xs bg-transparent my-auto bg-opacity-0 ml-4 mr-6 text-light-grayed-out">
-                                <pre><span class="text-yellow-500">main</span> :: <span class="text-orange-500">IO</span> ()</pre>
-                            </span></div>
-                            <div class="flex flex-row"><span
-                                class="font-mono text-xs my-auto text-right align-right w-8 pl-4 pr-1 text-gray-700 font-bold">10</span><span
-                                class="font-mono text-xs bg-transparent my-auto bg-opacity-0 ml-4 mr-6 text-light-grayed-out">
-                                <pre><span class="text-yellow-500">main</span> = <span class="text-pink-500">do</span></pre>
-                            </span></div>
-                            <div class="flex flex-row"><span
-                                class="font-mono text-xs my-auto text-right align-right w-8 pl-4 pr-1 text-gray-700 font-bold">11</span><span
-                                class="font-mono text-xs bg-transparent my-auto bg-opacity-0 ml-4 mr-6 text-light-grayed-out">
-                                <pre>   <span class="text-pink-500">let</span> text = <span class="text-yellow-500">byePerson</span> <span class="text-green-500">"people"</span></pre>
-                            </span></div>
-                            <div class="flex flex-row"><span
-                                class="font-mono text-xs my-auto text-right align-right w-8 pl-4 pr-1 text-gray-700 font-bold">12</span><span
-                                class="font-mono text-xs bg-transparent my-auto bg-opacity-0 ml-4 mr-6 text-light-grayed-out">
-                                <pre>   <span class="text-pink-500">putStrLn</span> text</pre>
-                            </span></div>
-                        </div>
-                        <div class="border-t-2 border-gray-50 border-opacity-10 w-full px-6 py-3">
-                            <div class="font-bold text-white flex flex-row font-mono text-left text-medium text-xs space-x-4 text-light">
-                                <p>$</p>
-                                <pre><span class="text-green-500">"Goodbye, people!"</span></pre>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </footer>
 
         <script>
