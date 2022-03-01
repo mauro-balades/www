@@ -19,11 +19,10 @@ from mistune.directives import Admonition
 
 
 class MyRenderer(mistune.HTMLRenderer):
-    def heading(self, text, level):
+    def theading(self, text, level, tid):
         title = f"<h{level}>{text}</h{level}>"
-        id = text.lower().replace(" ", "-")
         return f"""<section class="flex items-center blog_header" id="{id}">
-                        <a href="#{id}" class="section_link">
+                        <a href="#{tid}" class="section_link">
                             <svg class="w-6 h-6 absolute" style="transform: translate(calc(-50% + -20px), -50%);" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
                         </a>
                         <span>{title}</span>
@@ -65,13 +64,13 @@ class Application:
             markdown = mistune.create_markdown(
                 renderer=MyRenderer(),
                 escape=False,
-                # plugins=[
-                #     DirectiveToc(),
-                #     Admonition(),
-                #     "footnotes",
-                #     "strikethrough",
-                #     "abbr",
-                # ],
+                plugins=[
+                    DirectiveToc(),
+                    Admonition(),
+                    "footnotes",
+                    "strikethrough",
+                    "abbr",
+                ],
             )
 
             with open(f"./src/blogs/{blog}.md", "r") as f:

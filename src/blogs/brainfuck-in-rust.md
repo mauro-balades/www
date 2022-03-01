@@ -1,10 +1,15 @@
 
+
+
 # Build brainfuck in rust
 
 In this blog, I will explain you how to build a brainfuck interpreter in [rust](https://www.rust-lang.org/). In this little brainfuck interpreter, you will be able to learn rust basics, iterate every character and do an action with the current character.
 
 You will also be able to learn brainfuck's basics and how it does work in the background.
 
+
+<!-- .. toc:: Table of Contents
+   :depth: 4 -->
 
 ## What is brainfuck?
 
