@@ -10,3 +10,4 @@ minify-html==0.6.10
 mistune==2.0.2
 Werkzeug==2.0.3
 zipp==3.7.0
+mysql-connector-python==8.0.28
