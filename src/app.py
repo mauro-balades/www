@@ -10,6 +10,9 @@
 # -----------------------------------------------------------------------------
 
 # Imports
+from dotenv import load_dotenv
+load_dotenv()
+
 from expross import Expross
 from src.errors import UndefinedApp
 
@@ -17,6 +20,8 @@ import mistune
 from mistune.directives import DirectiveToc
 from mistune.directives import Admonition
 
+import mysql.connector
+import os
 
 class MyRenderer(mistune.HTMLRenderer):
     def theading(self, text, level, tid):
@@ -33,6 +38,7 @@ class Application:
     """This is the main website's application class"""
 
     app: Expross = None
+    db: mysql.connector.connection_cext.CMySQLConnection = None
 
     def __init__(self, *argv, **kwargs):
         self.app = kwargs.get("app", None)
@@ -40,7 +46,16 @@ class Application:
         if self.app is None:
             raise UndefinedApp("App has no been defined")
 
+        self.db = mysql.connector.connect(
+            host = os.getenv("DB_HOST"),
+            user = os.getenv("DB_USERNAME"),
+            passwd = os.getenv("DB_PASSWORD"),
+        )
+
         self.set_routes()
+
+    def __del__(self):
+        self.db.close()
 
     def set_routes(self):
         self.app.get("/", self.main())

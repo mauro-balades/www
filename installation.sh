@@ -42,7 +42,7 @@ main() {
     echo "1. fill mysql files (located in ./installation/intallation.[PRODUCTION OR DEVELOPMENT].sql)"
     echo "2. fill your .env file"
     echo "3. run the following commands:"
-    echo "  * mysql -u [USERNAME] -p [PASSWORD] < ./installation/intallation.[PRODUCTION OR DEVELOPMENT].sql"
+    echo "  * mysql -u [USERNAME] -p < ./installation/installation.[PRODUCTION OR DEVELOPMENT].sql"
     echo "4. python3 setup.py"
 }
 

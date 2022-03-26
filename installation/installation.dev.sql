@@ -1,9 +1,7 @@
 
-IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'mauroPortfolio')
-BEGIN
-  CREATE DATABASE mauroPortfolio;
-END;
-GO
+CREATE DATABASE IF NOT EXISTS mauroPortfolio;
+
+-- SHOW DATABASES;
 
 USE mauroPortfolio;
 
