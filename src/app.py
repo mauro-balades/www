@@ -20,7 +20,7 @@ import mistune
 from mistune.directives import DirectiveToc
 from mistune.directives import Admonition
 
-import mysql.connector
+import pymysql.cursors
 import os
 
 class MyRenderer(mistune.HTMLRenderer):
@@ -34,11 +34,15 @@ class MyRenderer(mistune.HTMLRenderer):
                    </section>"""
 
 
-class Application:
+class Application(object):
     """This is the main website's application class"""
 
     app: Expross = None
-    db: mysql.connector.connection_cext.CMySQLConnection = None
+    db = None
+
+    VISIT_NORMAL = 1
+    VISIT_BLOG = 2
+    VISIT_EASTER_EGG = 3
 
     def __init__(self, *argv, **kwargs):
         self.app = kwargs.get("app", None)
@@ -46,10 +50,12 @@ class Application:
         if self.app is None:
             raise UndefinedApp("App has no been defined")
 
-        self.db = mysql.connector.connect(
+        self.db = pymysql.connect(
             host = os.getenv("DB_HOST"),
             user = os.getenv("DB_USERNAME"),
-            passwd = os.getenv("DB_PASSWORD"),
+            password = os.getenv("DB_PASSWORD"),
+            database = "mauroPortfolio",
+            cursorclass=pymysql.cursors.DictCursor
         )
 
         self.set_routes()
@@ -57,17 +63,31 @@ class Application:
     def __del__(self):
         self.db.close()
 
+    def __enter__(self):
+        self.__del__()
+
+    def __exit__(self):
+        self.__del__()
+
     def set_routes(self):
         self.app.get("/", self.main())
         self.app.get("/blog/{blog}", self.blog())
 
-        # TODO: blog list
-        # self.app.get("/blogs/", self.main())
+    # --------------- UTILS
+
+    def _add_visit(self, type: int = 0):
+        cur = self.db.cursor()
+        cur.execute("UPDATE mauroPortfolio.visits SET `count` = `count` + 1 WHERE `id` = %s", type)
+        self.db.commit()
+        cur.close()
 
     # --------------- ROUTES
 
     def main(self):
+
         def route(req, res):
+            self._add_visit(self.VISIT_NORMAL)
+
             content = self.app.render_template("index.html")
             return content, 200
 
@@ -75,6 +95,9 @@ class Application:
 
     def blog(self):
         def route(req, res):
+
+            self._add_visit(self.VISIT_BLOG)
+
             blog = self.app.context.blog
             markdown = mistune.create_markdown(
                 renderer=MyRenderer(),
