@@ -23,9 +23,11 @@ function Window(props: any) {
         <Draggable handle="strong">
             <Wrapper {...props} >
                 <WindowTitle draggable={draggable} closable={closable} >
-                    <CloseWindowButton onClick={() => setClosed(true)} className="pointer">
-                        <img src="/static/images/close.png" />
-                    </CloseWindowButton>
+                    {closable ? (
+                        <CloseWindowButton onClick={() => setClosed(true)} className="pointer">
+                            <img src="/static/images/close.png" />
+                        </CloseWindowButton>
+                    ) : null}
                     <DraggableHandle>
                         <TitleBars>
                             <TitleBar></TitleBar>
