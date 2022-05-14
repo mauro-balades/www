@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Wrapper, WindowTitle, CloseWindowButton, DraggableHandle, TitleBars, TitleBar, WindowTitleText } from './styles';
 import Draggable from 'react-draggable';
 
@@ -17,12 +17,13 @@ import Draggable from 'react-draggable';
 */
 function Window(props: any) {
     const { width, height, draggable, x, y, closable, title } = props;
+    const [ closed, setClosed ] = useState(false);
 
-    return (
+    return !closed ? (
         <Draggable handle="strong">
             <Wrapper {...props} >
                 <WindowTitle draggable={draggable} closable={closable} >
-                    <CloseWindowButton className="pointer">
+                    <CloseWindowButton onClick={() => setClosed(true)} className="pointer">
                         <img src="/static/images/close.png" />
                     </CloseWindowButton>
                     <DraggableHandle>
@@ -40,7 +41,7 @@ function Window(props: any) {
                 </div>
             </Wrapper>
         </Draggable>
-    );
+    ) : null;
 }
 
 export default Window;
