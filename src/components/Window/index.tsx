@@ -25,11 +25,11 @@ import Draggable from "react-draggable";
  */
 function Window(props: any) {
     const { width, height, draggable, x, y, closable, title } = props;
-    const [closed, setClosed] = useState(false);
+    const { closed, setClosed } = props;
 
-    return !closed ? (
+    return (
         <Draggable handle="strong">
-            <Wrapper {...props}>
+            <Wrapper style={{ opacity: !closed ? '1' : '0' }} {...props}>
                 <WindowTitle draggable={draggable} closable={closable}>
                     {closable ? (
                         <CloseWindowButton
@@ -56,7 +56,7 @@ function Window(props: any) {
                 </WindowContent>
             </Wrapper>
         </Draggable>
-    ) : null;
+    );
 }
 
 export default Window;
