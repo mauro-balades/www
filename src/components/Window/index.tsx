@@ -1,5 +1,6 @@
 import React from 'react';
-import { Wrapper } from './styles';
+import { Wrapper, WindowTitle, CloseWindowButton, DraggableHandle, TitleBars, TitleBar, WindowTitleText } from './styles';
+import Draggable from 'react-draggable';
 
 
 /**
@@ -15,12 +16,30 @@ import { Wrapper } from './styles';
  * @returns React component
 */
 function Window(props: any) {
-    const { width, height, draggable, x, y, closable } = props;
+    const { width, height, draggable, x, y, closable, title } = props;
 
     return (
-        <Wrapper {...props} >
-            {props.children}
-        </Wrapper>
+        <Draggable handle="strong">
+            <Wrapper {...props} >
+                <WindowTitle draggable={draggable} closable={closable} >
+                    <CloseWindowButton>
+                        <img src="/static/images/close.png" />
+                    </CloseWindowButton>
+                    <DraggableHandle>
+                        <TitleBars>
+                            <TitleBar></TitleBar>
+                            <TitleBar></TitleBar>
+                        </TitleBars>
+                        <WindowTitleText>
+                            {title}
+                        </WindowTitleText>
+                    </DraggableHandle>
+                </WindowTitle>
+                <div>
+                    {props.children}
+                </div>
+            </Wrapper>
+        </Draggable>
     );
 }
 

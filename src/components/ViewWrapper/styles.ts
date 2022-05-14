@@ -7,4 +7,10 @@ export const Wrapper = styled.div`
 
     overflow: hidden;
     background: #54B9AD;
+
+    font-family: "Rubik", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+    @media (pointer: auto) {
+        
+    }
 `

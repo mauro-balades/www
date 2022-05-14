@@ -6,7 +6,7 @@ import 'normalize.css';
 function App() {
   return (
     <ViewWrapper>
-      <Window width="15" height="24">
+      <Window title="settings" width="15" height="24">
 
       </Window>
     </ViewWrapper>
