@@ -1,33 +1,30 @@
-
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Wrapper = styled.div`
-
     ${(props: any) => `
-        background: ${props.background || '#E8E7E2'};
-        border: 2px solid ${props.border || '#1d1e1c'};
+        background: ${props.background || "#E8E7E2"};
+        border: 2px solid ${props.border || "#1d1e1c"};
 
-        width: ${props.width ? `${props.width}rem` : 'inherit'};
+        width: ${props.width ? `${props.width}rem` : "inherit"};
         height: ${props.height}rem;
 
         position: absolute;
 
-        top: ${(props.y || 50) - props.height/2}%;
-        left: ${(props.x || 50) - props.width/2}%;
+        top: ${(props.y || 50) - props.height / 2}%;
+        left: ${(props.x || 50) - props.width / 2}%;
 
         // TODO: responsive
     `}
 
     box-shadow: -0.6rem 0.6rem 0 rgb(29 30 28 / 26%);
-`
+`;
 
 export const WindowTitle = styled.div`
-
     font-weight: normal;
     letter-spacing: 1px;
 
     text-align: center;
-    background-color: #DADAD3;
+    background-color: #dadad3;
 
     border-bottom: 2px solid #1d1e1c;
     z-index: 1;
@@ -38,17 +35,17 @@ export const WindowTitle = styled.div`
     height: 1.7rem;
 
     & img {
-        image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
-        image-rendering: -moz-crisp-edges;          /* Firefox                        */
-        image-rendering: -o-crisp-edges;            /* Opera                          */
+        image-rendering: optimizeSpeed; /* STOP SMOOTHING, GIVE ME SPEED  */
+        image-rendering: -moz-crisp-edges; /* Firefox                        */
+        image-rendering: -o-crisp-edges; /* Opera                          */
         image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
         image-rendering: pixelated; /* Chrome */
-        image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
-        -ms-interpolation-mode: nearest-neighbor;   /* IE8+         */
+        image-rendering: optimize-contrast; /* CSS3 Proposed                  */
+        -ms-interpolation-mode: nearest-neighbor; /* IE8+         */
 
         width: 40%;
     }
-`
+`;
 
 export const CloseWindowButton = styled.div`
     width: 1.8rem;
@@ -56,13 +53,13 @@ export const CloseWindowButton = styled.div`
 
     border-right: 2px solid #1d1e1c;
 
-    background-color: #C1C1BF;
+    background-color: #c1c1bf;
     cursor: pointer;
 
     display: flex;
     justify-content: center;
     align-items: center;
-`
+`;
 
 export const DraggableHandle = styled.strong`
     width: 100%;
@@ -74,7 +71,7 @@ export const DraggableHandle = styled.strong`
     justify-content: center;
 
     position: relative;
-`
+`;
 
 export const TitleBars = styled.div`
     display: flex;
@@ -87,7 +84,7 @@ export const TitleBars = styled.div`
     height: 100%;
 
     margin: 0 10px;
-`
+`;
 
 export const TitleBar = styled.div`
     width: 100%;
@@ -97,17 +94,17 @@ export const TitleBar = styled.div`
 
     margin-bottom: 3px;
     display: block;
-`
+`;
 
 export const WindowTitleText = styled.span`
-    background: #DADAD3;
+    background: #dadad3;
     position: absolute;
     top: 50%;
     left: 50%;
 
     transform: translate(-50%, -50%);
     padding: 0 5px;
-`
+`;
 
 export const WindowContent = styled.div`
     position: relative;
@@ -115,4 +112,4 @@ export const WindowContent = styled.div`
 
     height: calc(100% - 1.7rem);
     width: 100%;
-`
+`;
