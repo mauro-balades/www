@@ -10,7 +10,9 @@ export const Wrapper = styled.div`
 
     font-family: "Rubik", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 
-    @media (pointer: auto) {
-        
+    cursor: url('/static/images/cursor_auto.png'), auto;
+
+    & .pointer {
+        cursor: url('/static/images/cursor_pointer.png'), pointer;
     }
 `

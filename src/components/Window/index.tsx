@@ -22,7 +22,7 @@ function Window(props: any) {
         <Draggable handle="strong">
             <Wrapper {...props} >
                 <WindowTitle draggable={draggable} closable={closable} >
-                    <CloseWindowButton>
+                    <CloseWindowButton className="pointer">
                         <img src="/static/images/close.png" />
                     </CloseWindowButton>
                     <DraggableHandle>
