@@ -12,8 +12,10 @@ export const Wrapper = styled.div`
 
         position: absolute;
 
-        top: ${props.x || 50}px;
-        left: ${props.y || 100}px;
+        top: ${(props.y || 50) - props.height/2}%;
+        left: ${(props.x || 50) - props.width/2}%;
+
+        // TODO: responsive
     `}
 
     box-shadow: -0.6rem 0.6rem 0 rgb(29 30 28 / 26%);
@@ -105,4 +107,12 @@ export const WindowTitleText = styled.span`
 
     transform: translate(-50%, -50%);
     padding: 0 5px;
+`
+
+export const WindowContent = styled.div`
+    position: relative;
+    overflow: hidden;
+
+    height: calc(100% - 1.7rem);
+    width: 100%;
 `

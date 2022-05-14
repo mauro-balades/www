@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Wrapper, WindowTitle, CloseWindowButton, DraggableHandle, TitleBars, TitleBar, WindowTitleText } from './styles';
+import { Wrapper, WindowTitle, CloseWindowButton, DraggableHandle, TitleBars, TitleBar, WindowTitleText, WindowContent } from './styles';
 import Draggable from 'react-draggable';
 
 
@@ -15,7 +15,7 @@ import Draggable from 'react-draggable';
  *
  * @returns React component
 */
-function Window(props: any) {
+function Window(props: any)  {
     const { width, height, draggable, x, y, closable, title } = props;
     const [ closed, setClosed ] = useState(false);
 
@@ -38,9 +38,11 @@ function Window(props: any) {
                         </WindowTitleText>
                     </DraggableHandle>
                 </WindowTitle>
-                <div>
-                    {props.children}
-                </div>
+                <WindowContent>
+                    {React.Children.map(props.children, (element: any) => {
+                        return React.cloneElement(element, { setClosed: setClosed })
+                    })}
+                </WindowContent>
             </Wrapper>
         </Draggable>
     ) : null;

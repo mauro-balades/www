@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
     overflow: hidden;
     background: #54B9AD;
 
+    position: relative;
     font-family: "Rubik", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 
     cursor: url('/static/images/cursor_auto.png'), auto;
