@@ -12,6 +12,10 @@ function DropDown(props: any) {
       setIsOpen(false);
     };
 
+    // document.body.onclick = () => {
+    //   if (isOpen) setIsOpen(false)
+    // }
+
     return (
       <DropDownContainer>
         <DropDownHeader onClick={toggling}>{header}</DropDownHeader>

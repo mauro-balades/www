@@ -5,10 +5,14 @@ import Pong from "./components/windows/Pong";
 import Cookies from "./components/windows/Cookies";
 import Settings from "./components/windows/Settings";
 
-import "normalize.css";
 import DropDown from "./components/DropDown";
+import LoadingView from "./components/LoadingView";
+
+import "normalize.css";
 
 function App() {
+
+  const [ isLoading, setLoading ] = useState(true);
 
   const [cookies_closed, cookies_setClosed]   = useState(false);
   const [settings_closed, settings_setClosed] = useState(true);
@@ -24,7 +28,7 @@ function App() {
       alert(value)
     }
 
-    return (
+    return !isLoading ? (
         <>
           <NavigationBar>
             <div className="menu_item pointer">
@@ -41,6 +45,8 @@ function App() {
             {windows}
           </ViewWrapper>
         </>
+    ) : (
+      <LoadingView setLoading={setLoading} />
     );
 }
 

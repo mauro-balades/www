@@ -8,9 +8,11 @@ const WRAPPER_TEMPLATE = `
     cursor: url("/static/images/cursor_auto.png"), auto;
 
     & .pointer {
-    cursor: url("/static/images/cursor_pointer.png"), pointer;
+        cursor: url("/static/images/cursor_pointer.png"), pointer;
     }
 `;
+
+export default WRAPPER_TEMPLATE;
 
 export const Wrapper = styled.div`
     width: 100%;
@@ -26,7 +28,7 @@ export const Wrapper = styled.div`
 
 export const NavigationBarWrapper = styled.nav`
     height: ${NAVIGATION_BAR_HEIGHT}vh;
-    width: calc(100% - 10px);
+    width: calc(100% - 14px);
 
     background: #fad844;
     // border-bottom: 2px solid #1d1e1c;
@@ -49,6 +51,7 @@ export const NavigationBarWrapper = styled.nav`
 
     border-radius: 3px;
     box-shadow: 0 0.3rem 0 rgb(29 30 28 / 26%);
+    border: 2px solid #000;
 
     ${WRAPPER_TEMPLATE}
 `

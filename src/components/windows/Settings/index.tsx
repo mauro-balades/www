@@ -5,8 +5,8 @@ import { Wrapper } from "./styles";
 function Settings(props: any) {
     return (
         <Window
-            y="15"
-            x="10"
+            y="25"
+            x="20"
             title="Settings"
             width="15"
             height="20"

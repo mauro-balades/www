@@ -2,6 +2,12 @@ import React from "react";
 import Window from "../../Window";
 
 function Pong(props: any) {
+
+    var tag = document.createElement('script');
+    tag.async = false;
+    tag.src = "/static/scripts/pong.js";
+    document.getElementsByTagName('head')[0]?.appendChild(tag);
+
     return (
         <Window
             y="30"

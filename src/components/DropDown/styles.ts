@@ -19,6 +19,7 @@ export const DropDownList = styled.ul`
     background: #E8E7E2;
     position: relative;
     min-width: 10rem;
+    z-index: 9;
 `;
 
 export const ListItem = styled.li`
