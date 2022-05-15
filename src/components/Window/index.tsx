@@ -28,14 +28,14 @@ function Window(props: any) {
 
     return (
         <Draggable handle="strong">
-            <Wrapper style={{ opacity: !closed ? '1' : '0' }} {...props}>
+            <Wrapper style={{ display: !closed ? 'block' : 'none' }} {...props}>
                 <WindowTitle draggable={draggable} closable={closable}>
                     {closable ? (
                         <CloseWindowButton
                             onClick={() => setClosed(true)}
                             className="pointer"
                         >
-                            <img src="/static/images/close.png" />
+                            <p>+</p>
                         </CloseWindowButton>
                     ) : null}
                     <DraggableHandle>

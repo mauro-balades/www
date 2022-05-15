@@ -34,6 +34,7 @@ export const WindowTitle = styled.div`
     align-items: center;
 
     height: 1.7rem;
+    user-selection: none;
 
     & img {
         image-rendering: optimizeSpeed; /* STOP SMOOTHING, GIVE ME SPEED  */
@@ -57,9 +58,15 @@ export const CloseWindowButton = styled.div`
     background-color: #c1c1bf;
     cursor: pointer;
 
+    font-size: 30px;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
+    & p {
+        transform: rotate(135deg);
+    }
 `;
 
 export const DraggableHandle = styled.strong`
