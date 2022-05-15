@@ -10,6 +10,7 @@ import LoadingView from "./components/LoadingView";
 import Games from "./components/windows/Games";
 
 import "normalize.css";
+import ApplicationBar from "./components/ApplicationBar";
 
 function App() {
 
@@ -48,6 +49,7 @@ function App() {
           </NavigationBar>
           <ViewWrapper>
             {windows}
+            <ApplicationBar />
           </ViewWrapper>
         </>
     ) : (
