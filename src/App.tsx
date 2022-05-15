@@ -6,6 +6,7 @@ import Cookies from "./components/windows/Cookies";
 import Settings from "./components/windows/Settings";
 
 import "normalize.css";
+import DropDown from "./components/DropDown";
 
 function App() {
 
@@ -19,12 +20,22 @@ function App() {
       <Pong closed={pong_closed} setClosed={pong_setClosed} />
     ];
 
+    const onFileSelection = (value: any) => {
+      alert(value)
+    }
+
     return (
         <>
           <NavigationBar>
-            <div className="menu_item pointer">File</div>
-            <div className="menu_item pointer" onClick={() => settings_setClosed(false)}>Settings</div>
-            <div className="menu_item pointer">Execute</div>
+            <div className="menu_item pointer">
+              <DropDown onSelection={onFileSelection} options={[
+                "hello",
+                "hello 2"
+              ]} header="File" />
+            </div>
+            <div className="menu_item pointer" onClick={() => settings_setClosed(false)}>
+              Settings
+            </div>
           </NavigationBar>
           <ViewWrapper>
             {windows}

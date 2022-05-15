@@ -14,7 +14,7 @@ const WRAPPER_TEMPLATE = `
 
 export const Wrapper = styled.div`
     width: 100%;
-    height: calc(100vh - ${NAVIGATION_BAR_HEIGHT}vh);
+    height: 100vh;
 
     overflow: hidden;
     background: #54b9ad;
@@ -26,10 +26,10 @@ export const Wrapper = styled.div`
 
 export const NavigationBarWrapper = styled.nav`
     height: ${NAVIGATION_BAR_HEIGHT}vh;
-    width: 100%;
+    width: calc(100% - 10px);
 
     background: #fad844;
-    border-bottom: 2px solid #1d1e1c;
+    // border-bottom: 2px solid #1d1e1c;
 
     display: flex;
     align-items: center;
@@ -42,6 +42,13 @@ export const NavigationBarWrapper = styled.nav`
     & div.menu_item:first-child {
         margin-left: 20px;
     }
+
+    position: absolute;
+    z-index: 9;
+    margin: 5px;
+
+    border-radius: 3px;
+    box-shadow: 0 0.3rem 0 rgb(29 30 28 / 26%);
 
     ${WRAPPER_TEMPLATE}
 `
