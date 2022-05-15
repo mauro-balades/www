@@ -18,16 +18,17 @@ export const Wrapper = styled.div`
 `
 
 export const Envlope = styled.div`
-    background: url("/static/images/envelope_closed.png");
+    background: url("/static/svg/envelope_closed.svg");
 
     background-size: contain !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
 
-    width: 6rem;
-    height: 6rem;
+    width: 8rem;
+    height: 8rem;
+    margin-bottom: 10px;
 
     &:hover {
-        background: url("/static/images/envelope_open.png");
+        background: url("/static/svg/envelope_open.svg");
     }
 `
