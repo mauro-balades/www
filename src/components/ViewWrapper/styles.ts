@@ -25,6 +25,24 @@ export const Wrapper = styled.div`
     position: relative;
 
     ${WRAPPER_TEMPLATE}
+
+    // SCROLL BARS
+    & .scrollbar::-webkit-scrollbar {
+        width: 1rem;
+        background-color: #DADAD3;
+    }
+
+    & .scrollbar::-webkit-scrollbar-thumb {
+        border: 2px solid #1D1D1B;
+        border-right: none;
+        background-color: #C1C1BF;
+    }
+
+    & .scrollbar::-webkit-scrollbar-track {
+        border: 2px solid #1D1D1B;
+        border-top: none;
+        border-right: none;
+    }
 `;
 
 export const NavigationBarWrapper = styled.nav`

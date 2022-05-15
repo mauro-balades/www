@@ -3,7 +3,7 @@ import ButtonWrapper from "./styles";
 
 function Button(props: any) {
     return (
-        <ButtonWrapper {...props} className="pointer">
+        <ButtonWrapper {...props} className={`pointer ${props.className}`}>
             {props.children}
         </ButtonWrapper>
     );

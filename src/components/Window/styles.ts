@@ -35,18 +35,6 @@ export const WindowTitle = styled.div`
 
     height: 1.7rem;
     user-selection: none;
-
-    & img {
-        image-rendering: optimizeSpeed; /* STOP SMOOTHING, GIVE ME SPEED  */
-        image-rendering: -moz-crisp-edges; /* Firefox                        */
-        image-rendering: -o-crisp-edges; /* Opera                          */
-        image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
-        image-rendering: pixelated; /* Chrome */
-        image-rendering: optimize-contrast; /* CSS3 Proposed                  */
-        -ms-interpolation-mode: nearest-neighbor; /* IE8+         */
-
-        width: 40%;
-    }
 `;
 
 export const CloseWindowButton = styled.div`
