@@ -7,6 +7,7 @@ import Settings from "./components/windows/Settings";
 
 import DropDown from "./components/DropDown";
 import LoadingView from "./components/LoadingView";
+import Games from "./components/windows/Games";
 
 import "normalize.css";
 
@@ -16,16 +17,21 @@ function App() {
 
   const [cookies_closed, cookies_setClosed]   = useState(false);
   const [settings_closed, settings_setClosed] = useState(true);
-  const [pong_closed, pong_setClosed] = useState(false);
+  const [pong_closed, pong_setClosed] = useState(true);
+  const [games_closed, games_setClosed] = useState(true);
 
     let windows = [
       <Cookies closed={cookies_closed} setClosed={cookies_setClosed} />,
       <Settings closed={settings_closed} setClosed={settings_setClosed} />,
-      <Pong closed={pong_closed} setClosed={pong_setClosed} />
+      <Pong closed={pong_closed} setClosed={pong_setClosed} />,
+      <Games closed={games_closed} setClosed={games_setClosed}
+          pong_setClosed={pong_setClosed} />
     ];
 
     const onFileSelection = (value: any) => {
-      alert(value)
+      if (value == "games") {
+        games_setClosed(false);
+      }
     }
 
     return !isLoading ? (
@@ -33,8 +39,7 @@ function App() {
           <NavigationBar>
             <div className="menu_item pointer">
               <DropDown onSelection={onFileSelection} options={[
-                "hello",
-                "hello 2"
+                "games",
               ]} header="File" />
             </div>
             <div className="menu_item pointer" onClick={() => settings_setClosed(false)}>

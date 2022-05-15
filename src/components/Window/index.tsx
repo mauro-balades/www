@@ -24,8 +24,7 @@ import Draggable from "react-draggable";
  * @returns React component
  */
 function Window(props: any) {
-    const { width, height, draggable, x, y, closable, title } = props;
-    const { closed, setClosed } = props;
+    const { closed, setClosed, draggable, closable, title } = props;
 
     return (
         <Draggable handle="strong">

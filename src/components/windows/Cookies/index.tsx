@@ -4,7 +4,6 @@ import { Wrapper } from "./styles";
 import Button from "../../Button";
 
 function CookiesDialog(props: any) {
-    console.log(props);
     return (
         <Wrapper>
             <div style={{ padding: "0 20px 0 0" }}>

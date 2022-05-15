@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const NAVIGATION_BAR_HEIGHT = "4";
 const WRAPPER_TEMPLATE = `
+
     font-family: "Rubik", "HelveticaNeue-Light", "Helvetica Neue Light",
     "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 
