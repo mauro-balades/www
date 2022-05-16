@@ -39,7 +39,7 @@ function App(props: any) {
         <Cookies closed={cookies_closed} setClosed={cookies_setClosed} />,
         <Email closed={email_closed} setClosed={email_setClosed} />,
         <Pong closed={pong_closed} setClosed={pong_setClosed} />,
-        <Theme closed={theme_closed} setClosed={theme_setClosed} />,
+        <Theme closed={theme_closed} setClosed={theme_setClosed} setTheme={setTheme} />,
         <Games
             closed={games_closed}
             setClosed={games_setClosed}

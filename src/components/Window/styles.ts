@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
     ${(props: any) => `
-        background: ${props.background || "#E8E7E2"};
-        border: 2px solid ${props.border || "#1d1e1c"};
+        background: ${props.theme.windowBackground};
+        border: 2px solid ${props.theme.light ? "#1d1e1c" : "#fff"};
 
         width: ${props.width ? `${props.width}rem` : "inherit"};
         height: ${props.height}rem;
@@ -18,6 +18,7 @@ export const Wrapper = styled.div`
 
     box-shadow: -0.6rem 0.6rem 0 rgb(29 30 28 / 26%);
     z-index: 9;
+    color: ${(props: any) => props.theme.light ? "#000" : "#fff"};
 `;
 
 export const WindowTitle = styled.div`
@@ -27,7 +28,7 @@ export const WindowTitle = styled.div`
     text-align: center;
     background-color: ${(props: any) => props.theme.titleBarBackground};
 
-    border-bottom: 2px solid #1d1e1c;
+    border-bottom: 2px solid ${(props: any) => props.theme.light ? "#1d1e1c" : "#fff"};
     z-index: 1;
 
     display: flex;
@@ -41,10 +42,12 @@ export const CloseWindowButton = styled.div`
     width: 1.8rem;
     height: 1.7rem;
 
-    border-right: 2px solid #1d1e1c;
+    border-right: 2px solid ${(props: any) => props.theme.light ? "#1d1e1c" : "#fff"};
 
-    background-color: #c1c1bf;
+    background-color: ${(props: any) => props.theme.light ? "#c1c1bf" : props.theme.windowBackground};
     cursor: pointer;
+
+    ${(props: any) => props.theme.light ? "" : "color: #ddd;"}
 
     font-size: 30px;
 
@@ -86,7 +89,7 @@ export const TitleBar = styled.div`
     width: 100%;
     height: 2px;
 
-    background: #1d1e1c;
+    background: ${(props: any) => props.theme.light ? "#1d1e1c" : "#fff"};
 
     margin-bottom: 3px;
     display: block;

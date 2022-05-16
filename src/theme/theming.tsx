@@ -1,7 +1,7 @@
 import { ThemeProvider } from "styled-components";
 
-export const themeKeys = ["Moonlight Drive"];
 export const themes = require("./themes.json");
+export const themeKeys = Object.keys(themes);
 
 export default (props: any) => {
     return (

@@ -3,6 +3,14 @@
         "navigationBackground": "#fad844",
         "viewBackground": "#54b9ad",
         "windowBackground": "#E8E7E2",
-        "titleBarBackground": "#dadad3"
+        "titleBarBackground": "#dadad3",
+        "light": true
+    },
+    "Alpine Night": {
+        "navigationBackground": "#0F1D19",
+        "viewBackground": "#40CBA5",
+        "windowBackground": "#121D19",
+        "titleBarBackground": "#0F1D19",
+        "light": false
     }
 }

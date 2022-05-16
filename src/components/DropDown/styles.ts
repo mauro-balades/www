@@ -27,7 +27,7 @@ export const ListItem = styled.li`
     padding: 5px;
 
     &:hover {
-        background: #1d1e1c;
-        color: ${(props: any) => props.theme.windowBackground};
+        background: ${(props: any) => props.theme.windowBackground};
+        color: ${(props: any) => props.theme.light ? "#000" : "#fff"};
     }
 `;

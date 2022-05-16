@@ -1,5 +1,6 @@
 import React from "react";
 import Window from "../../Window";
+import { PongHolder } from "./styles";
 
 function Pong(props: any) {
     // @ts-ignore
@@ -20,10 +21,9 @@ function Pong(props: any) {
             closable={true}
             {...props}
         >
-            <div
-                style={{ width: "100%", height: "100%" }}
+            <PongHolder
                 className="c-pong__holder js-game-holder"
-            ></div>
+            ></PongHolder>
         </Window>
     );
 }

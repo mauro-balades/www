@@ -4,7 +4,6 @@ import styled from "styled-components";
 // Components
 
 export function TimeSection() {
-    const locale = "en";
     const [today, setDate] = React.useState(new Date()); // Save the current date to be able to trigger an update
 
     React.useEffect(() => {
@@ -33,7 +32,7 @@ export const NavigationSection = styled.div`
     height: 100%;
     width: min-content;
 
-    border-right: 2px solid #000;
+    border-right: 2px solid ${(props: any) => props.theme.light ? "#000" : "#fff"};
 
     display: flex;
     align-items: center;
@@ -42,7 +41,7 @@ export const NavigationSection = styled.div`
     padding: 0 5px;
 
     &.both {
-        border-left: 2px solid #000;
+        border-left: 2px solid ${(props: any) => props.theme.light ? "#000" : "#fff"};
     }
 
     & svg {
