@@ -28,7 +28,7 @@ function Window(props: any) {
 
     return (
         <Draggable handle="strong">
-            <Wrapper style={{ display: !closed ? 'block' : 'none' }} {...props}>
+            <Wrapper style={{ display: !closed ? "block" : "none" }} {...props}>
                 <WindowTitle draggable={draggable} closable={closable}>
                     {closable ? (
                         <CloseWindowButton

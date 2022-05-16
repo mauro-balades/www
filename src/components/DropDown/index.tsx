@@ -1,6 +1,11 @@
-
 import React, { useState } from "react";
-import { DropDownContainer, DropDownHeader, DropDownList, DropDownListContainer, ListItem } from "./styles";
+import {
+    DropDownContainer,
+    DropDownHeader,
+    DropDownList,
+    DropDownListContainer,
+    ListItem,
+} from "./styles";
 
 function DropDown(props: any) {
     const { header, options, onSelection } = props;
@@ -8,8 +13,8 @@ function DropDown(props: any) {
     const toggling = () => setIsOpen(!isOpen);
 
     const onOptionClicked = (value: any) => {
-      onSelection(value);
-      setIsOpen(false);
+        onSelection(value);
+        setIsOpen(false);
     };
 
     // document.body.onclick = () => {
@@ -17,20 +22,23 @@ function DropDown(props: any) {
     // }
 
     return (
-      <DropDownContainer>
-        <DropDownHeader onClick={toggling}>{header}</DropDownHeader>
-        {isOpen && (
-            <DropDownListContainer>
-                <DropDownList>
-                    {options.map((option: any) => (
-                      <ListItem onClick={() => onOptionClicked(option)} key={Math.random()}>
-                        {option}
-                      </ListItem>
-                    ))}
-              </DropDownList>
-            </DropDownListContainer>
-        )}
-      </DropDownContainer>
+        <DropDownContainer>
+            <DropDownHeader onClick={toggling}>{header}</DropDownHeader>
+            {isOpen && (
+                <DropDownListContainer>
+                    <DropDownList>
+                        {options.map((option: any) => (
+                            <ListItem
+                                onClick={() => onOptionClicked(option)}
+                                key={Math.random()}
+                            >
+                                {option}
+                            </ListItem>
+                        ))}
+                    </DropDownList>
+                </DropDownListContainer>
+            )}
+        </DropDownContainer>
     );
 }
 

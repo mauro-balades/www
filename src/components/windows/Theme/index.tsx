@@ -12,12 +12,9 @@ function ThemeConfig(props: any) {
             width="15"
             height="20"
             closable={true}
-
             {...props}
         >
-            <Wrapper>
-
-            </Wrapper>
+            <Wrapper></Wrapper>
         </Window>
     );
 }

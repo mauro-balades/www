@@ -29,17 +29,17 @@ export const Wrapper = styled.div`
     // SCROLL BARS
     & .scrollbar::-webkit-scrollbar {
         width: 1rem;
-        background-color: #DADAD3;
+        background-color: #dadad3;
     }
 
     & .scrollbar::-webkit-scrollbar-thumb {
-        border: 2px solid #1D1D1B;
+        border: 2px solid #1d1d1b;
         border-right: none;
-        background-color: #C1C1BF;
+        background-color: #c1c1bf;
     }
 
     & .scrollbar::-webkit-scrollbar-track {
-        border: 2px solid #1D1D1B;
+        border: 2px solid #1d1d1b;
         border-top: none;
         border-right: none;
     }
@@ -73,4 +73,4 @@ export const NavigationBarWrapper = styled.nav`
     border: 2px solid #000;
 
     ${WRAPPER_TEMPLATE}
-`
+`;

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-
     overflow: hidden;
     position: relative;
 
@@ -27,7 +26,7 @@ export const SubjectWrapper = styled.div`
         font-weight: bold;
         user-select: none;
     }
-`
+`;
 
 export const SubjectInput = styled.input`
     width: 100%;
@@ -39,7 +38,7 @@ export const SubjectInput = styled.input`
     outline: none;
 
     font-weight: 600;
-`
+`;
 
 export const TextArea = styled.textarea`
     width: 100%;
@@ -51,4 +50,4 @@ export const TextArea = styled.textarea`
     outline: none;
 
     resize: none;
-`
+`;

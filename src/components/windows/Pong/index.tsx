@@ -2,13 +2,12 @@ import React from "react";
 import Window from "../../Window";
 
 function Pong(props: any) {
-
     // @ts-ignore
-    if (!props.closed && typeof window.pongActive == 'undefined') {
-        let tag = document.createElement('script');
+    if (!props.closed && typeof window.pongActive == "undefined") {
+        let tag = document.createElement("script");
         tag.async = false;
         tag.src = "/static/scripts/pong.js";
-        document.getElementsByTagName('head')[0]?.appendChild(tag);
+        document.getElementsByTagName("head")[0]?.appendChild(tag);
     }
 
     return (
@@ -19,12 +18,12 @@ function Pong(props: any) {
             width="25"
             height="39.1"
             closable={true}
-
             {...props}
         >
-            <div style={{ width: '100%', height: '100%' }} className="c-pong__holder js-game-holder">
-
-            </div>
+            <div
+                style={{ width: "100%", height: "100%" }}
+                className="c-pong__holder js-game-holder"
+            ></div>
         </Window>
     );
 }

@@ -31,7 +31,6 @@ function Cookies(props: any) {
             title="cookies"
             width="25"
             height="10"
-
             {...props}
         >
             <CookiesDialog />

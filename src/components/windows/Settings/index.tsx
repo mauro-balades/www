@@ -14,13 +14,14 @@ function Settings(props: any) {
             width="15"
             height="20"
             closable={true}
-
             {...props}
         >
             <Wrapper>
                 <div>
                     <h4>Theme</h4>
-                    <Button onClick={() => themeSetClosed(false)}>Open theme config</Button>
+                    <Button onClick={() => themeSetClosed(false)}>
+                        Open theme config
+                    </Button>
                 </div>
             </Wrapper>
         </Window>

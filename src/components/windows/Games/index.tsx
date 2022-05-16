@@ -3,7 +3,6 @@ import Window from "../../Window";
 import { Wrapper, Game } from "./styles";
 
 function Games(props: any) {
-
     const { pong_setClosed } = props;
 
     return (
@@ -14,7 +13,6 @@ function Games(props: any) {
             width="25"
             height="30"
             closable={true}
-
             {...props}
         >
             <Wrapper>

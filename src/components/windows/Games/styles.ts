@@ -11,7 +11,6 @@ export const Wrapper = styled.div`
 `;
 
 export const Game = styled.div`
-
     position: relative;
     width: 4.5rem;
     height: min-content;
@@ -32,4 +31,4 @@ export const Game = styled.div`
         font-weight: bold;
         text-align: center;
     }
-`
+`;

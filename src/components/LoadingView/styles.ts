@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import WRAPPER_TEMPLATE from '../ViewWrapper/styles';
+import styled from "styled-components";
+import WRAPPER_TEMPLATE from "../ViewWrapper/styles";
 
 export const LoadingWrapper = styled.div`
     width: 100%;
@@ -11,7 +11,7 @@ export const LoadingWrapper = styled.div`
     position: relative;
 
     ${WRAPPER_TEMPLATE}
-`
+`;
 
 export const LoadingDialog = styled.div`
     background: ${(props: any) => props.theme.windowBackground};
@@ -31,7 +31,7 @@ export const LoadingDialog = styled.div`
     z-index: 9;
 
     padding: 20px;
-`
+`;
 
 export const BootWrapper = styled.div`
     width: 100%;
@@ -46,14 +46,14 @@ export const BootWrapper = styled.div`
     flex-direction: column;
 
     position: relative;
-`
+`;
 
 export const LoadingBar = styled.div`
     width: 90%;
     height: 10px;
 
     border: 2px solid #000;
-`
+`;
 
 export const Progress = styled.div`
     background: ${(props: any) => props.theme.viewBackground};
@@ -62,7 +62,7 @@ export const Progress = styled.div`
     ${(props: any) => `
         width: ${props.progress}%;
     `}
-`
+`;
 
 export const LoadingText = styled.div`
     text-transform: uppercase;
@@ -78,9 +78,9 @@ export const LoadingText = styled.div`
     font-size: 0.85em;
 
     font-weight: 600;
-`
+`;
 
 export const ImageWrapper = styled.div`
     width: 100%;
     height: 60%;
-`
+`;

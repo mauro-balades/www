@@ -6,7 +6,7 @@ function ViewWrapper(props: any) {
 }
 
 function _NavigationBar(props: any) {
-    return <NavigationBarWrapper>{props.children}</NavigationBarWrapper>
+    return <NavigationBarWrapper>{props.children}</NavigationBarWrapper>;
 }
 
 export default ViewWrapper;

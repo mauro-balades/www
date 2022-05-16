@@ -14,7 +14,8 @@ export default styled.div`
     border-radius: 2px;
 
     &:active {
-        box-shadow: inset 0 1px 0 0 ${(props: any) => props.theme.titleBarBackground},
+        box-shadow: inset 0 1px 0 0
+                ${(props: any) => props.theme.titleBarBackground},
             inset -3px -3px 0 0 rgb(0 0 0 / 10%);
     }
 `;
