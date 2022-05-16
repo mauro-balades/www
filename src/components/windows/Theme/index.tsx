@@ -11,9 +11,9 @@ function ThemeConfig(props: any) {
     const { setTheme } = props;
 
     const onClick = (theme: string) => {
-        set("theme", theme)
+        set("theme", theme);
         setTheme(theme);
-    }
+    };
 
     return (
         <Window
@@ -26,7 +26,15 @@ function ThemeConfig(props: any) {
             {...props}
         >
             <Wrapper>
-                {themeKeys.map((value: string, key: number) => <Button style={{ marginTop: '10px' }} key={key} onClick={() => onClick(value)}>{value}</Button>)}
+                {themeKeys.map((value: string, key: number) => (
+                    <Button
+                        style={{ marginTop: "10px" }}
+                        key={key}
+                        onClick={() => onClick(value)}
+                    >
+                        {value}
+                    </Button>
+                ))}
             </Wrapper>
         </Window>
     );

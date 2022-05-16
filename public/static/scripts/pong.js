@@ -464,7 +464,7 @@ const pongGame = () => {
                           s > t.x &&
                           ((this.y_speed = 3),
                           (this.x_speed += t.x_speed / 2),
-                          (this.y += this.y_speed))
+                          (this.y += this.y_speed));
             }),
             document.body.appendChild(t),
             e(x),

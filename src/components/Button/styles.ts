@@ -3,7 +3,8 @@ import styled from "styled-components";
 export default styled.div`
     background: ${(props: any) => props.theme.titleBarBackground};
 
-    border: 2px solid ${(props: any) => props.theme.light ? "#1d1e1c" : "#fff"};
+    border: 2px solid
+        ${(props: any) => (props.theme.light ? "#1d1e1c" : "#fff")};
 
     line-height: 100%;
     font-size: 14px;

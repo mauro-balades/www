@@ -37,8 +37,8 @@ export const BootWrapper = styled.div`
     width: 100%;
     height: 60%;
 
-    border: 2px solid ${(props: any) => props.theme.light ? "#000" : "#fff"};
-    background: ${(props: any) => props.theme.light ? "#0F1D19" : "#171d1b"};
+    border: 2px solid ${(props: any) => (props.theme.light ? "#000" : "#fff")};
+    background: ${(props: any) => (props.theme.light ? "#ddd" : "#222222")};
 
     display: flex;
     align-items: center;
@@ -52,7 +52,7 @@ export const LoadingBar = styled.div`
     width: 90%;
     height: 10px;
 
-    border: 2px solid ${(props: any) => props.theme.light ? "#000" : "#fff"};
+    border: 2px solid ${(props: any) => (props.theme.light ? "#000" : "#fff")};
 `;
 
 export const Progress = styled.div`
@@ -69,7 +69,7 @@ export const LoadingText = styled.div`
     margin: 0 auto;
 
     margin: 1.5em 0 0.5em;
-    color: ${(props: any) => props.theme.light ? "#000" : "#fff"};
+    color: ${(props: any) => (props.theme.light ? "#000" : "#fff")};
 
     letter-spacing: 2px;
     padding: 0.5em 0;

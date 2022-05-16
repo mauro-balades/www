@@ -70,9 +70,9 @@ export const NavigationBarWrapper = styled.nav`
 
     border-radius: 3px;
     box-shadow: 0 0.3rem 0 rgb(29 30 28 / 26%);
-    border: 2px solid ${(props: any) => props.theme.light ? "#000" : "#fff"};
+    border: 2px solid ${(props: any) => (props.theme.light ? "#000" : "#fff")};
 
-    color: ${(props: any) => props.theme.light ? "#1d1e1c" : "#fff"};
+    color: ${(props: any) => (props.theme.light ? "#1d1e1c" : "#fff")};
 
     ${WRAPPER_TEMPLATE}
 `;

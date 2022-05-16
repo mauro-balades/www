@@ -28,6 +28,6 @@ export const ListItem = styled.li`
 
     &:hover {
         background: ${(props: any) => props.theme.windowBackground};
-        color: ${(props: any) => props.theme.light ? "#000" : "#fff"};
+        color: ${(props: any) => (props.theme.light ? "#000" : "#fff")};
     }
 `;

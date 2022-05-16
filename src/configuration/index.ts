@@ -22,8 +22,5 @@ export function defaultSettings() {
 }
 
 export function settingsExists() {
-    return (
-        get("theme") &&
-        get("cookies")
-    )
+    return get("theme") && get("cookies");
 }

@@ -25,7 +25,7 @@ import "normalize.css";
 function App() {
     if (!settingsExists()) defaultSettings();
 
-    useEffect(() => initializeSounds(), [])
+    useEffect(() => initializeSounds(), []);
 
     const [isLoading, setLoading] = useState(true);
     const [theme, setTheme] = useState(get("theme"));
@@ -40,7 +40,11 @@ function App() {
         <Cookies closed={cookies_closed} setClosed={cookies_setClosed} />,
         <Email closed={email_closed} setClosed={email_setClosed} />,
         <Pong closed={pong_closed} setClosed={pong_setClosed} />,
-        <Theme closed={theme_closed} setClosed={theme_setClosed} setTheme={setTheme} />,
+        <Theme
+            closed={theme_closed}
+            setClosed={theme_setClosed}
+            setTheme={setTheme}
+        />,
         <Settings
             closed={settings_closed}
             setClosed={settings_setClosed}
@@ -120,9 +124,7 @@ function App() {
                             </svg>
                         </NavigationSection>
                         <NavigationSpacer></NavigationSpacer>
-                        <NavigationSection
-                            className="both"
-                        >
+                        <NavigationSection className="both">
                             <TimeSection />
                         </NavigationSection>
                         <NavigationSection>

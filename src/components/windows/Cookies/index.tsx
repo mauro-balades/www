@@ -25,10 +25,9 @@ function CookiesDialog(props: any) {
 }
 
 function Cookies(props: any) {
-
     let cookies = get("cookies");
     if (get("cookies") != "1") set("cookies", "1");
-    
+
     return cookies != "1" ? (
         <Window
             closable={false}

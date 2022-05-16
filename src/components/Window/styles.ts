@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
 
     box-shadow: -0.6rem 0.6rem 0 rgb(29 30 28 / 26%);
     z-index: 9;
-    color: ${(props: any) => props.theme.light ? "#000" : "#fff"};
+    color: ${(props: any) => (props.theme.light ? "#000" : "#fff")};
 `;
 
 export const WindowTitle = styled.div`
@@ -28,7 +28,8 @@ export const WindowTitle = styled.div`
     text-align: center;
     background-color: ${(props: any) => props.theme.titleBarBackground};
 
-    border-bottom: 2px solid ${(props: any) => props.theme.light ? "#1d1e1c" : "#fff"};
+    border-bottom: 2px solid
+        ${(props: any) => (props.theme.light ? "#1d1e1c" : "#fff")};
     z-index: 1;
 
     display: flex;
@@ -42,12 +43,14 @@ export const CloseWindowButton = styled.div`
     width: 1.8rem;
     height: 1.7rem;
 
-    border-right: 2px solid ${(props: any) => props.theme.light ? "#1d1e1c" : "#fff"};
+    border-right: 2px solid
+        ${(props: any) => (props.theme.light ? "#1d1e1c" : "#fff")};
 
-    background-color: ${(props: any) => props.theme.light ? "#c1c1bf" : props.theme.windowBackground};
+    background-color: ${(props: any) =>
+        props.theme.light ? "#c1c1bf" : props.theme.windowBackground};
     cursor: pointer;
 
-    ${(props: any) => props.theme.light ? "" : "color: #ddd;"}
+    ${(props: any) => (props.theme.light ? "" : "color: #ddd;")}
 
     font-size: 30px;
 
@@ -64,12 +67,14 @@ export const InfoWindowButton = styled.div`
     width: 1.8rem;
     height: 1.7rem;
 
-    border-left: 2px solid ${(props: any) => props.theme.light ? "#1d1e1c" : "#fff"};
+    border-left: 2px solid
+        ${(props: any) => (props.theme.light ? "#1d1e1c" : "#fff")};
 
-    background-color: ${(props: any) => props.theme.light ? "#c1c1bf" : props.theme.windowBackground};
+    background-color: ${(props: any) =>
+        props.theme.light ? "#c1c1bf" : props.theme.windowBackground};
     cursor: pointer;
 
-    ${(props: any) => props.theme.light ? "" : "color: #ddd;"}
+    ${(props: any) => (props.theme.light ? "" : "color: #ddd;")}
 
     font-size: 15px;
 
@@ -111,7 +116,7 @@ export const TitleBar = styled.div`
     width: 100%;
     height: 2px;
 
-    background: ${(props: any) => props.theme.light ? "#1d1e1c" : "#fff"};
+    background: ${(props: any) => (props.theme.light ? "#1d1e1c" : "#fff")};
 
     margin-bottom: 3px;
     display: block;
@@ -126,7 +131,6 @@ export const WindowTitleText = styled.span`
     transform: translate(-50%, -50%);
     padding: 0 5px;
     user-select: none;
-
 `;
 
 export const WindowContent = styled.div`

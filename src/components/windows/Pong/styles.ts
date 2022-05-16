@@ -1,5 +1,4 @@
-
-import styled from 'styled-components';
+import styled from "styled-components";
 import Button from "../../Button";
 
 export const PongHolder = styled.div`
@@ -7,7 +6,10 @@ export const PongHolder = styled.div`
     height: 100%;
 
     ${(props: any) => `
-        ${props.theme.light ? "" : `
+        ${
+            props.theme.light
+                ? ""
+                : `
             & #js-game {
                 display: none;
             }
@@ -15,9 +17,10 @@ export const PongHolder = styled.div`
             & #js-game-dark {
                 display: block !important;
             }
-        `}
+        `
+        }
     `}
-`
+`;
 
 export const PongButton = styled(Button)`
     position: absolute;
@@ -30,4 +33,4 @@ export const PongButton = styled(Button)`
     &.c-pong__button--visible {
         display: block;
     }
-`
+`;

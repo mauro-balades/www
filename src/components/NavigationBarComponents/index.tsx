@@ -18,7 +18,13 @@ export function TimeSection() {
     }, []);
 
     return (
-        <div style={{ userSelect: 'none', padding: "0 10px", fontWeight: "bold" }}>
+        <div
+            style={{
+                userSelect: "none",
+                padding: "0 10px",
+                fontWeight: "bold",
+            }}
+        >
             <span>{today.getHours()}</span>
             <span style={{ margin: "0 10px" }}>:</span>
             <span>{today.getMinutes()}</span>
@@ -32,7 +38,8 @@ export const NavigationSection = styled.div`
     height: 100%;
     width: min-content;
 
-    border-right: 2px solid ${(props: any) => props.theme.light ? "#000" : "#fff"};
+    border-right: 2px solid
+        ${(props: any) => (props.theme.light ? "#000" : "#fff")};
 
     display: flex;
     align-items: center;
@@ -41,7 +48,8 @@ export const NavigationSection = styled.div`
     padding: 0 5px;
 
     &.both {
-        border-left: 2px solid ${(props: any) => props.theme.light ? "#000" : "#fff"};
+        border-left: 2px solid
+            ${(props: any) => (props.theme.light ? "#000" : "#fff")};
     }
 
     & svg {
