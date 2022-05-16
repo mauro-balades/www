@@ -15,7 +15,7 @@ export const SubjectWrapper = styled.div`
     background: ${(props: any) => props.theme.titleBarBackground};
     height: 35px;
 
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid ${(props: any) => props.theme.light ? "#000" : "#fff"};
 
     display: flex;
     align-items: center;

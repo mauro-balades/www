@@ -3,6 +3,8 @@ import Window from "../../Window";
 import { Wrapper } from "./styles";
 import Button from "../../Button";
 
+import { get, set } from "../../../configuration";
+
 function CookiesDialog(props: any) {
     return (
         <Wrapper>
@@ -23,7 +25,11 @@ function CookiesDialog(props: any) {
 }
 
 function Cookies(props: any) {
-    return (
+
+    let cookies = get("cookies");
+    if (get("cookies") != "1") set("cookies", "1");
+    
+    return cookies != "1" ? (
         <Window
             closable={false}
             y="83"
@@ -35,7 +41,7 @@ function Cookies(props: any) {
         >
             <CookiesDialog />
         </Window>
-    );
+    ) : null;
 }
 
 export default Cookies;

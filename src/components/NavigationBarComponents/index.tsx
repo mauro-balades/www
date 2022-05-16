@@ -18,7 +18,7 @@ export function TimeSection() {
     }, []);
 
     return (
-        <div style={{ padding: "0 10px", fontWeight: "bold" }}>
+        <div style={{ userSelect: 'none', padding: "0 10px", fontWeight: "bold" }}>
             <span>{today.getHours()}</span>
             <span style={{ margin: "0 10px" }}>:</span>
             <span>{today.getMinutes()}</span>
@@ -45,7 +45,7 @@ export const NavigationSection = styled.div`
     }
 
     & svg {
-        margin: 2.5px;
+        margin: 10px;
     }
 `;
 

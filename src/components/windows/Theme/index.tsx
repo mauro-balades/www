@@ -26,8 +26,7 @@ function ThemeConfig(props: any) {
             {...props}
         >
             <Wrapper>
-
-                {themeKeys.map((value: string, key: number) => <Button key={key} onClick={() => onClick(value)}>{value}</Button>)}
+                {themeKeys.map((value: string, key: number) => <Button style={{ marginTop: '10px' }} key={key} onClick={() => onClick(value)}>{value}</Button>)}
             </Wrapper>
         </Window>
     );

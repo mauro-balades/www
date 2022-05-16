@@ -440,8 +440,8 @@ const pongGame = () => {
                     s = this.x + 5,
                     d = this.y + 5;
                 this.x - 5 < 0
-                    ? (((this.x = 5), (this.x_speed = -this.x_speed)) && new Audio('/static/sounds/pong.mp3').play())
-                    : this.x + 5 > 400 && new Audio('/static/sounds/pong.mp3').play() &&
+                    ? ((this.x = 5), (this.x_speed = -this.x_speed))
+                    : this.x + 5 > 400 &&
                       ((this.x = 395), (this.x_speed = -this.x_speed)),
                     (this.y < 0 || this.y > 600) &&
                         ((this.x_speed = 0),
@@ -457,14 +457,14 @@ const pongGame = () => {
                           s > e.x &&
                           ((this.y_speed = -3),
                           (this.x_speed += e.x_speed / 2),
-                          (this.y += this.y_speed)) && new Audio('/static/sounds/pong.mp3').play()
+                          (this.y += this.y_speed))
                         : n < t.y + t.height &&
                           d > t.y &&
                           i < t.x + t.width &&
                           s > t.x &&
                           ((this.y_speed = 3),
                           (this.x_speed += t.x_speed / 2),
-                          (this.y += this.y_speed)) && new Audio('/static/sounds/pong.mp3').play();
+                          (this.y += this.y_speed))
             }),
             document.body.appendChild(t),
             e(x),

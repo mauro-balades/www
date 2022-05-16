@@ -35,7 +35,7 @@ export const WindowTitle = styled.div`
     align-items: center;
 
     height: 1.7rem;
-    user-selection: none;
+    user-select: none;
 `;
 
 export const CloseWindowButton = styled.div`
@@ -57,6 +57,28 @@ export const CloseWindowButton = styled.div`
 
     & p {
         transform: rotate(135deg);
+    }
+`;
+
+export const InfoWindowButton = styled.div`
+    width: 1.8rem;
+    height: 1.7rem;
+
+    border-left: 2px solid ${(props: any) => props.theme.light ? "#1d1e1c" : "#fff"};
+
+    background-color: ${(props: any) => props.theme.light ? "#c1c1bf" : props.theme.windowBackground};
+    cursor: pointer;
+
+    ${(props: any) => props.theme.light ? "" : "color: #ddd;"}
+
+    font-size: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & svg {
+        width: 70%;
     }
 `;
 
@@ -103,6 +125,8 @@ export const WindowTitleText = styled.span`
 
     transform: translate(-50%, -50%);
     padding: 0 5px;
+    user-select: none;
+
 `;
 
 export const WindowContent = styled.div`

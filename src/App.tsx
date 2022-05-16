@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ViewWrapper, { NavigationBar } from "./components/ViewWrapper";
 
 import Pong from "./components/windows/Pong";
@@ -17,12 +17,15 @@ import {
     TimeSection,
 } from "./components/NavigationBarComponents";
 
-import { defaultSettings, get } from "./configuration";
+import { defaultSettings, get, settingsExists } from "./configuration";
+import initializeSounds from "./sounds";
 
 import "normalize.css";
 
-function App(props: any) {
-    if (!get("theme")) defaultSettings();
+function App() {
+    if (!settingsExists()) defaultSettings();
+
+    useEffect(() => initializeSounds(), [])
 
     const [isLoading, setLoading] = useState(true);
     const [theme, setTheme] = useState(get("theme"));
@@ -118,9 +121,6 @@ function App(props: any) {
                         </NavigationSection>
                         <NavigationSpacer></NavigationSpacer>
                         <NavigationSection
-                            style={{
-                                marginRight: "10px" /* TODO: remove style */,
-                            }}
                             className="both"
                         >
                             <TimeSection />
