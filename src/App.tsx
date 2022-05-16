@@ -7,9 +7,8 @@ import Settings from "./components/windows/Settings";
 
 import DropDown from "./components/DropDown";
 import LoadingView from "./components/LoadingView";
-import Games from "./components/windows/Games";
-
 import Email from "./components/windows/Email";
+
 import Theme from "./components/windows/Theme";
 import ThemeProvider from "./theme/theming";
 import {
@@ -31,7 +30,6 @@ function App(props: any) {
     const [cookies_closed, cookies_setClosed] = useState(false);
     const [settings_closed, settings_setClosed] = useState(true);
     const [pong_closed, pong_setClosed] = useState(true);
-    const [games_closed, games_setClosed] = useState(true);
     const [email_closed, email_setClosed] = useState(true);
     const [theme_closed, theme_setClosed] = useState(true);
 
@@ -40,11 +38,6 @@ function App(props: any) {
         <Email closed={email_closed} setClosed={email_setClosed} />,
         <Pong closed={pong_closed} setClosed={pong_setClosed} />,
         <Theme closed={theme_closed} setClosed={theme_setClosed} setTheme={setTheme} />,
-        <Games
-            closed={games_closed}
-            setClosed={games_setClosed}
-            pong_setClosed={pong_setClosed}
-        />,
         <Settings
             closed={settings_closed}
             setClosed={settings_setClosed}
@@ -61,7 +54,7 @@ function App(props: any) {
                         <NavigationSection>
                             <svg
                                 className="pointer"
-                                onClick={() => games_setClosed(false)}
+                                onClick={() => pong_setClosed(false)}
                                 width="20"
                                 height="20"
                                 fill="none"
