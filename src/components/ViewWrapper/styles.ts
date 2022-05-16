@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
     height: 100vh;
 
     overflow: hidden;
-    background: #54b9ad;
+    background: ${(props: any) => props.theme.viewBackground};
 
     position: relative;
 
@@ -49,7 +49,7 @@ export const NavigationBarWrapper = styled.nav`
     height: ${NAVIGATION_BAR_HEIGHT}vh;
     width: calc(100% - 14px);
 
-    background: #fad844;
+    background: ${(props: any) => props.theme.navigationBackground};
     // border-bottom: 2px solid #1d1e1c;
 
     display: flex;

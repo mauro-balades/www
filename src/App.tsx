@@ -10,31 +10,42 @@ import LoadingView from "./components/LoadingView";
 import Games from "./components/windows/Games";
 
 import Email from "./components/windows/Email";
+import Theme from "./components/windows/Theme";
+import ThemeProvider from './theme/theming';
 import { NavigationSection, NavigationSpacer, TimeSection } from "./components/NavigationBarComponents";
+
+import { defaultSettings, get } from "./configuration";
 
 import "normalize.css";
 
-function App() {
+
+function App(props: any) {
+
+  if (!get("theme")) defaultSettings();
 
   const [ isLoading, setLoading ] = useState(true);
+  const [ theme, setTheme ] = useState(get("theme"));
 
   const [cookies_closed, cookies_setClosed]   = useState(false);
   const [settings_closed, settings_setClosed] = useState(true);
   const [pong_closed, pong_setClosed] = useState(true);
   const [games_closed, games_setClosed] = useState(true);
   const [email_closed, email_setClosed] = useState(true);
+  const [theme_closed, theme_setClosed] = useState(true);
 
     let windows = [
       <Cookies closed={cookies_closed} setClosed={cookies_setClosed} />,
       <Email closed={email_closed} setClosed={email_setClosed} />,
-      <Settings closed={settings_closed} setClosed={settings_setClosed} />,
       <Pong closed={pong_closed} setClosed={pong_setClosed} />,
+      <Theme closed={theme_closed} setClosed={theme_setClosed} />,
       <Games closed={games_closed} setClosed={games_setClosed}
-          pong_setClosed={pong_setClosed} />
+          pong_setClosed={pong_setClosed} />,
+      <Settings closed={settings_closed} setClosed={settings_setClosed}
+        themeSetClosed={theme_setClosed} />,
     ];
 
     return !isLoading ? (
-        <>
+        <ThemeProvider theme={theme}>
           <NavigationBar>
             <NavigationSection>[LOGO]</NavigationSection>
             <NavigationSection>
@@ -53,7 +64,7 @@ function App() {
           <ViewWrapper>
             {windows}
           </ViewWrapper>
-        </>
+        </ThemeProvider>
     ) : (
       <LoadingView setLoading={setLoading} />
     );

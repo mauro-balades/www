@@ -6,7 +6,7 @@ export const LoadingWrapper = styled.div`
     height: 100vh;
 
     overflow: hidden;
-    background: #54b9ad;
+    background: ${(props: any) => props.theme.viewBackground};
 
     position: relative;
 
@@ -14,7 +14,7 @@ export const LoadingWrapper = styled.div`
 `
 
 export const LoadingDialog = styled.div`
-    background: #E8E7E2;
+    background: ${(props: any) => props.theme.windowBackground};
     border: 2px solid #1d1e1c;
 
     width: 25rem;
@@ -56,7 +56,7 @@ export const LoadingBar = styled.div`
 `
 
 export const Progress = styled.div`
-    background: #54b9ad;
+    background: ${(props: any) => props.theme.viewBackground};
     height: 100%;
 
     ${(props: any) => `

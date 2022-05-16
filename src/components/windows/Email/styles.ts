@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
 `;
 
 export const SubjectWrapper = styled.div`
-    background: #dadad3;
+    background: ${(props: any) => props.theme.titleBarBackground};
     height: 35px;
 
     border-bottom: 2px solid #000;

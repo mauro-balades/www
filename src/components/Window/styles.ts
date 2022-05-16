@@ -25,7 +25,7 @@ export const WindowTitle = styled.div`
     letter-spacing: 1px;
 
     text-align: center;
-    background-color: #dadad3;
+    background-color: ${(props: any) => props.theme.titleBarBackground};
 
     border-bottom: 2px solid #1d1e1c;
     z-index: 1;
@@ -93,7 +93,7 @@ export const TitleBar = styled.div`
 `;
 
 export const WindowTitleText = styled.span`
-    background: #dadad3;
+    background: ${(props: any) => props.theme.titleBarBackground};
     position: absolute;
     top: 50%;
     left: 50%;

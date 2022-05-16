@@ -16,7 +16,7 @@ export const DropDownList = styled.ul`
     box-sizing: border-box;
     font-size: 1.1rem;
     font-weight: 500;
-    background: #E8E7E2;
+    background: ${(props: any) => props.theme.windowBackground};
     position: relative;
     min-width: 10rem;
     z-index: 9;
@@ -29,6 +29,6 @@ export const ListItem = styled.li`
 
     &:hover {
         background: #1d1e1c;
-        color: #E8E7E2;
+        color: ${(props: any) => props.theme.windowBackground};
     }
 `;
