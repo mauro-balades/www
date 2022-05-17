@@ -7,7 +7,9 @@ import Settings from "./components/windows/Settings";
 
 import DropDown from "./components/DropDown";
 import LoadingView from "./components/LoadingView";
+
 import Email from "./components/windows/Email";
+import Folders from "./components/windows/Folders";
 
 import Theme from "./components/windows/Theme";
 import ThemeProvider from "./theme/theming";
@@ -21,6 +23,7 @@ import { defaultSettings, get, settingsExists } from "./configuration";
 import initializeSounds from "./sounds";
 
 import "normalize.css";
+import { initializeFiles } from "./components/fs";
 
 function App() {
     if (!settingsExists()) defaultSettings();
@@ -35,6 +38,13 @@ function App() {
     const [pong_closed, pong_setClosed] = useState(true);
     const [email_closed, email_setClosed] = useState(true);
     const [theme_closed, theme_setClosed] = useState(true);
+    const [folders_closed, folders_setClosed] = useState(false);
+
+
+    initializeFiles({
+        pong_setClosed,
+    });
+    const [ currentFolder, setCurrentFolder ] = useState("/");
 
     let windows = [
         <Cookies closed={cookies_closed} setClosed={cookies_setClosed} />,
@@ -50,6 +60,8 @@ function App() {
             setClosed={settings_setClosed}
             themeSetClosed={theme_setClosed}
         />,
+        <Folders closed={folders_closed} setClosed={folders_setClosed} {...{currentFolder, setCurrentFolder,
+            pong_setClosed}} />
     ];
 
     return (
