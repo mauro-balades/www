@@ -38,13 +38,12 @@ function App() {
     const [pong_closed, pong_setClosed] = useState(true);
     const [email_closed, email_setClosed] = useState(true);
     const [theme_closed, theme_setClosed] = useState(true);
-    const [folders_closed, folders_setClosed] = useState(false);
-
+    const [folders_closed, folders_setClosed] = useState(true);
 
     initializeFiles({
         pong_setClosed,
     });
-    const [ currentFolder, setCurrentFolder ] = useState("/");
+    const [currentFolder, setCurrentFolder] = useState("/");
 
     let windows = [
         <Cookies closed={cookies_closed} setClosed={cookies_setClosed} />,
@@ -60,8 +59,11 @@ function App() {
             setClosed={settings_setClosed}
             themeSetClosed={theme_setClosed}
         />,
-        <Folders closed={folders_closed} setClosed={folders_setClosed} {...{currentFolder, setCurrentFolder,
-            pong_setClosed}} />
+        <Folders
+            closed={folders_closed}
+            setClosed={folders_setClosed}
+            {...{ currentFolder, setCurrentFolder, pong_setClosed }}
+        />,
     ];
 
     return (
@@ -132,6 +134,26 @@ function App() {
                                     strokeLinejoin="round"
                                     strokeWidth={2}
                                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                                />
+                            </svg>
+                            <svg
+                                className="pointer"
+                                width="20"
+                                height="20"
+                                onClick={() => {
+                                    setCurrentFolder("/");
+                                    folders_setClosed(false);
+                                }}
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
                                 />
                             </svg>
                         </NavigationSection>

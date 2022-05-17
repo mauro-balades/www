@@ -1,14 +1,13 @@
-
 import styled from "styled-components";
 
 export const FilesWrapper = styled.div`
     padding: 20px;
     display: flex;
-`
+`;
 
 export const LineBreak = styled.div`
     width: 100%;
-`
+`;
 
 export const Item = styled.div`
     width: 5rem;
@@ -31,4 +30,4 @@ export const Item = styled.div`
         font-weight: bold;
         text-align: center;
     }
-`
+`;
