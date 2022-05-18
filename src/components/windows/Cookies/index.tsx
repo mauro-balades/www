@@ -3,7 +3,7 @@ import Window from "../../Window";
 import { Wrapper } from "./styles";
 import Button from "../../Button";
 
-import { get, set } from "../../../configuration";
+import { set } from "../../../configuration";
 
 function CookiesDialog(props: any) {
     return (
@@ -18,15 +18,16 @@ function CookiesDialog(props: any) {
                 </span>
             </div>
             <div>
-                <Button onClick={() => props.setClosed(true)}>Accept</Button>
+                <Button onClick={() => { 
+                        props.setClosed(true);
+                        set("cookies", "1");
+                }>Accept</Button>
             </div>
         </Wrapper>
     );
 }
 
 function Cookies(props: any) {
-    let cookies = get("cookies");
-    if (get("cookies") != "1") set("cookies", "1");
 
     return cookies != "1" ? (
         <Window
