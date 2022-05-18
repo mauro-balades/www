@@ -21,7 +21,7 @@ function CookiesDialog(props: any) {
                 <Button onClick={() => { 
                         props.setClosed(true);
                         set("cookies", "1");
-                }>Accept</Button>
+                }}>Accept</Button>
             </div>
         </Wrapper>
     );
