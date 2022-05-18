@@ -1,5 +1,7 @@
 import React from "react";
 
+const STATIC_SVG_PREFIX = "/static/svg"
+
 export var FILE_STRUCTURE = {};
 
 export const initializeFiles = (props: any) => {
@@ -12,7 +14,7 @@ export const initializeFiles = (props: any) => {
 
                 wonoly: {
                     __type: "file",
-                    __icon: "",
+                    __icon: `${STATIC_SVG_PREFIX}/wonoly.svg`,
                     __handle: "",
                 },
             },

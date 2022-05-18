@@ -19,11 +19,13 @@ import {
     TimeSection,
 } from "./components/NavigationBarComponents";
 
+import { initializeFiles } from "./components/fs";
+import IconsDialog from "./components/IconsDialog";
+
 import { defaultSettings, get, settingsExists } from "./configuration";
 import initializeSounds from "./sounds";
 
 import "normalize.css";
-import { initializeFiles } from "./components/fs";
 
 function App() {
     if (!settingsExists()) defaultSettings();
@@ -39,6 +41,8 @@ function App() {
     const [email_closed, email_setClosed] = useState(true);
     const [theme_closed, theme_setClosed] = useState(true);
     const [folders_closed, folders_setClosed] = useState(true);
+
+    const [iconsDialog_closed, iconsDialog_setClosed] = useState(true);
 
     initializeFiles({
         pong_setClosed,
@@ -73,30 +77,7 @@ function App() {
                     <NavigationBar>
                         <NavigationSection>[LOGO]</NavigationSection>
                         <NavigationSection>
-                            <svg
-                                className="pointer"
-                                onClick={() => pong_setClosed(false)}
-                                width="20"
-                                height="20"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-                                />
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                                />
-                            </svg>
-                            <svg
+                        <svg
                                 className="pointer"
                                 onClick={() => settings_setClosed(false)}
                                 width="20"
@@ -156,6 +137,35 @@ function App() {
                                     d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
                                 />
                             </svg>
+                            <svg className="pointer"
+                                onClick={() => iconsDialog_setClosed(false)}
+                                width="20"
+                                height="20" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" /></svg>
+                            <IconsDialog {...{iconsDialog_closed, iconsDialog_setClosed}}>
+                            <svg
+                                className="pointer"
+                                onClick={() => pong_setClosed(false)}
+                                width="20"
+                                height="20"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                                />
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                />
+                            </svg>
+                            </IconsDialog>
                         </NavigationSection>
                         <NavigationSpacer></NavigationSpacer>
                         <NavigationSection className="both">

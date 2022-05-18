@@ -17,7 +17,8 @@ export const Item = styled.div`
     text-align: center;
 
     & img {
-        width: 100%;
+        width: 5rem;
+        height: 5rem;
     }
 
     &:hover img {
