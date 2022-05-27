@@ -1,5 +1,8 @@
+
+const CLICK_AUDIO = new Audio("/static/audio/click.wav");
+
 export default function initializeSounds() {
     window.addEventListener("click", () => {
-        new Audio("/static/audio/click.wav").play();
+        CLICK_AUDIO.play();
     });
 }

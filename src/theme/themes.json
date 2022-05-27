@@ -4,6 +4,7 @@
         "viewBackground": "#54b9ad",
         "windowBackground": "#E8E7E2",
         "titleBarBackground": "#dadad3",
+        "closeButtonBackground": "#C1C1BF",
         "light": true
     },
     "Alpine Night": {
@@ -11,6 +12,15 @@
         "viewBackground": "#40CBA5",
         "windowBackground": "#121D19",
         "titleBarBackground": "#0F1D19",
+        "closeButtonBackground": "#121D19",
         "light": false
+    },
+    "Sunset Shore": {
+        "navigationBackground": "#FEDDE3",
+        "viewBackground": "#63649C",
+        "windowBackground": "#E9CED5",
+        "titleBarBackground": "#E9CED5",
+        "closeButtonBackground": "#cfadb6",
+        "light": true
     }
 }

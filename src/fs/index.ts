@@ -22,7 +22,6 @@ export const initializeFiles = (props: any) => {
                 __type: "folder",
                 pong: {
                     __type: "file",
-                    __icon: "",
                     __handle: () => {
                         pong_setClosed(false);
                     },

@@ -3,7 +3,7 @@
 import React from "react";
 import Window from "../../Window";
 
-import { FILE_STRUCTURE } from "../../fs";
+import { FILE_STRUCTURE } from "../../../fs";
 import { FilesWrapper, Item } from "./styles";
 
 const getFileByPath = (path: string) => {

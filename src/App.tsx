@@ -19,8 +19,7 @@ import {
     TimeSection,
 } from "./components/NavigationBarComponents";
 
-import { initializeFiles } from "./components/fs";
-import IconsDialog from "./components/IconsDialog";
+import { initializeFiles } from "./fs";
 
 import { defaultSettings, get, settingsExists } from "./configuration";
 import initializeSounds from "./sounds";
@@ -122,7 +121,6 @@ function App() {
                                 width="20"
                                 height="20"
                                 onClick={() => {
-                                    setCurrentFolder("/");
                                     folders_setClosed(false);
                                 }}
                                 fill="none"
@@ -137,11 +135,6 @@ function App() {
                                     d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
                                 />
                             </svg>
-                            <svg className="pointer"
-                                onClick={() => iconsDialog_setClosed(false)}
-                                width="20"
-                                height="20" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" /></svg>
-                            <IconsDialog {...{iconsDialog_closed, iconsDialog_setClosed}}>
                             <svg
                                 className="pointer"
                                 onClick={() => pong_setClosed(false)}
@@ -165,7 +158,6 @@ function App() {
                                     d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                                 />
                             </svg>
-                            </IconsDialog>
                         </NavigationSection>
                         <NavigationSpacer></NavigationSpacer>
                         <NavigationSection className="both">
