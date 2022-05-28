@@ -14,6 +14,7 @@ import Folders from "./components/windows/Folders";
 import Theme from "./components/windows/Theme";
 import ThemeProvider from "./theme/theming";
 import {
+    LogiImage,
     NavigationSection,
     NavigationSpacer,
     TimeSection,
@@ -26,10 +27,23 @@ import initializeSounds from "./sounds";
 
 import "normalize.css";
 
+const HANDS_AVAILABLE = 2;
+
 function App() {
     if (!settingsExists()) defaultSettings();
 
-    useEffect(() => initializeSounds(), []);
+    const [hand, setHand] = useState(1);
+
+    const setRandomHand = (): any => {
+        let rand = Math.floor(Math.random() * (HANDS_AVAILABLE - 1 + 1) + 1);
+
+        if (rand == hand) return setRandomHand();
+
+        setHand(rand);
+    }
+
+    useEffect(initializeSounds, []);
+    useEffect(setRandomHand, [])
 
     const [isLoading, setLoading] = useState(true);
     const [theme, setTheme] = useState(get("theme"));
@@ -41,11 +55,10 @@ function App() {
     const [theme_closed, theme_setClosed] = useState(true);
     const [folders_closed, folders_setClosed] = useState(true);
 
-    const [iconsDialog_closed, iconsDialog_setClosed] = useState(true);
-
     initializeFiles({
         pong_setClosed,
     });
+
     const [currentFolder, setCurrentFolder] = useState("/");
 
     let windows = [
@@ -56,6 +69,8 @@ function App() {
             closed={theme_closed}
             setClosed={theme_setClosed}
             setTheme={setTheme}
+            setRandomHand={setRandomHand}
+            hand={hand}
         />,
         <Settings
             closed={settings_closed}
@@ -74,7 +89,9 @@ function App() {
             {!isLoading && (
                 <>
                     <NavigationBar>
-                        <NavigationSection>[LOGO]</NavigationSection>
+                        <NavigationSection style={{ padding: '0 25px' }}>
+                            <LogiImage onClick={setRandomHand} src={`/static/images/hands/0${hand}.png`} alt="Hand" />
+                        </NavigationSection>
                         <NavigationSection>
                         <svg
                                 className="pointer"

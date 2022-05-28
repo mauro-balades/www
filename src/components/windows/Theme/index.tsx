@@ -7,9 +7,10 @@ import * as window from "../../Window/styles";
 import { set } from "../../../configuration";
 
 import { themeKeys } from "../../../theme/theming";
+import { LogiImage } from "../../NavigationBarComponents";
 
 function ThemeConfig(props: any) {
-    const { setTheme } = props;
+    const { setTheme, setRandomHand, hand } = props;
 
     const onClick = (theme: string) => {
         set("theme", theme);
@@ -31,7 +32,7 @@ function ThemeConfig(props: any) {
                     <window.Wrapper style={{ display: "block", position: 'relative', width: '100%', height: '100px', padding: 'none' }}>
                         <window.WindowContent style={{ height: '100%' }}>
                             <WindowPreviewTitle>
-                                preview
+                                <LogiImage style={{ transform: 'scale(1.5)' }} onClick={setRandomHand} src={`/static/images/hands/0${hand}.png`} alt="Hand" />
                             </WindowPreviewTitle>
                         </window.WindowContent>
                     </window.Wrapper>

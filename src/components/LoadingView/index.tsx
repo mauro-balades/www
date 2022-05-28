@@ -10,11 +10,12 @@ import {
 } from "./styles";
 import Window from "../Window";
 
-const INITAL_VALUE = 60;
+const INITAL_VALUE = 40;
 const BOOTING_TEXTS = [
     "Booting portfolio kernel...",
     "Preparing configuration...",
     "Loading projects...",
+    "Seting random hand...",
 ];
 
 function LoadingView(props: any) {

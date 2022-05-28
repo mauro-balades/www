@@ -71,7 +71,7 @@ export const InfoWindowButton = styled.div`
         ${(props: any) => (props.theme.light ? "#1d1e1c" : "#fff")};
 
     background-color: ${(props: any) =>
-        props.theme.light ? "#c1c1bf" : props.theme.windowBackground};
+        props.theme.closeButtonBackground};
     cursor: pointer;
 
     ${(props: any) => (props.theme.light ? "" : "color: #ddd;")}
