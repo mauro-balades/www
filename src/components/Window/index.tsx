@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
     Wrapper,
     WindowTitle,
@@ -11,6 +11,7 @@ import {
     InfoWindowButton,
 } from "./styles";
 import Draggable from "react-draggable";
+import { openWindowSound } from "../../sounds";
 
 /**
  * @param background
@@ -26,6 +27,10 @@ import Draggable from "react-draggable";
  */
 function Window(props: any) {
     const { closed, setClosed, draggable, closable, title, info } = props;
+
+    useEffect(() => {
+        openWindowSound(!closed);
+    }, [closed]);
 
     return (
         <Draggable handle="strong">
