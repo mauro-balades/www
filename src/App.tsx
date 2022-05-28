@@ -14,7 +14,7 @@ import Folders from "./components/windows/Folders";
 import Theme from "./components/windows/Theme";
 import ThemeProvider from "./theme/theming";
 import {
-    LogiImage,
+    LogoImage,
     NavigationSection,
     NavigationSpacer,
     TimeSection,
@@ -32,10 +32,11 @@ const HANDS_AVAILABLE = 2;
 function App() {
     if (!settingsExists()) defaultSettings();
 
-    const [hand, setHand] = useState(1);
+    const [hand, setHand] = useState(0);
 
     const setRandomHand = (): any => {
         let rand = Math.floor(Math.random() * (HANDS_AVAILABLE - 1 + 1) + 1);
+        console.log(rand)
 
         if (rand == hand) return setRandomHand();
 
@@ -90,7 +91,7 @@ function App() {
                 <>
                     <NavigationBar>
                         <NavigationSection style={{ padding: '0 25px' }}>
-                            <LogiImage onClick={setRandomHand} src={`/static/images/hands/0${hand}.png`} alt="Hand" />
+                           <LogoImage onClick={setRandomHand} src={`/static/images/hands/0${hand}.png`} alt="Hand" />
                         </NavigationSection>
                         <NavigationSection>
                         <svg
@@ -205,7 +206,8 @@ function App() {
                 </>
             )}
 
-            {isLoading && <LoadingView setLoading={setLoading} />}
+            {isLoading && <LoadingView             setRandomHand={setRandomHand}
+            hand={hand} setLoading={setLoading} />}
         </ThemeProvider>
     );
 }

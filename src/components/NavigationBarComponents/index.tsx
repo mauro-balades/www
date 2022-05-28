@@ -61,7 +61,7 @@ export const NavigationSpacer = styled.div`
     width: 100%;
 `;
 
-export const LogiImage = styled.img`
+export const LogoImage = styled.img`
     position: absolute;
     transform: scale(0.9);
     ${(props: any) => (!props.theme.light ? "filter: invert(1);" : "")};
