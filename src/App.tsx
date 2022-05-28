@@ -5,7 +5,6 @@ import Pong from "./components/windows/Pong";
 import Cookies from "./components/windows/Cookies";
 import Settings from "./components/windows/Settings";
 
-import DropDown from "./components/DropDown";
 import LoadingView from "./components/LoadingView";
 
 import Email from "./components/windows/Email";
@@ -26,6 +25,7 @@ import initializeSounds from "./sounds";
 import { defaultSettings, get, settingsExists } from "./configuration";
 
 import "normalize.css";
+import DesktopIcon from "./components/DesktopIcon";
 
 const HANDS_AVAILABLE = 2;
 
@@ -206,7 +206,10 @@ function App() {
                             </svg>
                         </NavigationSection>
                     </NavigationBar>
-                    <ViewWrapper>{windows}</ViewWrapper>
+                    <ViewWrapper>
+                        <DesktopIcon x={5} y={20} />
+                        {windows}
+                    </ViewWrapper>
                 </>
             )}
 
