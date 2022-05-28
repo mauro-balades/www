@@ -29,10 +29,24 @@ function ThemeConfig(props: any) {
         >
             <Wrapper>
                 <ThemePreview>
-                    <window.Wrapper style={{ display: "block", position: 'relative', width: '100%', height: '100px', padding: 'none' }}>
-                        <window.WindowContent style={{ height: '100%' }}>
+                    <window.Wrapper
+                        style={{
+                            display: "block",
+                            position: "relative",
+                            width: "100%",
+                            height: "100px",
+                            padding: "none",
+                        }}
+                    >
+                        <window.WindowContent style={{ height: "100%" }}>
                             <WindowPreviewTitle>
-                                <LogoImage className="optimized" style={{ transform: 'scale(1.5)' }} onClick={setRandomHand} src={`/static/images/hands/0${hand}.png`} alt="Hand" />
+                                <LogoImage
+                                    className="optimized"
+                                    style={{ transform: "scale(1.5)" }}
+                                    onClick={setRandomHand}
+                                    src={`/static/images/hands/0${hand}.png`}
+                                    alt="Hand"
+                                />
                             </WindowPreviewTitle>
                         </window.WindowContent>
                     </window.Wrapper>

@@ -1,6 +1,6 @@
 import React from "react";
 
-const STATIC_SVG_PREFIX = "/static/svg"
+const STATIC_SVG_PREFIX = "/static/svg";
 
 export var FILE_STRUCTURE = {};
 

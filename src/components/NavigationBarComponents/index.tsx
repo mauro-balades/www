@@ -67,12 +67,12 @@ export const LogoImage = styled.img`
     ${(props: any) => (!props.theme.light ? "filter: invert(1);" : "")};
 
     &.optimized {
-        image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
-        image-rendering: -moz-crisp-edges;          /* Firefox                        */
-        image-rendering: -o-crisp-edges;            /* Opera                          */
+        image-rendering: optimizeSpeed; /* STOP SMOOTHING, GIVE ME SPEED  */
+        image-rendering: -moz-crisp-edges; /* Firefox                        */
+        image-rendering: -o-crisp-edges; /* Opera                          */
         image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
         image-rendering: pixelated; /* Chrome */
-        image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
-        -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+        image-rendering: optimize-contrast; /* CSS3 Proposed                  */
+        -ms-interpolation-mode: nearest-neighbor; /* IE8+                           */
     }
-`
+`;

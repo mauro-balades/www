@@ -46,8 +46,7 @@ export const CloseWindowButton = styled.div`
     border-right: 2px solid
         ${(props: any) => (props.theme.light ? "#1d1e1c" : "#fff")};
 
-    background-color: ${(props: any) =>
-        props.theme.closeButtonBackground};
+    background-color: ${(props: any) => props.theme.closeButtonBackground};
     cursor: pointer;
 
     ${(props: any) => (props.theme.light ? "" : "color: #ddd;")}
@@ -70,8 +69,7 @@ export const InfoWindowButton = styled.div`
     border-left: 2px solid
         ${(props: any) => (props.theme.light ? "#1d1e1c" : "#fff")};
 
-    background-color: ${(props: any) =>
-        props.theme.closeButtonBackground};
+    background-color: ${(props: any) => props.theme.closeButtonBackground};
     cursor: pointer;
 
     ${(props: any) => (props.theme.light ? "" : "color: #ddd;")}

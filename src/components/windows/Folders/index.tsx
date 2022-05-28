@@ -64,7 +64,8 @@ function Folders(props: any) {
                                 src={
                                     folder[index].__type === "folder"
                                         ? "/static/svg/folder.svg"
-                                        : folder[index].__icon || "/static/svg/file.svg"
+                                        : folder[index].__icon ||
+                                          "/static/svg/file.svg"
                                 }
                                 alt={index}
                             />

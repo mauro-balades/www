@@ -19,7 +19,7 @@ export const ThemePreview = styled.div`
 
     border: 2px solid ${(props: any) => (props.theme.light ? "#000" : "#fff")};
     background: ${(props: any) => props.theme.viewBackground};
-`
+`;
 
 export const WindowPreviewTitle = styled.div`
     font-size: 24px;
@@ -32,4 +32,4 @@ export const WindowPreviewTitle = styled.div`
 
     user-select: none;
     font-weight: bold;
-`
+`;

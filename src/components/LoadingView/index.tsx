@@ -43,7 +43,17 @@ function LoadingView(props: any) {
             <LoadingDialog>
                 <BootWrapper>
                     <ImageWrapper>
-                        <LogoImage className="optimized" style={{ top: 'calc(50% - 1.5rem)', left: '50%', transform: 'translate(-50%, -50%) scale(2)' }} onClick={setRandomHand} src={`/static/images/hands/0${hand}.png`} alt="Hand" />
+                        <LogoImage
+                            className="optimized"
+                            style={{
+                                top: "calc(50% - 1.5rem)",
+                                left: "50%",
+                                transform: "translate(-50%, -50%) scale(2)",
+                            }}
+                            onClick={setRandomHand}
+                            src={`/static/images/hands/0${hand}.png`}
+                            alt="Hand"
+                        />
                     </ImageWrapper>
                     <LoadingText>{BOOTING_TEXTS[text]}</LoadingText>
                     <LoadingBar>

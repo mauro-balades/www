@@ -21,9 +21,9 @@ import {
 } from "./components/NavigationBarComponents";
 
 import { initializeFiles } from "./fs";
+import initializeSounds from "./sounds";
 
 import { defaultSettings, get, settingsExists } from "./configuration";
-import initializeSounds from "./sounds";
 
 import "normalize.css";
 
@@ -36,15 +36,15 @@ function App() {
 
     const setRandomHand = (): any => {
         let rand = Math.floor(Math.random() * (HANDS_AVAILABLE - 1 + 1) + 1);
-        console.log(rand)
+        console.log(rand);
 
         if (rand == hand) return setRandomHand();
 
         setHand(rand);
-    }
+    };
 
     useEffect(initializeSounds, []);
-    useEffect(setRandomHand, [])
+    useEffect(setRandomHand, []);
 
     const [isLoading, setLoading] = useState(true);
     const [theme, setTheme] = useState(get("theme"));
@@ -90,11 +90,15 @@ function App() {
             {!isLoading && (
                 <>
                     <NavigationBar>
-                        <NavigationSection style={{ padding: '0 25px' }}>
-                           <LogoImage onClick={setRandomHand} src={`/static/images/hands/0${hand}.png`} alt="Hand" />
+                        <NavigationSection style={{ padding: "0 25px" }}>
+                            <LogoImage
+                                onClick={setRandomHand}
+                                src={`/static/images/hands/0${hand}.png`}
+                                alt="Hand"
+                            />
                         </NavigationSection>
                         <NavigationSection>
-                        <svg
+                            <svg
                                 className="pointer"
                                 onClick={() => settings_setClosed(false)}
                                 width="20"
@@ -206,8 +210,13 @@ function App() {
                 </>
             )}
 
-            {isLoading && <LoadingView             setRandomHand={setRandomHand}
-            hand={hand} setLoading={setLoading} />}
+            {isLoading && (
+                <LoadingView
+                    setRandomHand={setRandomHand}
+                    hand={hand}
+                    setLoading={setLoading}
+                />
+            )}
         </ThemeProvider>
     );
 }
