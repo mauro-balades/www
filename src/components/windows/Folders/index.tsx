@@ -26,7 +26,6 @@ const getFileByPath = (path: string) => {
 function Folders(props: any) {
     const { currentFolder, setCurrentFolder } = props;
     const folder = getFileByPath(currentFolder);
-    console.log(currentFolder);
 
     return (
         <Window

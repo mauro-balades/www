@@ -5,7 +5,7 @@ const STATIC_SVG_PREFIX = "/static/svg";
 export var FILE_STRUCTURE = {};
 
 export const initializeFiles = (props: any) => {
-    const { pong_setClosed } = props;
+    const { pong_setClosed, man_setClosed } = props;
 
     FILE_STRUCTURE = {
         "/": {
@@ -78,6 +78,12 @@ export const initializeFiles = (props: any) => {
                         },
                     },
                 },
+            },
+            "mauro[DOT]7": {
+                __type: "file",
+                __handle: () => {
+                    man_setClosed(false);
+                }
             },
         },
     };

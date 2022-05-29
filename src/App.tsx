@@ -26,6 +26,7 @@ import { defaultSettings, get, settingsExists } from "./configuration";
 
 import "normalize.css";
 import DesktopIcon from "./components/DesktopIcon";
+import ManPage from "./components/windows/ManPage";
 
 const HANDS_AVAILABLE = 2;
 
@@ -55,9 +56,11 @@ function App() {
     const [email_closed, email_setClosed] = useState(true);
     const [theme_closed, theme_setClosed] = useState(true);
     const [folders_closed, folders_setClosed] = useState(true);
+    const [man_closed, man_setClosed] = useState(true);
 
     initializeFiles({
         pong_setClosed,
+        man_setClosed,
     });
 
     const [currentFolder, setCurrentFolder] = useState("/");
@@ -82,6 +85,10 @@ function App() {
             closed={folders_closed}
             setClosed={folders_setClosed}
             {...{ currentFolder, setCurrentFolder, pong_setClosed }}
+        />,
+        <ManPage
+            closed={man_closed}
+            setClosed={man_setClosed}
         />,
     ];
 
@@ -143,6 +150,7 @@ function App() {
                                 width="20"
                                 height="20"
                                 onClick={() => {
+                                    setCurrentFolder("/")
                                     folders_setClosed(false);
                                 }}
                                 fill="none"
