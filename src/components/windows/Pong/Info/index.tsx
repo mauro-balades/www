@@ -14,8 +14,7 @@ function PongInfo(props: any) {
             {...props}
         >
             <Wrapper>
-                This is pong! move the arrow keys to move your bar. If you win,
-                you get the secret wallpaper! You win by geting 5 points.
+                This is pong! move the arrow keys to move your bar. Contact me if you win!
             </Wrapper>
         </Window>
     );
