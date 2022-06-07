@@ -19,14 +19,16 @@ import {
     TimeSection,
 } from "./components/NavigationBarComponents";
 
+import DesktopIcon from "./components/DesktopIcon";
+import ManPage from "./components/windows/ManPage";
+import Projects from "./components/Projects";
+
 import { initializeFiles } from "./fs";
 import initializeSounds from "./sounds";
 
 import { defaultSettings, get, settingsExists } from "./configuration";
 
 import "normalize.css";
-import DesktopIcon from "./components/DesktopIcon";
-import ManPage from "./components/windows/ManPage";
 
 const HANDS_AVAILABLE = 2;
 
@@ -57,6 +59,7 @@ function App() {
     const [theme_closed, theme_setClosed] = useState(true);
     const [folders_closed, folders_setClosed] = useState(true);
     const [man_closed, man_setClosed] = useState(true);
+    const [projects_closed, projects_setClosed] = useState(true);
 
     initializeFiles({
         pong_setClosed,
@@ -215,7 +218,7 @@ function App() {
                         </NavigationSection>
                     </NavigationBar>
                     <ViewWrapper>
-                        <DesktopIcon x={5} y={20} />
+                        <DesktopIcon handle={() => projects_setClosed(false)} img="/static/svg/folder.svg" title="Work" x={2.5} y={10} />
                         {windows}
                     </ViewWrapper>
                 </>
@@ -227,6 +230,10 @@ function App() {
                     hand={hand}
                     setLoading={setLoading}
                 />
+            )}
+
+            {(!projects_closed) && (
+                <Projects setClosed={projects_setClosed} />
             )}
         </ThemeProvider>
     );
