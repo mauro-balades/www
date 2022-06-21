@@ -5,19 +5,10 @@ const STATIC_SVG_PREFIX = "/static/svg";
 export var FILE_STRUCTURE = {};
 
 export const initializeFiles = (props: any) => {
-    const { pong_setClosed, man_setClosed } = props;
+    const { pong_setClosed, projects_setClosed, man_setClosed } = props;
 
     FILE_STRUCTURE = {
         "/": {
-            projects: {
-                __type: "folder",
-
-                wonoly: {
-                    __type: "file",
-                    __icon: `${STATIC_SVG_PREFIX}/wonoly.svg`,
-                    __handle: "",
-                },
-            },
             games: {
                 __type: "folder",
                 pong: {
@@ -85,6 +76,12 @@ export const initializeFiles = (props: any) => {
                     man_setClosed(false);
                 }
             },
+            "projects[DOT]exe": {
+                __type: "file",
+                __handle: () => {
+                    projects_setClosed(false);
+                }
+            }
         },
     };
 };

@@ -19,18 +19,22 @@ import {
     TimeSection,
 } from "./components/NavigationBarComponents";
 
-import DesktopIcon from "./components/DesktopIcon";
 import ManPage from "./components/windows/ManPage";
 import Projects from "./components/Projects";
 
 import { initializeFiles } from "./fs";
 import initializeSounds from "./sounds";
 
-import { defaultSettings, get, settingsExists } from "./configuration";
+import { defaultSettings, get, set, settingsExists } from "./configuration";
 
 import "normalize.css";
 
 const HANDS_AVAILABLE = 2;
+var hasVisited = false;
+
+window.addEventListener("beforeunload", function(e){
+    if (!hasVisited) set("visited", "yes");
+ }, false);
 
 function App() {
     if (!settingsExists()) defaultSettings();
@@ -49,6 +53,11 @@ function App() {
     useEffect(initializeSounds, []);
     useEffect(setRandomHand, []);
 
+    useEffect(() => {
+        hasVisited = get("visited") === "yes";
+        console.log(get("visited"))
+    }, [])
+
     const [isLoading, setLoading] = useState(true);
     const [theme, setTheme] = useState(get("theme"));
 
@@ -64,6 +73,7 @@ function App() {
     initializeFiles({
         pong_setClosed,
         man_setClosed,
+        projects_setClosed,
     });
 
     const [currentFolder, setCurrentFolder] = useState("/");
@@ -87,7 +97,7 @@ function App() {
         <Folders
             closed={folders_closed}
             setClosed={folders_setClosed}
-            {...{ currentFolder, setCurrentFolder, pong_setClosed }}
+            {...{ currentFolder, setCurrentFolder, pong_setClosed, projects_setClosed }}
         />,
         <ManPage
             closed={man_closed}
@@ -97,7 +107,7 @@ function App() {
 
     return (
         <ThemeProvider theme={theme}>
-            {!isLoading && (
+            {!isLoading && hasVisited && (
                 <>
                     <NavigationBar>
                         <NavigationSection style={{ padding: "0 25px" }}>
@@ -133,23 +143,6 @@ function App() {
                             </svg>
                             <svg
                                 className="pointer"
-                                onClick={() => email_setClosed(false)}
-                                width="20"
-                                height="20"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                                />
-                            </svg>
-                            <svg
-                                className="pointer"
                                 width="20"
                                 height="20"
                                 onClick={() => {
@@ -166,6 +159,23 @@ function App() {
                                     strokeLinejoin="round"
                                     strokeWidth={2}
                                     d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
+                                />
+                            </svg>
+                            <svg
+                                className="pointer"
+                                onClick={() => email_setClosed(false)}
+                                width="20"
+                                height="20"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                                 />
                             </svg>
                             <svg
@@ -218,18 +228,23 @@ function App() {
                         </NavigationSection>
                     </NavigationBar>
                     <ViewWrapper>
-                        <DesktopIcon handle={() => projects_setClosed(false)} img="/static/svg/folder.svg" title="Work" x={2.5} y={10} />
                         {windows}
                     </ViewWrapper>
                 </>
             )}
 
-            {isLoading && (
+            {isLoading && hasVisited && (
                 <LoadingView
                     setRandomHand={setRandomHand}
                     hand={hand}
                     setLoading={setLoading}
                 />
+            )}
+
+            {!hasVisited && (
+                <>
+
+                </>
             )}
 
             {(!projects_closed) && (

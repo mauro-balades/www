@@ -43,8 +43,10 @@ export const CloseWindowButton = styled.div`
     width: 1.8rem;
     height: 1.7rem;
 
-    border-right: 2px solid
+    border: 1px solid
         ${(props: any) => (props.theme.light ? "#1d1e1c" : "#fff")};
+    border-right-width: 2px;
+    border-left: none;
 
     background-color: ${(props: any) => props.theme.closeButtonBackground};
     cursor: pointer;
