@@ -3,28 +3,15 @@ import styled from "styled-components";
 const NAVIGATION_BAR_HEIGHT = "4";
 const WRAPPER_TEMPLATE = `
 
-    font-family: "Rubik", "HelveticaNeue-Light", "Helvetica Neue Light",
-    "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
 
     cursor: url("/static/images/cursor_auto.png"), auto;
 
     & .pointer {
         cursor: url("/static/images/cursor_pointer.png"), pointer;
     }
-`;
 
-export default WRAPPER_TEMPLATE;
-
-export const Wrapper = styled.div`
-    width: 100%;
-    height: 100vh;
-
-    overflow: hidden;
-    background: ${(props: any) => props.theme.viewBackground};
-
-    position: relative;
-
-    ${WRAPPER_TEMPLATE}
 
     // SCROLL BARS
     & .scrollbar::-webkit-scrollbar {
@@ -43,6 +30,20 @@ export const Wrapper = styled.div`
         border-top: none;
         border-right: none;
     }
+`;
+
+export default WRAPPER_TEMPLATE;
+
+export const Wrapper = styled.div`
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+    background: ${(props: any) => props.theme.viewBackground};
+
+    position: relative;
+
+    ${WRAPPER_TEMPLATE}
 `;
 
 export const NavigationBarWrapper = styled.nav`
@@ -76,3 +77,15 @@ export const NavigationBarWrapper = styled.nav`
 
     ${WRAPPER_TEMPLATE}
 `;
+
+export const IntroductionWrapper = styled.div`
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+    background: ${(props: any) => props.theme.viewBackground};
+
+    position: relative;
+
+    ${WRAPPER_TEMPLATE}
+`

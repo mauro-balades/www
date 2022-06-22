@@ -21,6 +21,7 @@ import {
 
 import ManPage from "./components/windows/ManPage";
 import Projects from "./components/Projects";
+import IntroductionView from "./components/Introduction";
 
 import { initializeFiles } from "./fs";
 import initializeSounds from "./sounds";
@@ -242,9 +243,9 @@ function App() {
             )}
 
             {!hasVisited && (
-                <>
+                <IntroductionView>
 
-                </>
+                </IntroductionView>
             )}
 
             {(!projects_closed) && (
