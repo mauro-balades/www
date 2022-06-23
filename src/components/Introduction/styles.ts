@@ -46,4 +46,11 @@ export const Controlers = styled.div`
     position: absolute;
     bottom: 0;
     left: 0;
+
+    padding-left: 30px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 `
