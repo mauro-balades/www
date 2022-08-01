@@ -31,6 +31,7 @@ import { defaultSettings, get, set, settingsExists } from "./configuration";
 
 import "normalize.css";
 import Welcome from "./components/windows/Welcome";
+import Terminal from "./components/windows/Terminal";
 
 const HANDS_AVAILABLE = 2;
 
@@ -53,8 +54,6 @@ function App() {
 
     const setRandomHand = (): any => {
         let rand = Math.floor(Math.random() * (HANDS_AVAILABLE - 1 + 1) + 1);
-        console.log(rand);
-
         if (rand == hand) return setRandomHand();
 
         setHand(rand);
@@ -67,6 +66,7 @@ function App() {
     const [theme, setTheme] = useState(get("theme"));
 
     const [cookies_closed, cookies_setClosed] = useState(false);
+    const [terminal_closed, terminal_setClosed] = useState(false);
     const [welcome_closed, welcome_setClosed] = useState(hasVisited);
     const [settings_closed, settings_setClosed] = useState(true);
     const [pong_closed, pong_setClosed] = useState(true);
@@ -112,6 +112,10 @@ function App() {
         <Welcome
             closed={welcome_closed}
             setClosed={welcome_setClosed}
+        />,
+        <Terminal
+            closed={terminal_closed}
+            setClosed={terminal_setClosed}
         />,
     ];
 

@@ -10,16 +10,13 @@ const getFileByPath = (path: string) => {
     let splitted = path.split(".");
     let folder_index = 0;
 
-    console.log(FILE_STRUCTURE);
     let current_folder = FILE_STRUCTURE;
 
     while (folder_index < splitted.length) {
-        console.log(current_folder[splitted[folder_index]]);
         current_folder = current_folder[splitted[folder_index]];
         folder_index++;
     }
 
-    console.log(current_folder);
     return current_folder;
 };
 
@@ -50,7 +47,6 @@ function Folders(props: any) {
                             className="pointer"
                             onClick={() => {
                                 if (folder[index].__type === "folder") {
-                                    console.log(folder);
                                     setCurrentFolder(
                                         currentFolder + `.${index}`
                                     );

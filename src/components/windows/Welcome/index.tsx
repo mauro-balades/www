@@ -5,7 +5,7 @@ import Button from "../../Button";
 
 import { set, get } from "../../../configuration";
 
-function CookiesDialog(props: any) {
+function WelcomeDialog(props: any) {
     return (
         <>
             <div style={{ padding: '20px' }}>
@@ -20,15 +20,13 @@ function CookiesDialog(props: any) {
                     <Button
                         onClick={() => {
                             props.setClosed(true);
-                            set("cookies", "1");
                         }}
                     >
                         Accept
                     </Button>
                     <Button
                         onClick={() => {
-                            props.setClosed(true);
-                            set("cookies", "1");
+                            // TODO: open github
                         }}
                         style={{ marginTop: '5px' }}
                     >
@@ -40,7 +38,7 @@ function CookiesDialog(props: any) {
     );
 }
 
-function Cookies(props: any) {
+function Welcome(props: any) {
 
     return (
         <Window
@@ -52,9 +50,9 @@ function Cookies(props: any) {
             height="25"
             {...props}
         >
-            <CookiesDialog />
+            <WelcomeDialog />
         </Window>
     );
 }
 
-export default Cookies;
+export default Welcome;

@@ -9,7 +9,7 @@ function ManPage(props: any) {
             <Window
                 y="30"
                 x="70"
-                title="Mauro(7)"
+                title="mauro(7)"
                 width="35"
                 height="30"
                 closable={true}
