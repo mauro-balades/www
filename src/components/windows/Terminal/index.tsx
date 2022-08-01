@@ -21,6 +21,8 @@ function Terminal(props: any) {
             var command = '';
             var term_element = document.getElementById('terminal') as HTMLElement;
     
+            // TODO: add theme for colors
+            // https://xtermjs.org/docs/api/terminal/interfaces/itheme/
             term = new XTerm({
                 cursorBlink: true,
                 theme: {
@@ -39,7 +41,7 @@ function Terminal(props: any) {
 
             // @ts-ignore
             term.prompt = () => {
-                term.write("$ ")
+                term.write("\x1b[0;33mguest\x1B[0m@\x1b[0;32mmaucode.com\x1B[0m$ ~ ")
             }
 
             term.write(`${emojis[Math.floor(Math.random()*emojis.length)]}: Welcome to mauro's terminal!\n\r\n\r`)

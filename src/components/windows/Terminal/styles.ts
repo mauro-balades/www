@@ -8,8 +8,13 @@ export const Wrapper = styled.div`
     position: relative;
     opacity: .9;
 
+
     & .terminal.xterm {
         height: calc(100% + 5px);
         padding: 10px 20px;
+    }
+
+    & * {
+        font-weight: bold !important;
     }
 `
