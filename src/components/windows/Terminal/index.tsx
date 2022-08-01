@@ -8,6 +8,8 @@ import 'xterm/css/xterm.css';
 import { runCommand } from "../../../utils/terminal";
 
 var term: XTerm;
+const emojis = ["ᕦ( ͡° ͜ʖ ͡°)ᕤ", "(｢๑•₃•)｢", "ฅ^•ﻌ•^ฅ", "(☞ ͡° ͜ʖ ͡°)☞"]
+
 function Terminal(props: any) {
 
     const theme = useTheme();
@@ -40,8 +42,11 @@ function Terminal(props: any) {
                 term.write("$ ")
             }
 
+            term.write(`${emojis[Math.floor(Math.random()*emojis.length)]}: Welcome to mauro's terminal!\n\r\n\r`)
+
             // @ts-ignore
             term.prompt();
+
             term.onData(e => {
                 switch (e) {
                   case '\u0003': // Ctrl+C
