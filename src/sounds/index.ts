@@ -1,10 +1,11 @@
-const CLICK_AUDIO = new Audio("/static/audio/click.wav");
+const CLICK_AUDIO = new Audio("/static/audio/click.mp4");
 const WINDOW_AUDIO_OPEN = new Audio("/static/audio/window_open.ogg");
 const WINDOW_AUDIO_CLOSED = new Audio("/static/audio/window_closed.ogg");
 
 export default function initializeSounds() {
     window.addEventListener("mousedown", () => {
-        CLICK_AUDIO.play();
+        CLICK_AUDIO.autoplay = true;
+        CLICK_AUDIO.load();
     });
 }
 

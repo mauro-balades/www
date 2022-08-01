@@ -120,6 +120,10 @@ export const TitleBar = styled.div`
 
     margin-bottom: 3px;
     display: block;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
 `;
 
 export const WindowTitleText = styled.span`

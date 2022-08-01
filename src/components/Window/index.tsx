@@ -12,6 +12,7 @@ import {
 } from "./styles";
 import Draggable from "react-draggable";
 import { openWindowSound } from "../../sounds";
+import { WINDOW_CLASS } from "../../utils";
 
 /**
  * @param background
@@ -34,7 +35,7 @@ function Window(props: any) {
 
     return (
         <Draggable handle="strong">
-            <Wrapper style={{ display: !closed ? "block" : "none" }} {...props}>
+            <Wrapper className={WINDOW_CLASS} style={{ display: !closed ? "block" : "none" }} {...props}>
                 <WindowTitle draggable={draggable} closable={closable}>
                     {closable && (
                         <CloseWindowButton
@@ -46,6 +47,7 @@ function Window(props: any) {
                     )}
                     <DraggableHandle>
                         <TitleBars>
+                            <TitleBar></TitleBar>
                             <TitleBar></TitleBar>
                             <TitleBar></TitleBar>
                         </TitleBars>

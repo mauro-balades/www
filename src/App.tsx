@@ -20,25 +20,34 @@ import {
 } from "./components/NavigationBarComponents";
 
 import ManPage from "./components/windows/ManPage";
-import Projects from "./components/Projects";
-import IntroductionView from "./components/Introduction";
+import Projects from "./components/Projects"
 
 import { initializeFiles } from "./fs";
 import initializeSounds from "./sounds";
 
+import { WINDOW_CLASS, focusWindow } from "./utils/index";
+
 import { defaultSettings, get, set, settingsExists } from "./configuration";
 
 import "normalize.css";
+import Welcome from "./components/windows/Welcome";
 
 const HANDS_AVAILABLE = 2;
-var hasVisited = false;
-
-window.addEventListener("beforeunload", function(e){
-    if (!hasVisited) set("visited", "yes");
- }, false);
 
 function App() {
     if (!settingsExists()) defaultSettings();
+
+    var hasVisited = get("visited") == "yes";
+
+    window.addEventListener("beforeunload", function(e){
+        if (!hasVisited) set("visited", "yes");
+    }, false);
+
+    Array.from(document.getElementsByClassName(WINDOW_CLASS)).forEach((element: Element) => {
+        element.addEventListener('mousedown', () => {
+            focusWindow(element as HTMLDivElement);
+        })
+    });
 
     const [hand, setHand] = useState(0);
 
@@ -54,15 +63,11 @@ function App() {
     useEffect(initializeSounds, []);
     useEffect(setRandomHand, []);
 
-    useEffect(() => {
-        hasVisited = get("visited") === "yes";
-        console.log(get("visited"))
-    }, [])
-
     const [isLoading, setLoading] = useState(true);
     const [theme, setTheme] = useState(get("theme"));
 
     const [cookies_closed, cookies_setClosed] = useState(false);
+    const [welcome_closed, welcome_setClosed] = useState(hasVisited);
     const [settings_closed, settings_setClosed] = useState(true);
     const [pong_closed, pong_setClosed] = useState(true);
     const [email_closed, email_setClosed] = useState(true);
@@ -104,11 +109,15 @@ function App() {
             closed={man_closed}
             setClosed={man_setClosed}
         />,
+        <Welcome
+            closed={welcome_closed}
+            setClosed={welcome_setClosed}
+        />,
     ];
 
     return (
         <ThemeProvider theme={theme}>
-            {!isLoading && hasVisited && (
+            {!isLoading && (
                 <>
                     <NavigationBar>
                         <NavigationSection style={{ padding: "0 25px" }}>
@@ -234,18 +243,12 @@ function App() {
                 </>
             )}
 
-            {isLoading && hasVisited && (
+            {isLoading && (
                 <LoadingView
                     setRandomHand={setRandomHand}
                     hand={hand}
                     setLoading={setLoading}
                 />
-            )}
-
-            {!hasVisited && (
-                <IntroductionView>
-
-                </IntroductionView>
             )}
 
             {(!projects_closed) && (
