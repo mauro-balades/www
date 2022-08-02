@@ -6,6 +6,7 @@
         "titleBarBackground": "#dadad3",
         "closeButtonBackground": "#C1C1BF",
         "terminalBackground": "#005260",
+        "terminalForeground": "#fff",
         "light": true
     },
     "Alpine Night": {
@@ -14,7 +15,8 @@
         "windowBackground": "#121D19",
         "titleBarBackground": "#0F1D19",
         "closeButtonBackground": "#121D19",
-        "terminalBackground": "rgba(0,0,0,.7)",
+        "terminalBackground": "#0b111c",
+        "terminalForeground": "#fff",
         "light": false
     },
     "Sunset Shore": {
@@ -24,6 +26,17 @@
         "titleBarBackground": "#E9CED5",
         "closeButtonBackground": "#cfadb6",
         "terminalBackground": "#200060",
+        "terminalForeground": "#fff",
+        "light": true
+    },
+    "Crystal Maze": {
+        "navigationBackground": "#EBECEB",
+        "viewBackground": "#E2E4F5",
+        "windowBackground": "#EBECEB",
+        "titleBarBackground": "#EBECEB",
+        "closeButtonBackground": "#EBECEB",
+        "terminalBackground": "#EBECEB",
+        "terminalForeground": "#000",
         "light": true
     }
 }

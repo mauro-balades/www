@@ -3,18 +3,31 @@ import Window from "../../Window";
 import { Wrapper } from "./styles";
 import { useTheme } from 'styled-components';
 import { FitAddon } from 'xterm-addon-fit';
+import { WebLinksAddon } from 'xterm-addon-web-links';
 import { Terminal as XTerm } from "xterm";
 import 'xterm/css/xterm.css';
 import { runCommand } from "../../../utils/terminal";
+import TerminalInfo from "./Info";
 
-var term: XTerm;
-const emojis = ["ᕦ( ͡° ͜ʖ ͡°)ᕤ", "(｢๑•₃•)｢", "ฅ^•ﻌ•^ฅ", "(☞ ͡° ͜ʖ ͡°)☞"]
+const emojis = [
+  "\\(o_o)/",
+  "(˚Δ˚)b",
+  "(^-^*)",
+  "(╯‵□′)╯",
+  "\\(°ˊДˋ°)/",
+  "╰(‵□′)╯"
+];
 
 function Terminal(props: any) {
 
     const theme = useTheme();
     const container = useRef(null);
     const [loaded, setLoaded] = useState(false);
+    const [info, setInfo] = useState(true);
+    const [term, setTerm] = useState(new XTerm({
+      cursorBlink: true,
+    }));
+
 
     useEffect(() => {
         if (!loaded) {
@@ -23,15 +36,10 @@ function Terminal(props: any) {
     
             // TODO: add theme for colors
             // https://xtermjs.org/docs/api/terminal/interfaces/itheme/
-            term = new XTerm({
-                cursorBlink: true,
-                theme: {
-                    background: theme.terminalBackground
-                }
-            });
 
             const fitAddon = new FitAddon();
             term.loadAddon(fitAddon);
+            term.loadAddon(new WebLinksAddon());
 
             term.open(term_element);
             term.focus()
@@ -41,10 +49,10 @@ function Terminal(props: any) {
 
             // @ts-ignore
             term.prompt = () => {
-                term.write("\x1b[0;33mguest\x1B[0m@\x1b[0;32mmaucode.com\x1B[0m$ ~ ")
+                term.write("\x1b[0;33mguest@maucode.com\x1B[0m$ ~ ")
             }
 
-            term.write(`${emojis[Math.floor(Math.random()*emojis.length)]}: Welcome to mauro's terminal!\n\r\n\r`)
+            term.write(`${emojis[Math.floor(Math.random()*emojis.length)]}: Hey, you found the terminal! Type \`help\` to get started.\n\r\n\r`)
 
             // @ts-ignore
             term.prompt();
@@ -61,7 +69,7 @@ function Terminal(props: any) {
                     break;
                   case '\u007F': // Backspace (DEL)
                     // Do not delete the prompt
-                    if (term.buffer.active.cursorX > 2) {
+                    if (term.buffer.active.cursorX > "guest@maucode.com$ ~ ".length) {
                       term.write('\b \b');
                       if (command.length > 0) {
                         command = command.substr(0, command.length - 1);
@@ -83,19 +91,23 @@ function Terminal(props: any) {
 
     useEffect(() => {
         term.setOption('theme', {
-            background: theme.terminalBackground
+          background: theme.terminalBackground,
+          white: theme.terminalForeground,
+          foreground: theme.terminalForeground,
         });
     }, [theme])
 
     return (
         <>
+            <TerminalInfo closed={info} setClosed={setInfo} />
             <Window
                 y="30"
                 x="70"
-                title="terminal"
+                title="Terminal"
                 width="45"
                 height="30"
                 closable={true}
+                info={setInfo}
                 {...props}
             >
                 <Wrapper ref={container} id="terminal">

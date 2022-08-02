@@ -2,22 +2,22 @@ import React, { useEffect } from "react";
 import Window from "../../../Window";
 import { Wrapper } from "./styles";
 
-function PongInfo(props: any) {
+function TerminalInfo(props: any) {
     return (
         <Window
             y="25"
             x="45"
-            title="Pong"
+            title="Terminal <3"
             width="25"
             height="10"
             closable={true}
             {...props}
         >
             <Wrapper>
-                One thing I love are video games. to show my passion for them, I made pong! move the arrow keys to move your bar. Contact me if you win!
+                I'm a Linux enthusiast, I created this terminal for people to experience my world.
             </Wrapper>
         </Window>
     );
 }
 
-export default PongInfo;
+export default TerminalInfo;
