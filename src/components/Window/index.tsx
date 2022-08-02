@@ -35,7 +35,7 @@ function Window(props: any) {
 
     return (
         <Draggable handle="strong">
-            <Wrapper className={WINDOW_CLASS} style={{ display: !closed ? "block" : "none" }} {...props}>
+            <Wrapper className={WINDOW_CLASS} style={{ zIndex: '0', display: !closed ? "block" : "none" }} {...props}>
                 <WindowTitle draggable={draggable} closable={closable}>
                     {closable && (
                         <CloseWindowButton
