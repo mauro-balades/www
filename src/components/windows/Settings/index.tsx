@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../../Button";
 import Window from "../../Window";
-import { Wrapper } from "./styles";
+import { Separator, Wrapper } from "./styles";
 
 function Settings(props: any) {
     const { themeSetClosed } = props;
@@ -18,6 +18,7 @@ function Settings(props: any) {
         >
             <Wrapper>
                 <div>
+                    <Separator />
                     <Button onClick={() => themeSetClosed(false)}>
                         Open theme config
                     </Button>

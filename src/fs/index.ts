@@ -9,15 +9,6 @@ export const initializeFiles = (props: any) => {
 
     FILE_STRUCTURE = {
         "/": {
-            games: {
-                __type: "folder",
-                pong: {
-                    __type: "file",
-                    __handle: () => {
-                        pong_setClosed(false);
-                    },
-                },
-            },
             infinite: {
                 __type: "folder",
                 infinite: {

@@ -1,4 +1,14 @@
 {
+    "Crystal Maze": {
+        "navigationBackground": "#EBECEB",
+        "viewBackground": "#E2E4F5",
+        "windowBackground": "#EBECEB",
+        "titleBarBackground": "#EBECEB",
+        "closeButtonBackground": "#EBECEB",
+        "terminalBackground": "#EBECEB",
+        "terminalForeground": "#000",
+        "light": true
+    },
     "Moonlight Drive": {
         "navigationBackground": "#fad844",
         "viewBackground": "#54b9ad",
@@ -27,16 +37,6 @@
         "closeButtonBackground": "#cfadb6",
         "terminalBackground": "#200060",
         "terminalForeground": "#fff",
-        "light": true
-    },
-    "Crystal Maze": {
-        "navigationBackground": "#EBECEB",
-        "viewBackground": "#E2E4F5",
-        "windowBackground": "#EBECEB",
-        "titleBarBackground": "#EBECEB",
-        "closeButtonBackground": "#EBECEB",
-        "terminalBackground": "#EBECEB",
-        "terminalForeground": "#000",
         "light": true
     }
 }

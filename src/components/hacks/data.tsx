@@ -12,7 +12,7 @@ function DataHack(props: any) {
 
     useEffect(() => {
         if (props.closed) {
-            setData(generateRandomBinary(1000));
+            setData(generateRandomBinary(2000));
             set_current_line(0);
         } else {
             set_current_line(current_line + 1)
@@ -27,7 +27,7 @@ function DataHack(props: any) {
                 // @ts-ignore
                 bottomRef.current?.scrollIntoView(/*{behavior: 'smooth'}*/);
                 set_current_line(current_line + 1)
-            }, 1)
+            }, 0)
 
         }
 

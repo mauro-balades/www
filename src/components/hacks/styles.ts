@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
     height: 100%;
     padding: 0 20px;
 
-    overflow: auto;
+    overflow: hidden;
 
     color: ${(props: any) => props.theme.terminalForeground} !important;
     background: ${(props: any) => props.theme.terminalBackground};

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-const NAVIGATION_BAR_HEIGHT = "4";
 const WRAPPER_TEMPLATE = `
 
     font-family: 'Roboto', sans-serif;
@@ -47,7 +46,7 @@ export const Wrapper = styled.div`
 `;
 
 export const NavigationBarWrapper = styled.nav`
-    height: ${NAVIGATION_BAR_HEIGHT}vh;
+    height: 40px;
     width: calc(100% - 14px);
 
     background: ${(props: any) => props.theme.navigationBackground};

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { sendEmail } from "../../../utils";
 
 import Button from "../../Button";
 import Window from "../../Window";
@@ -15,7 +16,7 @@ function Email(props: any) {
                 x="50"
                 title="Contact me"
                 width="25"
-                height="30"
+                height="29"
                 closable={true}
                 {...props}
             >
@@ -35,7 +36,7 @@ function Email(props: any) {
                         value={body}
                         onChange={(event: any) => setBody(event.target.value)}
                     ></TextArea>
-                    <Button className="submit_btn">Submit</Button>
+                    <Button onClick={() => sendEmail(subject, body)} className="submit_btn">Submit</Button>
                 </Wrapper>
             </Window>
         </>

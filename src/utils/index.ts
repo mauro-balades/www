@@ -15,4 +15,8 @@ export const generateRandomBinary = (binaryLength: Number) => {
     return binary;
 }
 
+export const sendEmail = (subject: String, body: String) => {
+  window.open(`mailto:mauro.balades@tutanota.com?subject=`, "_blank")
+}
+
 export const WINDOW_CLASS = "window--handle";
