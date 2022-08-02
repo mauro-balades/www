@@ -70,6 +70,10 @@ export const InfoWindowButton = styled.div`
 
     border-left: 2px solid
         ${(props: any) => (props.theme.light ? "#1d1e1c" : "#fff")};
+    border-top: 1px solid
+        ${(props: any) => (props.theme.light ? "#1d1e1c" : "#fff")};
+    border-bottom: 1px solid
+        ${(props: any) => (props.theme.light ? "#1d1e1c" : "#fff")};
 
     background-color: ${(props: any) => props.theme.closeButtonBackground};
     cursor: pointer;

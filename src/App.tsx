@@ -32,6 +32,9 @@ import { defaultSettings, get, set, settingsExists } from "./configuration";
 import "normalize.css";
 import Welcome from "./components/windows/Welcome";
 import Terminal from "./components/windows/Terminal";
+import CPPHack from "./components/hacks/CPP";
+import DataHack from "./components/hacks/data";
+import SQLMap from "./components/hacks/sql";
 
 const HANDS_AVAILABLE = 2;
 
@@ -84,6 +87,42 @@ function App() {
 
     const [currentFolder, setCurrentFolder] = useState("/");
 
+    const [cpp_closed, cpp_setClosed] = useState(true);
+    const [data_closed, data_setClosed] = useState(true);
+    const [sql_closed, sql_setClosed] = useState(true);
+
+    let hacks = [
+        <CPPHack
+            closed={cpp_closed}
+            setClosed={cpp_setClosed}
+        />,
+        <SQLMap
+            closed={sql_closed}
+            setClosed={sql_setClosed}
+        />,
+        <DataHack
+            closed={data_closed}
+            setClosed={data_setClosed}
+        />,
+    ];
+
+    const term_options = {
+        hacks: {
+            cpp: {
+                state: cpp_setClosed,
+                time: 9000,
+            },
+            data: {
+                state: data_setClosed,
+                time: 10000,
+            },
+            sql: {
+                state: sql_setClosed,
+                time: 11000,
+            }
+        }
+    }
+
     let windows = [
         <Cookies closed={cookies_closed} setClosed={cookies_setClosed} />,
         <Email closed={email_closed} setClosed={email_setClosed} />,
@@ -116,6 +155,7 @@ function App() {
         <Terminal
             closed={terminal_closed}
             setClosed={terminal_setClosed}
+            termOptions={term_options}
         />,
     ];
 
@@ -243,6 +283,7 @@ function App() {
                     </NavigationBar>
                     <ViewWrapper>
                         {windows}
+                        {hacks}
                     </ViewWrapper>
                 </>
             )}

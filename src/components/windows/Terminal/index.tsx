@@ -64,7 +64,7 @@ function Terminal(props: any) {
                     command = '';
                     break;
                   case '\r': // Enter
-                    runCommand(term, command);
+                    runCommand(term, command, props.termOptions);
                     command = '';
                     break;
                   case '\u007F': // Backspace (DEL)

@@ -2,7 +2,7 @@
 import { Terminal } from "xterm";
 import bin from "../bin";
 
-export function runCommand(term: Terminal, command: String) {
+export function runCommand(term: Terminal, command: String, options: any) {
     term.write("\r\n");
 
     const [cmd, ...args] = command.split(' ');
@@ -13,7 +13,7 @@ export function runCommand(term: Terminal, command: String) {
     } else {
         // @ts-ignore
         const executable = bin[cmd];
-        executable.__command(term, args);
+        executable.__command(term, args, options);
     }
 
     // @ts-ignore

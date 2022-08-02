@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
     Wrapper,
     WindowTitle,
@@ -12,7 +12,7 @@ import {
 } from "./styles";
 import Draggable from "react-draggable";
 import { openWindowSound } from "../../sounds";
-import { WINDOW_CLASS } from "../../utils";
+import { WINDOW_CLASS, focusWindow } from "../../utils";
 
 /**
  * @param background
@@ -27,15 +27,21 @@ import { WINDOW_CLASS } from "../../utils";
  * @returns React component
  */
 function Window(props: any) {
+    const ref = useRef(null);
     const { closed, setClosed, draggable, closable, title, info } = props;
 
     useEffect(() => {
         openWindowSound(!closed);
+
+        if (!closed) {
+            // @ts-ignore
+            focusWindow(ref.current)
+        }
     }, [closed]);
 
     return (
         <Draggable handle="strong">
-            <Wrapper className={WINDOW_CLASS} style={{ zIndex: '0', display: !closed ? "block" : "none" }} {...props}>
+            <Wrapper ref={ref} className={WINDOW_CLASS} style={{ zIndex: '0', display: !closed ? "block" : "none" }} {...props}>
                 <WindowTitle draggable={draggable} closable={closable}>
                     {closable && (
                         <CloseWindowButton

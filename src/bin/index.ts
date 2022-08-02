@@ -12,26 +12,38 @@ const neofetch = `
 
 const bins = {
     "echo": {
-        __command: (term: Terminal, args: String[]) => {
+        __command: (term: Terminal, args: String[], _: any) => {
             term.write(args.join(' '))
             term.write("\r\n")
         },
         __help: "Display a message to the terminal"
     },
     "clear": {
-        __command: (term: Terminal, _: String[]) => {
+        __command: (term: Terminal, _: String[], _2: any) => {
             term.reset()
         },
         __help: "Clear the terminal"
     },
+    "hack": {
+        __command: (term: Terminal, _: String[], options: any) => {
+            for (let [key, value] of Object.entries(options.hacks)) {
+                (value as any).state(false);
+
+                setTimeout(() => {
+                    (value as any).state(true);
+                }, (value as any).time)
+            }
+        },
+        __help: "???"
+    },
     "fetch": {
-        __command: (term: Terminal, _: String[]) => {
+        __command: (term: Terminal, _: String[], _2: any) => {
             term.write(neofetch)
         },
         __help: "Fetch information from the system"
     },
     "help": {
-        __command: (term: Terminal, args: String[]) => {
+        __command: (term: Terminal, args: String[], _: any) => {
 
             term.write("\r\nHelp menu:\r\n")
 
