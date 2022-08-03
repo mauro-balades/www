@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {get} from "../../configuration";
 
 const WRAPPER_TEMPLATE = `
 
@@ -10,7 +11,6 @@ const WRAPPER_TEMPLATE = `
     & .pointer {
         cursor: url("/static/images/cursor_pointer.png"), pointer;
     }
-
 
     // SCROLL BARS
     & .scrollbar::-webkit-scrollbar {

@@ -19,8 +19,9 @@ export function remove(key: string) {
 export function defaultSettings() {
     set("theme", themeKeys[0]);
     set("cookies", "0");
+    set("pong", "0");
 }
 
 export function settingsExists() {
-    return get("theme") && get("cookies");
+    return get("theme") && get("cookies") && get("pong");
 }

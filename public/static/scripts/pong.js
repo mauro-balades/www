@@ -119,6 +119,7 @@ const pongGame = () => {
                 (i.fillStyle = "#FFFFFF"),
                 (i.textAlign = "center"),
                 i.fillText("Winner!", t.width / 2, t.height / 2 - 50);
+                localStorage.setItem("pong", "1")
         }),
             (m.prototype.render = function () {
                 (i.font = "60px sans-serif"),

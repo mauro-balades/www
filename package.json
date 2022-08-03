@@ -18,6 +18,7 @@
         "react-dom": "^18.1.0",
         "react-draggable": "^4.4.5",
         "react-hacker-text-effect": "^1.0.2",
+        "react-input-switch": "^2.2.2",
         "react-scripts": "5.0.1",
         "styled-components": "^5.3.5",
         "timers-browserify": "^2.0.12",
