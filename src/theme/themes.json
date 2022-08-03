@@ -23,7 +23,7 @@
     },
     "Alpine Night": {
         "navigationBackground": "#0F1D19",
-        "viewBackground": "#40CBA5",
+        "viewBackground": "#44DEB5 url(/static/svg/pixels-dark.svg) top left",
         "windowBackground": "#121D19",
         "titleBarBackground": "#0F1D19",
         "closeButtonBackground": "#121D19",

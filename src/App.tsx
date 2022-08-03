@@ -70,7 +70,7 @@ function App() {
     const [vintage, setVintage] = useState(get("vintage"));
 
     const [cookies_closed, cookies_setClosed] = useState(false);
-    const [terminal_closed, terminal_setClosed] = useState(false);
+    const [terminal_closed, terminal_setClosed] = useState(true);
     const [welcome_closed, welcome_setClosed] = useState(hasVisited);
     const [settings_closed, settings_setClosed] = useState(true);
     const [pong_closed, pong_setClosed] = useState(true);

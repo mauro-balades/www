@@ -24,6 +24,7 @@ const WRAPPER_TEMPLATE = `
         background-color: #c1c1bf;
     }
 
+
     & .scrollbar::-webkit-scrollbar-track {
         border: 2px solid #1d1d1b;
         border-top: none;
