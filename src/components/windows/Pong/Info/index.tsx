@@ -9,12 +9,15 @@ function PongInfo(props: any) {
             x="45"
             title="Pong"
             width="25"
-            height="10"
+            height="11"
             closable={true}
             {...props}
         >
             <Wrapper>
                 One thing I love are video games. to show my passion for them, I made pong! move the arrow keys to move your bar. Contact me if you win!
+                <br />
+                <br />
+                Psss... If you win pong, you will unlock the vintage mode!
             </Wrapper>
         </Window>
     );

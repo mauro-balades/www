@@ -10,7 +10,7 @@ function Settings(props: any) {
     const { themeSetClosed, setVintage } = props;
 
     // @ts-ignore
-    const [fullscreen, setFullscreen] = useState(window.fullScreen);
+    const [fullscreen, setFullscreen] = useState(!window.fullScreen);
     const [vintage, setVintageValue] = useState(0);
 
     useEffect(() => {
