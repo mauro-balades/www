@@ -5,6 +5,7 @@
         "windowBackground": "#EBECEB",
         "titleBarBackground": "#EBECEB",
         "closeButtonBackground": "#EBECEB",
+        "buttonBackground": "#dadad3",
         "terminalBackground": "#EBECEB",
         "terminalForeground": "#000",
         "light": true
@@ -15,6 +16,7 @@
         "windowBackground": "#E8E7E2",
         "titleBarBackground": "#dadad3",
         "closeButtonBackground": "#C1C1BF",
+        "buttonBackground": "#dadad3",
         "terminalBackground": "#005260",
         "terminalForeground": "#fff",
         "light": true
@@ -25,6 +27,7 @@
         "windowBackground": "#121D19",
         "titleBarBackground": "#0F1D19",
         "closeButtonBackground": "#121D19",
+        "buttonBackground": "transparent",
         "terminalBackground": "#0b111c",
         "terminalForeground": "#fff",
         "light": false
@@ -35,7 +38,8 @@
         "windowBackground": "#E9CED5",
         "titleBarBackground": "#E9CED5",
         "closeButtonBackground": "#cfadb6",
-        "terminalBackground": "#200060",
+        "buttonBackground": "#dadad3",
+        "terminalBackground": "#363A6D",
         "terminalForeground": "#fff",
         "light": true
     }

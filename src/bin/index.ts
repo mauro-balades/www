@@ -33,6 +33,10 @@ const bins = {
                     (value as any).state(true);
                 }, (value as any).time)
             }
+
+            term.write("Fetching IP adress... \x1B[1;36mOK\x1B[0m\n\r")
+            term.write("Entering email account... \x1B[1;36mOK\x1B[0m\n\r")
+            term.write("Geolocating user... \x1B[1;36mOK\x1B[0m\n\r")
         },
         __help: "???"
     },

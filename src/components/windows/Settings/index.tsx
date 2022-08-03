@@ -46,7 +46,7 @@ function Settings(props: any) {
                         </div>
                         <div style={{ width: '100%', marginLeft: '20px' }}>
                             <SectionTitle>Vintage</SectionTitle>
-                            <Switch value={get("pong") != "1" ? 0 : vintage} onChange={setVintageValue} title={get("pong") != "1" && "Unload this mode by winning in pong!"} style={get("pong") != "1" ? { opacity: '.7', cursor: '' } : {}} />
+                            <Switch value={get("pong") != "1" ? 0 : vintage} onChange={get("pong") != "1" ? null : setVintageValue} title={get("pong") != "1" && "Unload this mode by winning in pong!"} style={get("pong") != "1" ? { opacity: '.7', cursor: '' } : {}} />
                         </div>
                     </div>
                     <Separator />
