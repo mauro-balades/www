@@ -34,7 +34,7 @@
     },
     "Sunset Shore": {
         "navigationBackground": "#FEDDE3",
-        "viewBackground": "#63649C",
+        "viewBackground": "#63649C url(/static/svg/bg.svg) top left",
         "windowBackground": "#E9CED5",
         "titleBarBackground": "#E9CED5",
         "closeButtonBackground": "#cfadb6",

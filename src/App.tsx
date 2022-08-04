@@ -35,6 +35,7 @@ import Terminal from "./components/windows/Terminal";
 import CPPHack from "./components/hacks/CPP";
 import DataHack from "./components/hacks/data";
 import SQLMap from "./components/hacks/sql";
+import InfiniteReadme from "./components/windows/InfiniteReadme";
 
 const HANDS_AVAILABLE = 2;
 
@@ -79,11 +80,13 @@ function App() {
     const [folders_closed, folders_setClosed] = useState(true);
     const [man_closed, man_setClosed] = useState(true);
     const [projects_closed, projects_setClosed] = useState(true);
+    const [easterEgg_closed, easterEgg_setClosed] = useState(true);
 
     initializeFiles({
         pong_setClosed,
         man_setClosed,
         projects_setClosed,
+        easterEgg_setClosed,
     });
 
     const [currentFolder, setCurrentFolder] = useState("/");
@@ -144,11 +147,15 @@ function App() {
         <Folders
             closed={folders_closed}
             setClosed={folders_setClosed}
-            {...{ currentFolder, setCurrentFolder, pong_setClosed, projects_setClosed }}
+            {...{ currentFolder, setCurrentFolder, projects_setClosed, easterEgg_setClosed }}
         />,
         <ManPage
             closed={man_closed}
             setClosed={man_setClosed}
+        />,
+        <InfiniteReadme
+            closed={easterEgg_closed}
+            setClosed={easterEgg_setClosed}
         />,
         <Welcome
             closed={welcome_closed}

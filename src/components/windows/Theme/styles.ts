@@ -19,6 +19,7 @@ export const ThemePreview = styled.div`
 
     border: 2px solid ${(props: any) => (props.theme.light ? "#000" : "#fff")};
     background: ${(props: any) => props.theme.viewBackground};
+    ${(props: any) => props.theme.viewHasPixels ? 'background-image: url(/static/svg/pixels-dark.svg) top left;' : ''};
 `;
 
 export const WindowPreviewTitle = styled.div`

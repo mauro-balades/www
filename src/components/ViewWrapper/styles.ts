@@ -41,6 +41,9 @@ export const Wrapper = styled.div`
     overflow: hidden;
     background: ${(props: any) => props.theme.viewBackground};
 
+    ${(props: any) => props.theme.viewHasPixels ? 'background-image: url(/static/svg/pixels-dark.svg) top left;' : ''};
+
+
     position: relative;
 
     ${WRAPPER_TEMPLATE}
@@ -84,6 +87,8 @@ export const IntroductionWrapper = styled.div`
 
     overflow: hidden;
     background: ${(props: any) => props.theme.viewBackground};
+    ${(props: any) => props.theme.viewHasPixels ? 'background-image: url(/static/svg/pixels-dark.svg) top left;' : ''};
+
 
     position: relative;
 

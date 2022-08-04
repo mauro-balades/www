@@ -5,7 +5,7 @@ const STATIC_SVG_PREFIX = "/static/svg";
 export var FILE_STRUCTURE = {};
 
 export const initializeFiles = (props: any) => {
-    const { pong_setClosed, projects_setClosed, man_setClosed } = props;
+    const { projects_setClosed, man_setClosed, easterEgg_setClosed } = props;
 
     FILE_STRUCTURE = {
         "/": {
@@ -33,18 +33,18 @@ export const initializeFiles = (props: any) => {
                                                         __type: "folder",
                                                         infinite: {
                                                             __type: "folder",
-                                                            stop: {
+                                                            "for real, it's infinite": {
                                                                 __type: "folder",
-                                                                "please stop": {
+                                                                "infinite": {
                                                                     __type: "folder",
-                                                                    STOP: {
+                                                                    "omg": {
                                                                         __type: "folder",
-                                                                        "why?": {
-                                                                            __type: "folder",
-                                                                            "readme[DOT]txt":
-                                                                                {
-                                                                                    __type: "file",
-                                                                                },
+                                                                        "readme[DOT]txt":
+                                                                        {
+                                                                            __type: "file",
+                                                                            __handle: () => {
+                                                                                easterEgg_setClosed(false);
+                                                                            }
                                                                         },
                                                                     },
                                                                 },
