@@ -87,9 +87,10 @@ function Terminal(props: any) {
 
             fitAddon.fit();
 
-            // @ts-ignore
-            document.getElementById("terminal-window").classList.remove("init");
-            console.log(document.getElementById("terminal-window"))
+            while (document.getElementById("terminal-window")?.classList.contains("init")) {
+              document.getElementById("terminal-window")?.classList.remove("init");
+            }
+
             props.setClosed(true);
 
             setLoaded(true);
@@ -113,8 +114,7 @@ function Terminal(props: any) {
                 title="Terminal"
                 width="45"
                 height="30"
-                id="terminal-window"
-                extraClassNames="init"
+                extraClassNames={!loaded ? "init" : ""}
                 closable={true}
                 info={setInfo}
                 {...props}
