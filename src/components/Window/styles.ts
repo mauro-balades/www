@@ -19,6 +19,10 @@ export const Wrapper = styled.div`
     box-shadow: -0.6rem 0.6rem 0 rgb(29 30 28 / 26%);
     z-index: 9;
     color: ${(props: any) => (props.theme.light ? "#000" : "#fff")};
+
+    &.init {
+        opacity: 0;
+    }
 `;
 
 export const WindowTitle = styled.div`

@@ -30,6 +30,8 @@ function Window(props: any) {
     const ref = useRef(null);
     const { closed, setClosed, draggable, closable, title, info } = props;
 
+    const classNames = `${props.extraClassNames} ${WINDOW_CLASS}`;
+
     useEffect(() => {
         openWindowSound(!closed);
 
@@ -41,7 +43,7 @@ function Window(props: any) {
 
     return (
         <Draggable handle="strong">
-            <Wrapper ref={ref} className={WINDOW_CLASS} style={{ zIndex: '0', display: !closed ? "block" : "none" }} {...props}>
+            <Wrapper ref={ref} className={classNames} style={{ zIndex: '0', display: !closed ? "block" : "none" }} {...props}>
                 <WindowTitle draggable={draggable} closable={closable}>
                     {closable && (
                         <CloseWindowButton

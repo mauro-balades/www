@@ -31,6 +31,7 @@ function Terminal(props: any) {
 
     useEffect(() => {
         if (!loaded) {
+            console.log(container);
             var command = '';
             var term_element = document.getElementById('terminal') as HTMLElement;
     
@@ -85,6 +86,12 @@ function Terminal(props: any) {
               });
 
             fitAddon.fit();
+
+            // @ts-ignore
+            document.getElementById("terminal-window").classList.remove("init");
+            console.log(document.getElementById("terminal-window"))
+            props.setClosed(true);
+
             setLoaded(true);
         }
     }, [container])
@@ -106,11 +113,13 @@ function Terminal(props: any) {
                 title="Terminal"
                 width="45"
                 height="30"
+                id="terminal-window"
+                extraClassNames="init"
                 closable={true}
                 info={setInfo}
                 {...props}
             >
-                <Wrapper ref={container} id="terminal">
+                <Wrapper ref={container} id="terminal" className="scrollbar">
 
                 </Wrapper>
             </Window>

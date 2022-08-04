@@ -24,7 +24,6 @@ function Settings(props: any) {
         } else {
             requestExitFullScreen();
         }
-
     }, [fullscreen])
 
     return (
