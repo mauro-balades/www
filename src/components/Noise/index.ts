@@ -4,7 +4,7 @@ import styled from "styled-components";
 export default styled.div`
     height: 100%;
     left: 0;
-    opacity: .3;
+    opacity: .4;
     pointer-events: none;
     position: fixed;
     top: 0;
