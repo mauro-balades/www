@@ -1,7 +1,7 @@
 {
     "Crystal Maze": {
         "navigationBackground": "#EBECEB",
-        "viewBackground": "#E2E4F5",
+        "viewBackground": "#dfe0f5",
         "windowBackground": "#EBECEB",
         "titleBarBackground": "#EBECEB",
         "closeButtonBackground": "#EBECEB",
@@ -34,7 +34,7 @@
     },
     "Sunset Shore": {
         "navigationBackground": "#FEDDE3",
-        "viewBackground": "#63649C url(/static/svg/bg.svg) top left",
+        "viewBackground": "#6B6BA9 url(/static/svg/bg.svg) top left",
         "windowBackground": "#E9CED5",
         "titleBarBackground": "#E9CED5",
         "closeButtonBackground": "#cfadb6",

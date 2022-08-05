@@ -20,22 +20,23 @@ import {
 } from "./components/NavigationBarComponents";
 
 import ManPage from "./components/windows/ManPage";
+import InfiniteReadme from "./components/windows/InfiniteReadme";
 import Projects from "./components/Projects"
+import Noise from "./components/Noise";
 
 import { initializeFiles } from "./fs";
 import initializeSounds from "./sounds";
 
 import { WINDOW_CLASS, focusWindow } from "./utils/index";
-
 import { defaultSettings, get, set, settingsExists } from "./configuration";
 
 import "normalize.css";
+
 import Welcome from "./components/windows/Welcome";
 import Terminal from "./components/windows/Terminal";
 import CPPHack from "./components/hacks/CPP";
 import DataHack from "./components/hacks/data";
 import SQLMap from "./components/hacks/sql";
-import InfiniteReadme from "./components/windows/InfiniteReadme";
 
 const HANDS_AVAILABLE = 2;
 
@@ -314,6 +315,8 @@ function App() {
             {(!projects_closed) && (
                 <Projects setClosed={projects_setClosed} />
             )}
+
+            <Noise />
         </ThemeProvider>
     );
 }
