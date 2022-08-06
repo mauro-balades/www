@@ -32,3 +32,41 @@ export const Item = styled.div`
         text-align: center;
     }
 `;
+
+export const UserBar = styled.div`
+    width: 100%;
+    height: 30px;
+    border-top: 2px solid ${(props: any) => (props.theme.light ? "#000" : "#fff")};
+
+    background: ${(props: any) => props.theme.titleBarBackground};
+
+    display: flex;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+`
+
+export const UserBarButton = styled.div`
+    width: 30px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-right: 2px solid ${(props: any) => (props.theme.light ? "#000" : "#fff")};
+
+    & svg {
+        width: 18px;
+        height: 18px;
+    }
+`
+
+export const UserBarLocation = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    padding: 0 10px;
+`

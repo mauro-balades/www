@@ -7,6 +7,7 @@ import {
     Progress,
     LoadingText,
     ImageWrapper,
+    Copyright,
 } from "./styles";
 import Window from "../Window";
 import { LogoImage } from "../NavigationBarComponents";
@@ -61,6 +62,9 @@ function LoadingView(props: any) {
                     </LoadingBar>
                     <div style={{ height: "2rem" }}></div>
                 </BootWrapper>
+                <Copyright>
+                    © 2021 - {new Date().getFullYear()} Mauro Baladés
+                </Copyright>
             </LoadingDialog>
         </LoadingWrapper>
     );

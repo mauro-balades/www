@@ -4,7 +4,7 @@ import React from "react";
 import Window from "../../Window";
 
 import { FILE_STRUCTURE } from "../../../fs";
-import { FilesWrapper, Item } from "./styles";
+import { FilesWrapper, Item, UserBar, UserBarButton, UserBarLocation } from "./styles";
 
 const getFileByPath = (path: string) => {
     let splitted = path.split(".");
@@ -27,17 +27,11 @@ function Folders(props: any) {
     return (
         <Window
             closable={true}
-            y="45"
-            x="50"
-            title={
-                currentFolder === "/"
-                    ? "File explorer"
-                    : currentFolder.split(".")[
-                          currentFolder.split(".").length - 1
-                      ]
-            }
+            y="55"
+            x="55"
+            title="File explorer"
             width="40"
-            height="30"
+            height="25"
             {...props}
         >
             <FilesWrapper>
@@ -69,6 +63,15 @@ function Folders(props: any) {
                     ) : null
                 )}
             </FilesWrapper>
+            <UserBar>
+                <UserBarButton onClick={() => setCurrentFolder("/")} className="pointer">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+                </UserBarButton>
+                <UserBarLocation>
+                    /home/guest{currentFolder.replace(/\./g, "/").substring(1)}
+                </UserBarLocation>
+                <UserBarButton></UserBarButton>
+            </UserBar>
         </Window>
     );
 }

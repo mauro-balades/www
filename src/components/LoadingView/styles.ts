@@ -18,7 +18,7 @@ export const LoadingDialog = styled.div`
     border: 2px solid #1d1e1c;
 
     width: 25rem;
-    height: 25rem;
+    height: 20rem;
 
     position: absolute;
 
@@ -35,7 +35,7 @@ export const LoadingDialog = styled.div`
 
 export const BootWrapper = styled.div`
     width: 100%;
-    height: 60%;
+    height: 70%;
 
     border: 2px solid ${(props: any) => (props.theme.light ? "#000" : "#fff")};
     background: ${(props: any) => (props.theme.light ? "#ddd" : "#222222")};
@@ -84,3 +84,14 @@ export const ImageWrapper = styled.div`
     width: 100%;
     height: 60%;
 `;
+
+export const Copyright = styled.div`
+    display: flex;
+    width: 100%;
+    height: 40%;
+
+    justify-content: center;
+    align-items: center;
+
+    opacity: .8;
+`
