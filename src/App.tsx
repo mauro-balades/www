@@ -31,6 +31,7 @@ import { WINDOW_CLASS, focusWindow } from "./utils/index";
 import { defaultSettings, get, set, settingsExists } from "./configuration";
 
 import "normalize.css";
+import "css/default.css";
 
 import Welcome from "./components/windows/Welcome";
 import Terminal from "./components/windows/Terminal";
