@@ -48,7 +48,8 @@ export const UserBar = styled.div`
 `
 
 export const UserBarButton = styled.div`
-    width: 30px;
+    min-width: 30px;
+    max-width: 30px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -68,5 +69,7 @@ export const UserBarLocation = styled.div`
     display: flex;
     align-items: center;
 
+    text-overflow: ellipsis;
+    white-space: nowrap;
     padding: 0 10px;
 `
