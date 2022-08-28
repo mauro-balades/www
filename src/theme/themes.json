@@ -42,5 +42,16 @@
         "terminalBackground": "#363A6D",
         "terminalForeground": "#fff",
         "light": true
+    },
+    "Retro Dream": {
+        "navigationBackground": "#fff",
+        "viewBackground": "linear-gradient(126deg, rgba(240,137,239,1) 0%, rgba(114,184,254,1) 80%, rgba(0,212,255,1) 100%)",
+        "windowBackground": "#fff",
+        "titleBarBackground": "#fff",
+        "closeButtonBackground": "#e3e1e1",
+        "buttonBackground": "#e3e1e1",
+        "terminalBackground": "#EBECEB",
+        "terminalForeground": "#000",
+        "light": true
     }
 }

@@ -23,7 +23,7 @@ function ThemeConfig(props: any) {
             x="40"
             title="Theme"
             width="20"
-            height="29"
+            height="32"
             closable={true}
             {...props}
         >
