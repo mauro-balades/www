@@ -22,13 +22,13 @@ function Projects(props: any) {
             if ((firstSectionPosition) >= (window.innerWidth - 40)) {
                 setFirstSectionPosition((window.innerWidth));
             } else {
-                setFirstSectionPosition(firstSectionPosition + 40);
+                setFirstSectionPosition(firstSectionPosition + 100);
             }
         } else {
             if (firstSectionPosition <= 0) {
                 setFirstSectionPosition(0);
             } else {
-                setFirstSectionPosition(firstSectionPosition - 40);
+                setFirstSectionPosition(firstSectionPosition - 100);
             }
         }
 

@@ -36,11 +36,11 @@ export const FirstSection = styled.div`
     min-width: 100%;
     height: 100%;
 
-    transition: .4s;
+    transition: .6s;
 `
 
 export const ScrollSection = styled.div`
-    transition: .4s;
+    transition: .6s;
     display: flex;
 
     min-width: 100%;
