@@ -74,7 +74,6 @@ export const LoadingText = styled.div`
     letter-spacing: 2px;
     padding: 0.5em 0;
 
-    text-transform: uppercase;
     font-size: 0.85em;
 
     font-weight: 600;

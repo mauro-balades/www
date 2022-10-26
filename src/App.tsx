@@ -314,7 +314,7 @@ function App() {
             </div>
 
             {(!projects_closed) && (
-                <Projects setClosed={projects_setClosed} />
+                <Projects isClosed={projects_closed} setClosed={projects_setClosed} />
             )}
 
             <Noise />

@@ -4,75 +4,144 @@ import { zoomIn } from 'react-animations'
 
 const zoomInAnimation = keyframes`${zoomIn}`;
 
-export const Arrow = styled.div`
-    ${(props: any) => `
-        position: absolute;
-        top: 50%;
-        ${props.direction}: 5%;
-
-        ${props.removed ? 'transform: translate(-50%, -50%) scale(0) !important;' : ''}
-
-        width: 80px;
-        height: 40px;
-
-        transform: translate(-50%, -50%);
-
-        background: url(/static/svg/arrow-${props.direction}.svg) center no-repeat;
-        background-size: cover;
-
-        transition: .1s;
-        cursor: pointer;
-
-        &:hover {
-            transform: translate(-50%, -50%) scale(1.2) rotate(${props.direction == "right" ? '5' : '-5'}deg);
-        }
-    `}
-`
-
-export const Dot = styled.span`
-    width: 10px;
-    height: 10px;
-    border-radius: 40%;
-
-    background: #fff;
-    margin: 0 5px;
-    ${(props: any) => props.isActive ? `background: #000;` : 'border: 1px solid #000;'}
-`
-
-export const Dots = styled.div`
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-
-    display: flex;
-    align-items: center;
-`
-
 export const ProjectsWrapper = styled.div`
     width: 100%;
     height: 100%;
+
     position: absolute;
 
     top: 0;
     left: 0;
 
     z-index: 999;
-    background: #fff;
+    background: #0b0b0b;
 
-    color: #000;
+    color: #fff;
     animation: .2s ${zoomInAnimation};
 `
 
+export const ScrollableArea = styled.div`
+    width: 100%;
+    height: 100%;
+
+    padding-top: 60px;
+
+    position: relative;
+    display: flex;
+
+    overflow-x: hidden;
+`
+
+export const FirstSection = styled.div`
+    min-width: 100%;
+    height: 100%;
+
+    transition: .4s;
+`
+
+export const ScrollSection = styled.div`
+    transition: .4s;
+    display: flex;
+
+    min-width: 100%;
+
+    position: relative;
+`
+
+export const ProjectView = styled.div`
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+
+    display: flex;
+`
+
+export const DescriptionsWrapper = styled.div`
+    width: 100%;
+`
+
+export const ImageView = styled.div`
+    width: 100%;
+    height: 100%;
+    border-left: 2px solid #fff;
+`
+
+export const Description = styled.div`
+    width: 100%;
+    height: 100%;
+`
+
+export const LeftNav = styled.div`
+    height: 100%;
+    width: 60px;
+
+    border-right: 2px solid #fff;
+    border-left: 2px solid #fff;
+
+    position: relative;
+
+    & span {
+
+        position: absolute;
+
+        bottom: 2%;
+        left: 50%;
+
+        white-space: pre;
+
+        /* Border is the new background */
+        background: none;
+      
+        /* Rotate from top left corner (not default) */
+        transform-origin: 0 0;
+        transform: rotate(-90deg) translateY(-50%);
+
+        text-transform: uppercase;
+        color: #fff;
+    
+        letter-spacing: 2px;
+    
+        font-size: 0.85em;
+        font-weight: 600;
+    }
+`
+
+export const TopNavigation = styled.div`
+    width: 100%;
+    position: fixed;
+
+    background: #0b0b0b;
+
+    top: 0;
+    left: 0;
+
+    z-index: 9;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 15px 25px;
+    border-bottom: 2px solid #fff;
+`
+
+export const TopNavigationTitle = styled.div`
+    text-transform: uppercase;
+    color: #fff;
+
+    letter-spacing: 2px;
+
+    font-size: 0.85em;
+    font-weight: 600;
+`
+
 export const CloseButton = styled.div`
-    position: absolute;
-    right: 1%;
-    top: 2%;
+    color: #fff;
 
     cursor: pointer;
-    width: 2rem;
-    height: 2rem;
+    width: 1.7rem;
+    height: 1.7rem;
 
     & svg {
         width: 100%;
