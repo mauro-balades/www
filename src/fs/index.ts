@@ -5,7 +5,7 @@ const STATIC_SVG_PREFIX = "/static/svg";
 export var FILE_STRUCTURE = {};
 
 export const initializeFiles = (props: any) => {
-    const { projects_setClosed, man_setClosed, easterEgg_setClosed } = props;
+    const { projects_setClosed, man_setClosed, easterEgg_setClosed, mauroDotCC_setClosed } = props;
 
     FILE_STRUCTURE = {
         "/": {
@@ -59,6 +59,15 @@ export const initializeFiles = (props: any) => {
                             },
                         },
                     },
+                },
+            },
+            code: {
+                __type: "folder",
+                "cv[DOT]cc": {
+                    __type: "file",
+                    __handle: () => {
+                        mauroDotCC_setClosed(false);
+                    }
                 },
             },
             "mauro[DOT]7": {
