@@ -1,5 +1,6 @@
 
 import React, { useEffect, useRef, useState } from "react";
+import Home from "./components/Home";
 import { ProjectsWrapper, CloseButton, TopNavigation, TopNavigationTitle, ScrollableArea, FirstSection, LeftNav, ScrollSection, ProjectView, Description, ImageView, DescriptionsWrapper } from "./styles";
 
 function Projects(props: any) {
@@ -48,7 +49,7 @@ function Projects(props: any) {
             </TopNavigation>
             <ScrollableArea onWheel={onScroll}>
                 <FirstSection ref={firstSectionRef}>
-                    TODO
+                    <Home />
                 </FirstSection>
                 <ScrollSection ref={scrollSectionRef}>
                     <LeftNav><span>// Selected Work (TODO: add significant text)</span></LeftNav>
