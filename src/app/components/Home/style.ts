@@ -14,8 +14,6 @@ export const PageWrapper = styled.div`
     height: 100vh;
     max-height: 100vh;
 
-    padding: 0 10%;
-
     position: relative;
 
     overflow: hidden;

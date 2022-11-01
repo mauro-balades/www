@@ -1,7 +1,10 @@
 
 import styled from 'styled-components';
+import { alignment } from '../../../../const';
 
 export const Wrapper = styled.div`
+    margin: 0 ${alignment.BIG};
+    width: 100%;
 `
 
 export const SmallText = styled.div`
