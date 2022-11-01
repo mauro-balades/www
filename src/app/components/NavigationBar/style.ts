@@ -32,7 +32,7 @@ export const Logo = styled.div`
 export const Link = styled.div`
     opacity: .7;
     position: relative;
-    font-weight: 500;
+    font-weight: 600;
 
     margin: 0 10px;
 
@@ -65,6 +65,7 @@ export const LastLink = styled.div`
     display: flex;
     align-items: center;
     position: relative;
+    font-weight: 500;
 
     cursor: pointer;
 

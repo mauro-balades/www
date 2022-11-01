@@ -24,3 +24,29 @@ export const BigText = styled.div`
     line-height: 1.4;
     font-family: 'Poppins', sans-serif;
 `
+
+export const EasterEgg = styled.span`
+    position: relative;
+
+    & span {
+        background: linear-gradient(0.25turn, #2193b0, #6dd5ed);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    & img {
+        display: none;
+        opacity: 0;
+        transition: .2s;
+        position: absolute;
+        bottom: 100%;
+        right: 20%;
+
+        width: 100px;
+    }
+
+    &:has(span:hover) img {
+        display: block;
+        opacity: 1;
+    }
+`
