@@ -36,7 +36,8 @@ function Projects(props: any) {
         }
 
         let relative_scroll = (window.innerWidth - firstSectionPosition) + 150;
-        console.log(relative_scroll)
+
+        // TODO: fix this
         if (relative_scroll >= 1900) {
             upp_txt.innerHTML = "// Selected Work";
         } else if (relative_scroll >= 1850) {
