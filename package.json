@@ -23,11 +23,14 @@
         "react-ga": "^3.3.1",
         "react-hacker-text-effect": "^1.0.2",
         "react-input-switch": "^2.2.2",
+        "react-markdown": "^8.0.3",
         "react-router-dom": "^6.4.3",
         "react-scripts": "5.0.1",
         "react-static-container": "^1.0.2",
         "react-syntax-highlighter": "^15.5.0",
-        "styled-components": "^5.3.5",
+        "rehype-katex": "^6.0.2",
+        "remark-math": "^5.1.1",
+        "styled-components": "^5.3.6",
         "timers-browserify": "^2.0.12",
         "typescript": "^4.6.4",
         "web-vitals": "^2.1.4",
@@ -58,5 +61,8 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "devDependencies": {
+        "@types/styled-components": "^5.1.26"
     }
 }

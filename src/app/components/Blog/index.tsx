@@ -1,14 +1,14 @@
 
 import React from "react";
 import NavigationBar from "../NavigationBar";
-import HeaderText from "./components/HeaderText";
 import { PageWrapper } from "./style";
+import Core from "./components/Core";
 
 export default function() {
     return (
         <PageWrapper>
-            <NavigationBar></NavigationBar>
-            <HeaderText></HeaderText>
+            <NavigationBar animate></NavigationBar>
+            <Core></Core>
         </PageWrapper>
     )
 }

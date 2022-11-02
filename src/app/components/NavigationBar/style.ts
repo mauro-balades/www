@@ -52,7 +52,7 @@ export const Link = styled.div`
         margin: 0 100% 0 100%;
     }
 
-    &:has(.active) {
+    &.active {
         opacity: 1;
     }
 

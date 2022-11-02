@@ -2,6 +2,11 @@
 export const MAIN_BACKGROUND = '#000';
 export const MAIN_TEXT_COLOR = '#fff';
 
+export const BLOG_BACKGROUND = 'rgba(10,10,10,1)';
+export const BLOG_BORDER_CLR = 'rgb(24,24,24)   ';
+
+export const BLOG_NAV_WIDTH  = '300px';
+
 export const MAIN_BACKGROUND_INVERTED = '#fff';
 export const MAIN_TEXT_COLOR_INVERTED = '#000';
 
