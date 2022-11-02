@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import { matchPath, Link, useLocation } from "react-router-dom";
-import { Links, Blog, Link as NavLink, Wrapper, GoBackHome, BlogTitle, BlogDate, BlogWrapper } from "./style";
+import { Links, Blog, Link as NavLink, Wrapper, GoBackHome, BlogTitle, BlogDate, BlogWrapper, SectionTitle } from "./style";
 import { motion } from "framer-motion";
 import { BLOG_NAV_WIDTH } from "../../../../const";
 import { useNavigate } from "react-router-dom";
@@ -12,7 +12,12 @@ import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {dark} from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 import remarkMath from 'remark-math'
-import rehypeKatex from 'rehype-katex'
+import remarkGfm from 'remark-gfm';
+import rehypeKatex from 'rehype-katex';
+import rehypeRaw from 'rehype-raw';
+import snippets from "../../../../snippets";
+
+import "./md/css/override.css";
 
 const pageTransition = {
     type: "tween",
@@ -73,6 +78,7 @@ export default function() {
     const navigate = useNavigate();
 
     let [id, setId] = useState(0);
+    let [isSnippet, setIfSnippet] = useState(false);
 
     const ifMatch = (cmp: number) => {
         return id == cmp;
@@ -92,12 +98,22 @@ export default function() {
                 </GoBackHome>
                 <Links>
                     {blogs.map((data, i) => (
-                        <NavLink onClick={() => setId(i+1)} className={ifMatch(i+1) ? "active" : ""}>
+                        <NavLink onClick={() => {setIfSnippet(false); setId(i+1)}} className={(ifMatch(i+1) && (!isSnippet)) ? "active" : ""}>
                             <BlogTitle>{data.name}</BlogTitle>
                             <BlogDate>{data.date}</BlogDate>
                         </NavLink>
                     ))}
                 </Links>
+                <SectionTitle>Code Snippets</SectionTitle>
+                <Links>
+                    {snippets.map((data, i) => (
+                        <NavLink onClick={() => {setIfSnippet(true); setId(i+1)}} className={(ifMatch(i+1) && isSnippet) ? "active" : ""}>
+                            <BlogTitle>{data.name}</BlogTitle>
+                            <BlogDate>{data.date}</BlogDate>
+                        </NavLink>
+                    ))}
+                </Links>
+                {/* TODO: snippets */}
             </Wrapper>
             <BlogWrapper>
                 {id != 0 ? (
@@ -107,16 +123,20 @@ export default function() {
                         exit="out"
                         variants={blogVariants}
                         transition={blogTransition}
-                        key={id}>
+                        key={isSnippet ? id + blogs.length : id }>
                         <GoBackHome style={{ transform: 'translateY(15px)' }} onClick={() => setId(0)}>
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
-                            <span>Close Blog</span>
+                            <span>Close {isSnippet ? "Snippet" : "Blog"}</span>
                         </GoBackHome>
                         <ReactMarkdown
-                            children={blogs[id-1].data}
-                            remarkPlugins={[remarkMath]}
-                            rehypePlugins={[rehypeKatex]}
+                            children={isSnippet ? snippets[id-1].data : blogs[id-1].data}
+                            remarkPlugins={[remarkGfm, remarkMath]}
+                            allowElement={() => true}
+                            rehypePlugins={[rehypeRaw, rehypeKatex]}
+                            remarkRehypeOptions={{ allowDangerousHtml: true }}
                             components={{
+                                div: "div",
+                                p(props: any) { return <div className="p" {...props}></div> },
                                 code({node, inline, className, children, ...props}) {
                                   const match = /language-(\w+)/.exec(className || '')
                                   return !inline && match ? (

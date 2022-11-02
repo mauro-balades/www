@@ -141,6 +141,11 @@ export const BlogWrapper = styled.div`
     justify-content: center;
 `;
 
+export const SectionTitle = styled.div`
+    margin: 5px;
+    font-weight: 600;
+`
+
 export const Blog = styled(motion.div)`
     & {
         color-scheme: dark;
@@ -409,7 +414,7 @@ export const Blog = styled(motion.div)`
         color: #8b949e;
     }
 
-    & p {
+    & div.p {
         margin-top: 0;
         font-weight: 500;
         opacity: .7;

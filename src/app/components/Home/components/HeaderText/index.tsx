@@ -15,14 +15,15 @@ const pageVariants = {
     },
     out: {
         filter: 'blur(15px)',
-        opacity: '0'
+        opacity: '0',
     }
 };
 
 const pageTransition = {
     type: "tween",
     ease: "anticipate",
-    duration: 0.5
+    duration: 0.5,
+    delay: 0.0001
 };
 
 export default function() {

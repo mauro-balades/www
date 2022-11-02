@@ -1,7 +1,9 @@
 import hello_world from "./hello_world";
-import test from "./test";
+import operator_overload from "./operator_overload";
+import styled_components from "./styled_components";
 
 export default [
-    test,
+    operator_overload,
+    styled_components,
     hello_world,
 ]
