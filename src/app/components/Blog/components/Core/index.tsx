@@ -6,15 +6,10 @@ import { motion } from "framer-motion";
 import { BLOG_NAV_WIDTH } from "../../../../const";
 import { useNavigate } from "react-router-dom";
 import blogs from "../../../../blogs";
-import ReactMarkdown from 'react-markdown';
 
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {dark} from 'react-syntax-highlighter/dist/esm/styles/prism'
 
-import remarkMath from 'remark-math'
-import remarkGfm from 'remark-gfm';
-import rehypeKatex from 'rehype-katex';
-import rehypeRaw from 'rehype-raw';
 import snippets from "../../../../snippets";
 
 import "./md/css/override.css";
@@ -97,12 +92,12 @@ export default function() {
                     <span>Go Back</span>
                 </GoBackHome>
                 <Links>
-                    {blogs.map((data, i) => (
+                    {blogs.map((data, i) => {console.log(data); return (
                         <NavLink onClick={() => {setIfSnippet(false); setId(i+1)}} className={(ifMatch(i+1) && (!isSnippet)) ? "active" : ""}>
-                            <BlogTitle>{data.name}</BlogTitle>
-                            <BlogDate>{data.date}</BlogDate>
+                            {/* <BlogTitle>{data.name}</BlogTitle>
+                            <BlogDate>{data.date}</BlogDate> */}
                         </NavLink>
-                    ))}
+                    )})}
                 </Links>
                 <SectionTitle>Code Snippets</SectionTitle>
                 <Links>
@@ -128,7 +123,7 @@ export default function() {
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
                             <span>Close {isSnippet ? "Snippet" : "Blog"}</span>
                         </GoBackHome>
-                        <ReactMarkdown
+                        {/* <ReactMarkdown
                             children={isSnippet ? snippets[id-1].data : blogs[id-1].data}
                             remarkPlugins={[remarkGfm, remarkMath]}
                             allowElement={() => true}
@@ -153,7 +148,7 @@ export default function() {
                                     </code>
                                   )
                                 }
-                            }} />
+                            }} /> */}
                     </Blog>
                 ) : null}
             </BlogWrapper>
