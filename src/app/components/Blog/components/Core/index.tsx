@@ -7,12 +7,10 @@ import { BLOG_NAV_WIDTH } from "../../../../const";
 import { useNavigate } from "react-router-dom";
 import blogs from "../../../../blogs";
 
-import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
-import {dark} from 'react-syntax-highlighter/dist/esm/styles/prism'
+import {MDXProvider} from '@mdx-js/react'
 
 import snippets from "../../../../snippets";
-
-import "./md/css/override.css";
+import code from "./md/core/code";
 
 const pageTransition = {
     type: "tween",
@@ -79,8 +77,12 @@ export default function() {
         return id == cmp;
     }
 
+    const blog_props = {
+        components: {code}
+    }
+
     return (
-        <div style={{ display: 'flex', width: '100%' }}>
+        <div style={{ overflowY: 'hidden', display: 'flex', width: '100%' }}>
             <Wrapper
                 initial="initial"
                 animate="in"
@@ -92,19 +94,33 @@ export default function() {
                     <span>Go Back</span>
                 </GoBackHome>
                 <Links>
-                    {blogs.map((data, i) => {console.log(data); return (
+                    {blogs.map((data: any, i) => (
                         <NavLink onClick={() => {setIfSnippet(false); setId(i+1)}} className={(ifMatch(i+1) && (!isSnippet)) ? "active" : ""}>
-                            {/* <BlogTitle>{data.name}</BlogTitle>
-                            <BlogDate>{data.date}</BlogDate> */}
+                            <BlogTitle>{data.meta.name}</BlogTitle>
+                            <BlogDate>
+                                {data.meta.date}
+                                {data.meta.tag && (
+                                    <>
+                                        <span style={{ margin: '0 5px' }}>-</span>{data.meta.tag}
+                                    </>
+                                )}
+                            </BlogDate>
                         </NavLink>
-                    )})}
+                    ))}
                 </Links>
                 <SectionTitle>Code Snippets</SectionTitle>
                 <Links>
-                    {snippets.map((data, i) => (
+                    {snippets.map((data: any, i) => (
                         <NavLink onClick={() => {setIfSnippet(true); setId(i+1)}} className={(ifMatch(i+1) && isSnippet) ? "active" : ""}>
-                            <BlogTitle>{data.name}</BlogTitle>
-                            <BlogDate>{data.date}</BlogDate>
+                            <BlogTitle>{data.meta.name}</BlogTitle>
+                            <BlogDate>
+                                {data.meta.date}
+                                {data.meta.tag && (
+                                    <>
+                                        <span style={{ margin: '0 5px' }}>-</span>{data.meta.tag}
+                                    </>
+                                )}
+                            </BlogDate>
                         </NavLink>
                     ))}
                 </Links>
@@ -123,32 +139,9 @@ export default function() {
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
                             <span>Close {isSnippet ? "Snippet" : "Blog"}</span>
                         </GoBackHome>
-                        {/* <ReactMarkdown
-                            children={isSnippet ? snippets[id-1].data : blogs[id-1].data}
-                            remarkPlugins={[remarkGfm, remarkMath]}
-                            allowElement={() => true}
-                            rehypePlugins={[rehypeRaw, rehypeKatex]}
-                            remarkRehypeOptions={{ allowDangerousHtml: true }}
-                            components={{
-                                div: "div",
-                                p(props: any) { return <div className="p" {...props}></div> },
-                                code({node, inline, className, children, ...props}) {
-                                  const match = /language-(\w+)/.exec(className || '')
-                                  return !inline && match ? (
-                                    <SyntaxHighlighter
-                                      children={String(children).replace(/\n$/, '')}
-                                      style={dark}
-                                      language={match[1]}
-                                      PreTag="div"
-                                      {...props}
-                                    />
-                                  ) : (
-                                    <code className={className} {...props}>
-                                      {children}
-                                    </code>
-                                  )
-                                }
-                            }} /> */}
+                        <MDXProvider components={{code}}>
+                            {isSnippet ? snippets[id-1].default(blog_props) : blogs[id-1].default(blog_props)}
+                        </MDXProvider>
                     </Blog>
                 ) : null}
             </BlogWrapper>

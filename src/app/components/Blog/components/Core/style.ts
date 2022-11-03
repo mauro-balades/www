@@ -2,11 +2,9 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 import {
-    alignment,
     BLOG_BACKGROUND,
     BLOG_BORDER_CLR,
     BLOG_NAV_WIDTH,
-    MAIN_BACKGROUND,
     MAIN_BACKGROUND_INVERTED,
     MAIN_TEXT_COLOR,
 } from "../../../../const";
@@ -132,21 +130,40 @@ export const Links = styled.div`
 `;
 
 export const BlogWrapper = styled.div`
-    height: 100%;
+    height: 100vh;
     margin: 0 auto;
-    max-width: 40%;
+    width: 100%;
+
+    padding-top: 10vh;
+    overflow-y: auto;
 
     display: flex;
-    align-items: center;
     justify-content: center;
+
+    &::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #757575;
+        border-radius: 10px;
+    }
+
 `;
 
 export const SectionTitle = styled.div`
     margin: 5px;
     font-weight: 600;
-`
+`;
 
 export const Blog = styled(motion.div)`
+    max-width: 40%;
+    height: fit-content;
+
     & {
         color-scheme: dark;
         -ms-text-size-adjust: 100%;
@@ -156,6 +173,8 @@ export const Blog = styled(motion.div)`
         line-height: 1.5;
         word-wrap: break-word;
     }
+
+
 
     & details,
     & figcaption,
@@ -240,6 +259,12 @@ export const Blog = styled(motion.div)`
     & samp {
         font-family: monospace, monospace;
         font-size: 1em;
+    }
+
+    & pre > div {
+        background: none !important;
+        padding: 0 !important;
+        font-weight: 600;
     }
 
     & figure {
@@ -414,10 +439,10 @@ export const Blog = styled(motion.div)`
         color: #8b949e;
     }
 
-    & div.p {
+    & p {
         margin-top: 0;
         font-weight: 500;
-        opacity: .7;
+        opacity: 0.7;
         font-size: 15px;
         margin-bottom: 10px;
         line-height: 1.75;
@@ -750,6 +775,10 @@ export const Blog = styled(motion.div)`
 
     & li > p {
         margin-top: 16px;
+    }
+
+    & li {
+        list-style: circle;
     }
 
     & li + li {

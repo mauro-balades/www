@@ -1,0 +1,103 @@
+import Alert from "../components/md/Alert/index";
+
+export const meta = {
+    name: "Intro to styled components",
+    date: "07 November, 2022",
+}
+
+# Introduction to styled components
+
+When I discovered about styled-components (💅) I remember that I **loved** it ✨ (I can't stop using it now). In this article, I'm going to teach you the wonders this magnificent framework can offer to you and how you can use it from a basic level and some fun facts at the end ;)
+
+<Alert type="info">
+    **Intended audience**
+
+    This article is written for people who have atleast a basic knowledge about React and programming. Although this is a beginner lesson, there are still things to know before diving into this big topic.
+</Alert>
+
+## That's great, but what's `styled-components`?
+
+Styled-components allows you to create and style (via template litterals) re-useable react components. This is a nice way to go since it allows you
+to create normal React components with styles attached to it.
+
+In other words, Styled-components keeps track of which components are rendered on a page and injects their styles and nothing else, fully automatically. It also has the followuing features:
+
+- Automatic vendor prefixing
+- Unique class names
+- Elimination of dead styles
+
+
+## Where do I start?
+
+First of all, you will need to create a file (we are going to use TypeScript for this article) in orther to declare a styled component. Note that this can be done anywhere but I like to make things clean.
+
+```typescript
+// styles.ts
+
+export const MyElement = styled.div`
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center; // did I just center a div?
+`
+```
+
+It's that simple! now, you can import this component and use it as a normal element.
+
+```tsx
+// index.tsx
+
+import styled from "styled-components";
+import { MyElement } from "./styles";
+
+function App() {
+    return (
+        <MyElement>Hello, World!</MyElement>
+    )
+}
+```
+
+### Passing props to components
+
+One thing great about styled components is thaty they are __functional__. This means that we can style elements dynamically. The following example will show how to adapt an element based on their props:
+
+```tsx
+import styled from "styled-components";
+
+const Button = styled.div`
+    width: 100%;
+    height: 100vh;
+
+    background: ${(props: any) => props.primary ? `red` : `blue`};
+`
+
+const Text = styled.div`
+    color: ${(props: any) => props.color || "#000"}
+`
+
+function App() {
+    return (
+        <Button primary={true}>
+            <Text color={"blue"}>Hello, World!</Text>
+        </Button>
+    )
+}
+```
+
+## You survived till the end!
+
+If there is any part that you didn't understand from this article, it's ok! Styled-components require lot's of time to master.
+
+In addition, here you have some useful sources you might be interested in:
+
+- [Documentation](https://styled-components.com/docs)
+- [Stackoverflow](https://stackoverflow.com/questions/tagged/styled-components)
+- YouTube videos
+    - [Build a UI kit with styled-components](https://www.youtube.com/watch?v=u6gQ48rSw-E)
+    - [How to Use Styled Components in React Applications](https://www.youtube.com/watch?v=0cE1q_SVAjM)
+
+<br/>
+~ Mauro Baladés
+<br/>
