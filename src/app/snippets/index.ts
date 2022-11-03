@@ -1,7 +1,7 @@
-import * as math_random from "./math_random.mdx";
+import * as nullish_operator from "./nullish_operator.mdx";
 import * as placeholder from "./placeholder_shown.mdx";
 
 export default [
-    math_random,
+    nullish_operator,
     placeholder
 ]

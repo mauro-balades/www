@@ -1,11 +1,14 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { matchPath, Link, useLocation } from "react-router-dom";
-import { Links, Blog, Link as NavLink, Wrapper, GoBackHome, BlogTitle, BlogDate, BlogWrapper, SectionTitle } from "./style";
+import { Links, Blog, Link as NavLink, Wrapper, GoBackHome, BlogTitle, BlogDate, BlogWrapper, SectionTitle, HighlightElement } from "./style";
 import { motion } from "framer-motion";
 import { BLOG_NAV_WIDTH } from "../../../../const";
 import { useNavigate, useNavigation } from "react-router-dom";
 import blogs from "../../../../blogs";
+
+import gsap from "gsap";
+import offset from "document-offset";
 
 import {MDXProvider} from '@mdx-js/react'
 
@@ -72,6 +75,62 @@ export default function() {
 
     let [id, setId] = useState(0);
     let [isSnippet, setIfSnippet] = useState(false);
+    let highlightElement = useRef(null);
+
+    const arrLength = blogs.length + snippets.length;
+    const refs = useRef([] as any);
+
+    const addToRefs = (el: any) => {
+        if (el && !refs.current.includes(el)) {
+          refs.current.push(el);
+        }
+    };
+
+    useEffect(() => {
+        if (refs.current.length == arrLength) {
+            gsap.config({ force3D: 'auto' })
+
+            refs.current.map((el: any, i: number) => {
+                el.addEventListener('mouseenter', (e: any) => {
+                    gsap.killTweensOf(highlightElement.current)
+                    let el_offset = offset(el);
+
+                    if (refs.current.includes(e.relatedTarget) === true) {
+                        gsap.set(highlightElement.current, { opacity: 1, height: el.offsetHeight - 2 })
+
+                        gsap.to(
+                            highlightElement.current,
+                                {
+                                    width: el.offsetWidth,
+                                    y: el_offset.top,
+                                    x: el_offset.left,
+                                    duration: 0.1
+                                }
+                        )
+        
+                        return;
+                    }
+
+
+                    gsap.set(
+                        highlightElement.current,
+                        {
+                            opacity: 1,
+                            width: el.offsetWidth,
+                            height: el.offsetHeight - 2,
+                            y: el_offset.top,
+                            x: el_offset.left,
+                        }
+                    )
+
+                })
+
+                el.addEventListener('mouseleave', (_: any) => {
+                    gsap.to(highlightElement.current, { opacity: 0, duration: 0.1 })
+                })
+            })
+        }
+    }, [refs])
 
     const ifMatch = (cmp: number) => {
         return id == cmp;
@@ -83,6 +142,7 @@ export default function() {
 
     return (
         <div style={{ overflowY: 'hidden', display: 'flex', width: '100%' }}>
+
             <Wrapper
                 initial="initial"
                 animate="in"
@@ -96,8 +156,10 @@ export default function() {
                     <span>Go Back</span>
                 </GoBackHome>
                 <Links>
+                    <HighlightElement ref={highlightElement}></HighlightElement>
+
                     {blogs.map((data: any, i) => (
-                        <NavLink onClick={() => {setIfSnippet(false); setId(i+1)}} className={(ifMatch(i+1) && (!isSnippet)) ? "active" : ""}>
+                        <NavLink ref={addToRefs} onClick={() => {setIfSnippet(false); setId(i+1)}} className={(ifMatch(i+1) && (!isSnippet)) ? "active" : ""}>
                             <BlogTitle>{data.meta.name}</BlogTitle>
                             <BlogDate>
                                 {data.meta.date}
@@ -113,7 +175,7 @@ export default function() {
                 <SectionTitle>Code Snippets</SectionTitle>
                 <Links>
                     {snippets.map((data: any, i) => (
-                        <NavLink onClick={() => {setIfSnippet(true); setId(i+1)}} className={(ifMatch(i+1) && isSnippet) ? "active" : ""}>
+                        <NavLink ref={addToRefs} onClick={() => {setIfSnippet(true); setId(i+1)}} className={(ifMatch(i+1) && isSnippet) ? "active" : ""}>
                             <BlogTitle>{data.meta.name}</BlogTitle>
                             <BlogDate>
                                 {data.meta.date}

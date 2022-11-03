@@ -8,8 +8,8 @@ function animationWithDelat(_delay: number = 0) {
     const pageTransition = {
         type: "tween",
         ease: "anticipate",
-        duration: 0.5,
-        delay: _delay + 1.2,
+        duration: 0.3,
+        delay: _delay + 0.2,
     };
     
     const pageVariants = {
@@ -26,7 +26,7 @@ function animationWithDelat(_delay: number = 0) {
             transition: {
                 type: "tween",
                 ease: "anticipate",
-                duration: 0.5,
+                duration: 0.3,
                 delay: _delay + 0,
             }
         }
@@ -42,10 +42,10 @@ export default function(props: any) {
     let location = useLocation();
 
     const ifMatch = (route: string) => {
-        return location.pathname as any == route;
+        return location.pathname == route;
     }
 
-    let LinkWrapper = animate ? motion.div : "div";
+    let LinkWrapper = animate !== undefined ? motion.div : "div";
     return (
         <Wrapper>
             <LinkWrapper

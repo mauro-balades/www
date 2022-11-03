@@ -7,6 +7,7 @@ declare module 'react-input-switch';
 declare module 'react-syntax-highlighter';
 declare module 'react-router-dom';
 declare module 'framer-motion';
+declare module 'document-offset';
 
 declare module 'react-syntax-highlighter/dist/esm/styles/prism';
 declare module 'react-syntax-highlighter/dist/esm/styles/hljs/*';

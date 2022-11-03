@@ -1,0 +1,20 @@
+import Footer from "../components/md/Footer/index";
+
+export const meta = {
+    name: "Nullish coalescing operator",
+    date: "30 November, 2022",
+    tag: "js"
+}
+
+```javascript
+let foo = bar ?? baz;
+```
+
+
+So it failed to perform the logic and we didn’t get the expected value, which is not what we wanted, right?
+
+To tackle this problem, developers usually use the `||` operator using the right-hand-side value if the left-hand-side value is null or undefined. Which is fine. But the problem with `||` is that it considers 0 and a blank string as undefined too.
+
+To tackle this issue, we can use the nullish coalescing operator (`??`), which works similarly to the `||` operator, but it doesn’t consider 0 and a blank string as null or undefined.
+
+<Footer />

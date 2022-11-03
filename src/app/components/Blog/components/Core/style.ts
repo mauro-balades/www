@@ -80,6 +80,23 @@ export const BlogTitle = styled.div`
     font-size: 13px;
 `;
 
+export const HighlightElement = styled.div`
+
+    border-radius: 5px;
+
+    left: 0;
+    top: 0;
+
+	position: absolute;
+	background: #222;
+	z-index: 4;
+	border-radius: 0.6ch;
+	opacity: 0;
+
+    pointer-events: none;
+    transition: .1s;
+`;
+
 export const BlogDate = styled.div`
     opacity: 0.8;
     font-weight: 600;
@@ -91,7 +108,10 @@ export const Link = styled.div`
     position: relative;
     font-weight: 600;
 
+    user-select: none;
+
     width: 100%;
+    z-index: 10000;
     padding: 0.4rem;
 
     cursor: pointer;
@@ -100,7 +120,8 @@ export const Link = styled.div`
     margin: 5px 0;
 
     &:hover {
-        background: rgba(255, 255, 255, 0.2);
+        color: ${MAIN_TEXT_COLOR};
+        // background: rgba(255, 255, 255, 0.2);
     }
 
     &::after {
@@ -113,13 +134,14 @@ export const Link = styled.div`
         border-radius: 1px;
 
         width: 3px;
-        transition: 0.2s;
+        transition: 1s;
         background: ${MAIN_BACKGROUND_INVERTED};
 
         margin: 100% 0;
     }
 
     &.active::after {
+        transition: 0.2s;
         opacity: 1;
         margin: 0;
     }
@@ -127,6 +149,7 @@ export const Link = styled.div`
 
 export const Links = styled.div`
     padding: 10px 0 10px 10px;
+    z-index: 2;
 `;
 
 export const BlogWrapper = styled.div`
@@ -158,6 +181,9 @@ export const BlogWrapper = styled.div`
 export const SectionTitle = styled.div`
     margin: 5px;
     font-weight: 600;
+
+    background:
+    z-index: 6;
 `;
 
 export const Blog = styled(motion.div)`
