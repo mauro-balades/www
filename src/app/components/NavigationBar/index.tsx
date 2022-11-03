@@ -1,41 +1,48 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { matchPath, Link, useLocation } from "react-router-dom";
 import { Links, Logo, Link as NavLink, Wrapper, LastLink } from "./style";
 import { motion } from "framer-motion";
-import { useNavigation } from "react-router-dom";
 
-const pageVariants = {
-    initial: {
-        transform: 'translateY(0)'
-    },
-    in: {
-        filter: 'blur(0px)',
-        transform: 'translateY(-100px)',
-        opacity: '1'
-    },
-    out: {
-        filter: 'blur(15px)',
-        transform: 'translateY(0) '
-    }
-};
+function animationWithDelat(_delay: number = 0) {
+    const pageTransition = {
+        type: "tween",
+        ease: "anticipate",
+        duration: 0.5,
+        delay: _delay + 1.2,
+    };
+    
+    const pageVariants = {
+        initial: {
+            transform: 'translateY(0px)',
+            transition: pageTransition
+        },
+        in: {
+            transform: 'translateY(-100px)',
+            transition: pageTransition
+        },
+        out: {
+            transform: 'translateY(0px) ',
+            transition: {
+                type: "tween",
+                ease: "anticipate",
+                duration: 0.5,
+                delay: _delay + 0,
+            }
+        }
+    };
 
-const pageTransition = {
-    type: "tween",
-    ease: "anticipate",
-    duration: 0.5,
-};
+    return pageVariants;
+}
 
 export default function(props: any) {
 
 
     let { animate } = props;
-
     let location = useLocation();
 
     const ifMatch = (route: string) => {
-        console.log(location)
-        return location.pathname == route;
+        return location.pathname as any == route;
     }
 
     let LinkWrapper = animate ? motion.div : "div";
@@ -45,8 +52,8 @@ export default function(props: any) {
                 initial="initial"
                 animate="in"
                 exit="out"
-                variants={pageVariants}
-                transition={pageTransition}>
+                key="navbar-logo"
+                variants={animationWithDelat()}>
                 <Logo>Mauro Baladés</Logo>
             </LinkWrapper>
             <Links>
@@ -54,8 +61,8 @@ export default function(props: any) {
                     initial="initial"
                     animate="in"
                     exit="out"
-                    variants={pageVariants}
-                    transition={{delay: 0.2, ...pageTransition}}>
+                    key="navbar-l-home"
+                    variants={animationWithDelat(0.2)}>
                     <Link to="/">
                         <NavLink className={ifMatch("/") ? "active" : ""}>
                             Home
@@ -66,8 +73,8 @@ export default function(props: any) {
                     initial="initial"
                     animate="in"
                     exit="out"
-                    variants={pageVariants}
-                    transition={{delay: 0.4, ...pageTransition}}>
+                    key="navbar-l-blog"
+                    variants={animationWithDelat(0.4)}>
                     <Link to="/blog">
                         <NavLink className={ifMatch("/blog") ? "active" : ""}>
                             Blog
@@ -78,8 +85,8 @@ export default function(props: any) {
                     initial="initial"
                     animate="in"
                     exit="out"
-                    variants={pageVariants}
-                    transition={{delay: 0.6, ...pageTransition}}>
+                    key="navbar-l-projects"
+                    variants={animationWithDelat(0.6)}>
                     <Link to="/projects">
                         <NavLink className={ifMatch("/projects") ? "active" : ""}>
                             Projects
@@ -89,9 +96,9 @@ export default function(props: any) {
                 <LinkWrapper
                     initial="initial"
                     animate="in"
+                    key="navbar-l-contact"
                     exit="out"
-                    variants={pageVariants}
-                    transition={{delay: 0.8, ...pageTransition}}>
+                    variants={animationWithDelat(0.8)}>
                     <Link to="/contact">
                         <NavLink className={ifMatch("/contact") ? "active" : ""}>
                             Contact
@@ -103,8 +110,8 @@ export default function(props: any) {
                 initial="initial"
                 animate="in"
                 exit="out"
-                variants={pageVariants}
-                transition={{delay: 1, ...pageTransition}}>
+                key="navbar-interactive-website"
+                variants={animationWithDelat(1)}>
                 <LastLink>
                     <span>
                         Interactive Website

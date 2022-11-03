@@ -4,7 +4,7 @@ import { matchPath, Link, useLocation } from "react-router-dom";
 import { Links, Blog, Link as NavLink, Wrapper, GoBackHome, BlogTitle, BlogDate, BlogWrapper, SectionTitle } from "./style";
 import { motion } from "framer-motion";
 import { BLOG_NAV_WIDTH } from "../../../../const";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useNavigation } from "react-router-dom";
 import blogs from "../../../../blogs";
 
 import {MDXProvider} from '@mdx-js/react'
@@ -67,8 +67,8 @@ const blogTransition = {
 };
 
 export default function() {
-    let location = useLocation();
     const navigate = useNavigate();
+    const location = useLocation();
 
     let [id, setId] = useState(0);
     let [isSnippet, setIfSnippet] = useState(false);
@@ -89,7 +89,9 @@ export default function() {
                 exit="out"
                 variants={pageVariants}
                 key="blog-left-nav">
-                <GoBackHome onClick={() => navigate(-1, { state: location }) || navigate("/", { state: location })}>
+                <GoBackHome onClick={() => {
+                    (navigate(-1) || navigate("/"))
+                }}>
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
                     <span>Go Back</span>
                 </GoBackHome>

@@ -1,4 +1,5 @@
 
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { alignment } from '../../../../const';
 
@@ -7,7 +8,7 @@ export const Wrapper = styled.div`
     width: 100%;
 `
 
-export const SmallText = styled.div`
+export const SmallText = styled(motion.div)`
     font-size: 17px;
     opacity: .7;
 
@@ -17,7 +18,7 @@ export const SmallText = styled.div`
 `
 
 
-export const BigText = styled.div`
+export const BigText = styled(motion.div)`
     font-size: 50px;
     font-weight: 700;
 
