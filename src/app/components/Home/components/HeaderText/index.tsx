@@ -18,7 +18,6 @@ function getTransitions(delay: number) {
     const pageVariants = {
         initial: {
             transform: `translateX(-${BLOG_NAV_WIDTH})`,
-            opacity: '0',
             transition: pageTransition
         },
         in: {
@@ -30,7 +29,6 @@ function getTransitions(delay: number) {
         out: {
             trans: 'blur(15px)',
             transform: `translateX(-${BLOG_NAV_WIDTH})`,
-            opacity: '0',
             transition: {
                 type: "tween",
                 ease: "anticipate",

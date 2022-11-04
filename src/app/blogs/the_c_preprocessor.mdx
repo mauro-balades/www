@@ -1,0 +1,251 @@
+import Alert from "../components/md/Alert/index";
+import Footer from "../components/md/Footer/index";
+import Script from "../components/md/Script/index";
+
+export const meta = {
+    name: "The C preprocessor",
+    date: "12 November, 2022",
+    tag: "C"
+}
+
+# The C preprocessor
+
+The C preprocessor is a macro processor automatically used by the C programming language to transform your program before it actually compiles it. The C preprocessor (despite it's name) also works for other "c extensions" (`C++`, `Objective-C`, ...).
+
+In this article, we are going to explore in detail the C preprocessor and explore all the creative things you can do with it.
+
+## History
+
+The preprocessor was introduced to C around 1973 at the urging of Alan Snyder and also in recognition of the usefulness of the file-inclusion mechanisms available in BCPL and PL/I. Its original version offered only file inclusion and simple string replacement using #include and #define for parameterless macros, respectively. It was extended shortly after, firstly by Mike Lesk and then by John Reiser, to incorporate macros with arguments and conditional compilation.
+
+The C preprocessor was part of a long macro-language tradition at Bell Labs, which was started by Douglas Eastwood and Douglas McIlroy in 1959.
+
+~ [Source](https://en.wikipedia.org/wiki/C_preprocessor#History)
+
+## Macros
+
+There are several uses for the preprocessor that are very usefull (or even necessary) for some cases such as: including files and making choices depending on constants.
+
+<Alert type="info">
+    **How to use macros?**
+
+    All preprocessing directives begin with a `#` symbol at the start of the line (without counting white spaces).
+</Alert>
+
+
+### Including files
+
+The include directive allows the programmer to insert another file into the source code. This is tipically used to include a header file containing functions declared outside the source file.
+
+**note**: The name of the header file that you wish to include. A header file is a C file that typically ends in ".h" and contains declarations and macro definitions which can be shared between several source files.
+
+There are 2 possible syntaxes in order to include another file:
+
+```c
+#include <file> new-line
+```
+
+and
+
+```c
+#include "file" new-line
+```
+
+<Alert type="info">
+    **What's the difference?**
+
+    What differs is the locations in which the preprocessor searches for the file to be included.
+
+    - `#include <filename>`   The preprocessor searches in an implementation-defined manner, normally in directories pre-designated by the compiler/IDE. This method is normally used to include header files for the C standard library and other header files associated with the target platform.
+
+    - `#include "filename"`   The preprocessor also searches in an implementation-defined manner, but one that is normally used to include programmer-defined header files and typically includes same directory as the file containing the directive (unless an absolute path is given).
+</Alert>
+
+### Making conditions
+
+Making conditions with the C preprocessor will allow you to determine what code should be included into the resultant source code. There are 6 different directives each one with it's own purpose:
+
+#### Make decision based on condition
+
+The `if` directive will take a condition and if it is true, it will include the code inside it. Note that the `if` directive must end with [`#endif`](#endif) as showed in the following code:
+
+```c
+#if condition new-line
+    block
+#endif
+```
+
+The following programm checks if a variable is set to 0
+
+```c
+#if DEBUG != 0
+    printf("Im here!");
+#endif
+```
+
+#### Check if a macro exists
+
+The `ifdef` directory works similar to the [`#if`](#make-decision-based-on-condition) directive there's a small differentiation. It's whole purpose is to check if a macro has been defined (as the name suggests).
+
+```c
+#ifdef my-macro new-line
+    block
+#endif
+```
+
+<Alert type="info">
+    **Woah, what about `#if defined(macro)`?**
+
+    The difference between the two is that `#ifdef` can only use a single condition,
+    while `#if defined(NAME)` can do compound conditionals.
+
+    For example in your case:
+    ```c
+    #if defined(WIN32) && !defined(UNIX)
+        /* Do windows stuff */
+    #elif defined(UNIX) && !defined(WIN32)
+        /* Do linux stuff */
+    #else
+        /* Error, both can't be defined or undefined same time */
+    #endif
+    ```
+</Alert>
+
+#### Check if macro does not exists
+
+The `ifndef` directly is exactly the opposite to [`#ifdef`](#check-if-a-macro-exists) (with same exact syntax). This would be the equivalent of `#if !defined(MACRO)`.
+
+#### Action when condition is false
+
+The `#else` directive provides an alternate action when used with the [`#if`](#make-decision-based-on-condition), [`#ifdef`](#check-if-a-macro-exists), or [`#ifndef`](#check-if-macro-does-not-exists) directives. The preprocessor will include the C source code that follows the #else statement when the condition for the [`#if`](#make-decision-based-on-condition), [`#ifdef`](#check-if-a-macro-exists), or [`#ifndef`](#check-if-macro-does-not-exists) directive evaluates to false. The following code is an example of `#else`:
+
+```c
+#ifdef DEBUG
+    printf("it's debug time!\n");
+#else
+    printf("no debug :( \n");
+#endif
+```
+
+#### endif
+
+In the C Programming Language, the #endif directive closes off the following directives: [`#if`](#make-decision-based-on-condition), [`#ifdef`](#check-if-a-macro-exists), or [`#ifndef`](#check-if-macro-does-not-exists). When the #endif directive is encountered, preprocessing of the opening directive (#if, #ifdef, or #ifndef) is completed.
+
+### Define and expand macros
+
+A macro is a piece of code in a program that is replaced by the value of the macro. Whenever a macro name is encountered by the compiler, it replaces the name with the definition of the macro. Macro definitions need not be terminated by a semi-colon(`;`).
+
+#### Define a macro
+
+In order to define a macro or a symbolic constant, we need to use the `#define` directive. This can then be used all over the program at compile time.
+
+```c
+#define PI 3.14
+#define MULTIPLY(x, y) (x * y)
+```
+
+> Notice the parentheses around the arguments, a good practice to avoid issues when the macro is replaced in the precompilation process.
+
+- The first define is called a `symbolic constant` and it's as simple as it gets.
+- The real fun comes with macros. Macros can accept arguments and even [`variadic arguments`](https://gcc.gnu.org/onlinedocs/cpp/Variadic-Macros.html). Macros can be called like normal functions:
+    - `printf("%i\n", MULTIPLY(1, 5));`
+
+<Alert type="info">
+    **Fun facts about macros**
+
+    Symbolic constants don't need to necessarily have a value. This could be useful for things like include guards.
+
+    You can add multilines to macros by appending `\` and the end of the line:
+    ```c
+    #define MY_MACRO(x) if (x) \
+        printf("hello\n");
+    ```
+</Alert>
+
+#### Undefine a macro
+
+The `#undef` directive tells the preprocessor to remove all definitions for the specified macro. A macro can be redefined after it has been removed by the #undef directive.
+
+Once a macro is undefined, the [`#ifdef`](#check-if-a-macro-exists) directive on that macro will evaluate to false.
+
+```c
+#undef macro-name
+```
+
+### User defined errors/warnings
+
+The directive `#error` causes the preprocessor to report a fatal error. The tokens forming the rest of the line following `#error` are used as the error message.
+
+```c
+#ifndef FOO
+#error "FOO need to be defined!"
+#endif
+```
+
+The directive `#warning` is like `#error`, but causes the preprocessor to issue a warning and continue preprocessing. The tokens following `#warning` are used as the warning message.
+You might use `#warning` in obsolete header files, with a message directing the user to the header file which should be used instead.
+
+<Alert type="info">
+    **Note on errors and warnings**
+
+    Neither `#error` nor `#warning` macro-expands its argument. Internal whitespace sequences are each replaced with a single space. The line must consist of complete tokens. It is wisest to make the argument of these directives be a single string constant; this avoids problems with apostrophes and the like.
+
+</Alert>
+
+### Useful Preprocessor Macros for Debugging
+
+ANSI C defines some useful preprocessor macros and variables, also called "magic constants", include:
+
+* `__FILE__`: The name of the current file, as a string literal
+* `__LINE__`: Current line of the source file, as a numeric literal
+* `__DATE__`: Current system date, as a string
+* `__TIME__`: Current system time, as a string
+* `__TIMESTAMP__`: Date and time (non-standard)
+* `__cplusplus`: undefined when your C code is being compiled by a C compiler.
+* `__func__`: Current function name of the source file, as a string (part of C99)
+* `__PRETTY_FUNCTION__`: "decorated" Current function name of the source file, as a string (in GCC; non-standard)
+
+<Alert type="info">
+    **More macros!**
+
+    There are lost and lots of more macros. Here you have the [full list](https://blog.kowalczyk.info/article/j/guide-to-predefined-macros-in-c-compilers-gcc-clang-msvc-etc..html) and [here](https://gcc.gnu.org/onlinedocs/cpp/Common-Predefined-Macros.html)
+
+</Alert>
+
+### The pragma directive
+
+The `pragma` ([pragmatic information](https://gcc.gnu.org/onlinedocs/cpp/Pragmas.html)) directive is part of the standard, but the meaning of any pragma depends on the software implementation of the standard that is used. The #pragma directive provides a way to request special behavior from the compiler. This directive is most useful for programs that are unusually large or that need to take advantage of the capabilities of a particular compiler.
+
+**note**: pragma is usually followed by a single token, which represents a command for the compiler to obey. You should check the software implementation of the C standard you intend on using for a list of the supported tokens. Not surprisingly, the set of commands that can appear in #pragma directives is different for each compiler; you'll have to consult the documentation for your compiler to see which commands it allows and what those commands do.
+
+here is an example of a common usage to only include the header file once in order to stop re-defines:
+
+```c
+#pragma once
+```
+
+#### Stringizing and concatenation
+
+Sometimes you may want to convert a macro argument into a string constant. Parameters are not replaced inside string constants, but you can use the ‘#’ preprocessing operator instead. When a macro parameter is used with a leading ‘#’, the preprocessor replaces it with the literal text of the actual argument, converted to a string constant. Unlike normal parameter replacement, the argument is not macro-expanded first. This is called `stringizing`.
+
+```c
+#define PRINT_NAME(x) printf("%s\n", #x);
+```
+
+you can concatenate by using the operator `##`.
+
+```c
+#define CONCATENATE(prefix, sufix) prefix ## sufix
+CONCATENATE("Hello, ", "world") // -> "Hello, world"
+```
+
+
+### How to do evil with macros
+
+This is a little thing I did quite a time before, it is used to destroy the C language by using macros. basically, it replaces important keywords such as `if` and replaces them with the wrong things.
+
+<Script src="https://gist.github.com/mauro-balades/93a5c0abb251d30549f41036601a6c5a.js" />
+
+### Conclusion
+
+<Footer />

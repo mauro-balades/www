@@ -504,6 +504,10 @@ export const Blog = styled(motion.div)`
         margin-left: 0;
     }
 
+    & .md-language-hl code {
+        background: none !important;
+    }
+
     & tt,
     & code {
         font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,

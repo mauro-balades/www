@@ -71,7 +71,6 @@ const blogTransition = {
 
 export default function() {
     const navigate = useNavigate();
-    const location = useLocation();
 
     let [id, setId] = useState(0);
     let [isSnippet, setIfSnippet] = useState(false);
@@ -137,7 +136,13 @@ export default function() {
     }
 
     const blog_props = {
-        components: {code}
+        components: {
+            code,
+            h1: (props: any) => (<section id={props.children?.replace(/\W/g , '-').toLowerCase()}><h1>{props.children}</h1></section>),
+            h2: (props: any) => (<section id={props.children?.replace(/\W/g , '-').toLowerCase()}><h2>{props.children}</h2></section>),
+            h3: (props: any) => (<section id={props.children?.replace(/\W/g , '-').toLowerCase()}><h3>{props.children}</h3></section>),
+            h4: (props: any) => (<section id={props.children?.replace(/\W/g , '-').toLowerCase()}><h4>{props.children}</h4></section>),
+        },
     }
 
     return (

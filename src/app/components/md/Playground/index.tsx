@@ -19,7 +19,7 @@ export default function(props: any) {
             <Playground
                 mode="dark"
                 initialSnippet={snippet}
-                defaultEditorTab={props.defaultEditorTab || "html"}
+                defaultEditorTab={props.defaultEditorTab ?? "html"}
                 transformJs
                 presets={["react", ...(props.presets || [])]}
                 theme={{
