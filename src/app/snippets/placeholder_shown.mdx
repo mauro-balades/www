@@ -1,5 +1,6 @@
 import Alert from "../components/md/Alert/index";
 import Footer from "../components/md/Footer/index";
+import Playground from "../components/md/Playground/index";
 
 export const meta = {
     name: "Placeholder shown pseudo-class",
@@ -14,8 +15,6 @@ input:placeholder-shown { border-color: green; }
 
 This pseudo-class represents any `<input>` or `<textarea>` element that is currently displaying placeholder text ([source](https://developer.mozilla.org/en-US/docs/Web/CSS/:placeholder-shown)).
 
-Placeholder-shown (PS) can be used for different purposes such as dynamically changing styles to an input depending on whether it's empty or not.
-
 <Alert type="warn">
     **Input must have a placeholder**
 
@@ -27,5 +26,19 @@ Placeholder-shown (PS) can be used for different purposes such as dynamically ch
     <input placeholder="" />
     ```
 </Alert>
+
+Placeholder-shown (PS) can be used for different purposes such as dynamically changing styles to an input depending on whether it's empty or not.
+
+<Playground html={`<input placeholder="Type something!" />`} css={`input {
+    border: 3px solid blue;
+    padding: 3px;
+
+    outline: none !important;
+}
+
+input:placeholder-shown {
+    border-color: red;
+}`} />
+
 
 <Footer />

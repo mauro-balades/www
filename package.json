@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@agney/playground": "^0.8.1",
     "@babel/core": "^7.16.0",
     "@emailjs/browser": "^3.6.2",
     "@mdx-js/loader": "^2.1.5",
@@ -89,7 +90,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "build:playground": "cd vendor/playground && npm run build && cd ../.."
   },
   "eslintConfig": {
     "extends": [
