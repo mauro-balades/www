@@ -1,7 +1,8 @@
 
 // @ts-ignore
 import Playground from "@agney/playground";
-import { StyleMePlease, TopPart, Wrapper, BG2, BG } from "./style";
+import { BG, BG2 } from "../constants";
+import { StyleMePlease, TopPart, Wrapper } from "./style";
 
 export default function(props: any) {
   const snippet = {

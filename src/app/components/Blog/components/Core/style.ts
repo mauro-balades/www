@@ -163,15 +163,18 @@ export const BlogWrapper = styled.div`
     display: flex;
     justify-content: center;
 
-    &::-webkit-scrollbar {
+    &::-webkit-scrollbar,
+    & *::-webkit-scrollbar {
         width: 3px;
     }
 
-    &::-webkit-scrollbar-track {
+    &::-webkit-scrollbar-track,
+    & *::-webkit-scrollbar-track {
         background: transparent;
     }
 
-    &::-webkit-scrollbar-thumb {
+    &::-webkit-scrollbar-thumb,
+    & *::-webkit-scrollbar-thumb {
         background: #757575;
         border-radius: 10px;
     }

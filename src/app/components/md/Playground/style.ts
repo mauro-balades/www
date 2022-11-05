@@ -1,9 +1,7 @@
 
 import styled from "styled-components";
 import { MAIN_TEXT_COLOR } from "../../../const";
-
-export const BG = 'hsl(210deg,15%,20%)';
-export const BG2 = 'hsl(210deg,30%,12%)';
+import { BG, BG2 } from "../constants";
 
 export const Wrapper = styled.div`
     border: 6px solid ${BG};
