@@ -5,6 +5,8 @@
   "dependencies": {
     "@agney/playground": "^0.8.1",
     "@babel/core": "^7.16.0",
+    "@codesandbox/sandpack-react": "^1.17.0",
+    "@codesandbox/sandpack-themes": "^1.17.0",
     "@emailjs/browser": "^3.6.2",
     "@mdx-js/loader": "^2.1.5",
     "@mdx-js/react": "^2.1.5",

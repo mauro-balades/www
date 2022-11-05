@@ -31,9 +31,9 @@ export const Title = styled.div`
 
 export const Section = styled.a`
     padding-left: ${(props: any) => props.level === 1 ? '0' : (props.level * 15) - 8}px;
-    margin-top: ${(props: any) => props.level == 1 ? "5px" : "5px"};
+    margin-top: ${(props: any) => (5-props.level) + 6}px;
 
-    font-size: 15px;
+    font-size: ${(props: any) => (5-props.level) + 12}px;
     font-weight: 600;
     opacity: .8;
 

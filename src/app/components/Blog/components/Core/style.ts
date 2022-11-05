@@ -177,6 +177,7 @@ export const BlogWrapper = styled.div`
     &::-webkit-scrollbar,
     & *::-webkit-scrollbar {
         width: 3px;
+        height: 3px;
     }
 
     &::-webkit-scrollbar-track,
@@ -733,6 +734,12 @@ export const Blog = styled(motion.div)`
     & details {
         margin-top: 0;
         margin-bottom: 16px;
+    }
+
+    // code sandbox
+    & .sp-stack p {
+        margin-bottom: 0 !important;
+        font-size: 13px !important;
     }
 
     & blockquote > :first-child {

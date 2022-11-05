@@ -1,5 +1,6 @@
 import Alert from "../components/md/Alert/index";
 import Footer from "../components/md/Footer/index";
+import ReactPlayground from "../components/md/ReactPlayground/index";
 
 export const meta = {
     name: "Intro to styled components",
@@ -65,28 +66,82 @@ function App() {
 
 One thing great about styled components is thaty they are __functional__. This means that we can style elements dynamically. The following example will show how to adapt an element based on their props:
 
-```tsx
-import styled from "styled-components";
+<ReactPlayground
+    files={{
+        "/App.js": `import styled from "styled-components";
 
-const Button = styled.div`
+const Button = styled.div\`
     width: 100%;
     height: 100vh;
 
-    background: ${(props: any) => props.primary ? `red` : `blue`};
-`
+    background: \${(props: any) => props.primary ? "red" : "blue"};
+\`
 
-const Text = styled.div`
-    color: ${(props: any) => props.color || "#000"}
-`
+const Text = styled.div\`
+    color: \${(props: any) => props.color || "#000"}
+\`
 
-function App() {
+export default function App() {
     return (
         <Button primary>
             <Text color={"blue"}>Hello, World!</Text>
         </Button>
     )
-}
-```
+}`,
+    }}
+    customSetup={{
+        dependencies: {
+            "react": "^18.1.0",
+            "react-dom": "^18.1.0",
+            "react-scripts": "4.0.0",
+            "styled-components": "^5.3.6",
+        },
+    }} />
+
+### How to test styled components
+
+Testing styled components is a very light-weight solution for testing without all the implementation details. The main utilities it provides involve querying for nodes similarly to how users would find them. In this way, testing-library helps ensure your tests give you confidence in your UI code. Below, you have a code playground where you can change variable and see what happens.
+
+<ReactPlayground
+    files={{
+        "/my-component.test.tsx": {code: `import styled from "styled-components";
+import React from "react";
+import 'jest-styled-components'
+import renderer from 'react-test-renderer';
+
+/* try to change this variable
+   to anything but "red" */
+const TEST_FOR_COLOR = "red";
+
+const Element = styled.div\`
+    color: red;
+\`
+
+describe("Test for component color", () => {
+    it(\`Color should be \${TEST_FOR_COLOR}\`, () => {
+        const el = renderer.create(<Element></Element>).toJSON()
+
+        expect(el).toHaveStyleRule(
+            'color', TEST_FOR_COLOR
+        )
+    });
+});`, active: true},
+        "/add.test.ts": {
+            hidden: true
+        }}}
+    customSetup={{
+        dependencies: {
+            "react": "^18.1.0",
+            "react-dom": "^18.1.0",
+            "react-scripts": "4.0.0",
+            "styled-components": "^4.4.1",
+            "jest-styled-components": "^6.3.4",
+            "react-test-renderer": "^18.2.0"
+        },
+    }} style={{
+            width: '115%',
+            transform: 'translateX(-5%)'
+    }} template="test-ts" />
 
 ## You survived till the end!
 
