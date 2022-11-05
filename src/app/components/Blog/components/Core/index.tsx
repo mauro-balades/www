@@ -135,13 +135,21 @@ export default function() {
         return id == cmp;
     }
 
+    const replace_id = (el: any) => {
+        if (typeof el == "string") {
+            return el.replace(/\W/g , '-').toLowerCase()
+        }
+
+        return "";
+    }
+
     const blog_props = {
         components: {
             code,
-            h1: (props: any) => (<section id={props.children?.replace(/\W/g , '-').toLowerCase()}><h1>{props.children}</h1></section>),
-            h2: (props: any) => (<section id={props.children?.replace(/\W/g , '-').toLowerCase()}><h2>{props.children}</h2></section>),
-            h3: (props: any) => (<section id={props.children?.replace(/\W/g , '-').toLowerCase()}><h3>{props.children}</h3></section>),
-            h4: (props: any) => (<section id={props.children?.replace(/\W/g , '-').toLowerCase()}><h4>{props.children}</h4></section>),
+            h1: (props: any) => (<section id={replace_id(props.children)}><h1>{props.children}</h1></section>),
+            h2: (props: any) => (<section id={replace_id(props.children)}><h2>{props.children}</h2></section>),
+            h3: (props: any) => (<section id={replace_id(props.children)}><h3>{props.children}</h3></section>),
+            h4: (props: any) => (<section id={replace_id(props.children)}><h4>{props.children}</h4></section>),
         },
     }
 
@@ -170,7 +178,7 @@ export default function() {
                                 {data.meta.date}
                                 {data.meta.tag && (
                                     <>
-                                        <span style={{ margin: '0 5px' }}>-</span>{data.meta.tag}
+                                        <span style={{ margin: '0 5px' }}>—</span>{data.meta.tag}
                                     </>
                                 )}
                             </BlogDate>
@@ -186,7 +194,7 @@ export default function() {
                                 {data.meta.date}
                                 {data.meta.tag && (
                                     <>
-                                        <span style={{ margin: '0 5px' }}>-</span>{data.meta.tag}
+                                        <span style={{ margin: '0 5px' }}>—</span>{data.meta.tag}
                                     </>
                                 )}
                             </BlogDate>
