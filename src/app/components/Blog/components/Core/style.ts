@@ -163,6 +163,17 @@ export const BlogWrapper = styled.div`
     display: flex;
     justify-content: center;
 
+    position: relative;
+    overflow-x: hidden;
+
+    & .toc {
+        position: sticky;
+        margin: 30px;
+        left: 100%;
+        top : 0;
+        width: 100%;
+    }
+
     &::-webkit-scrollbar,
     & *::-webkit-scrollbar {
         width: 3px;

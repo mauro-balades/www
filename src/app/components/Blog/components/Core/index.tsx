@@ -14,6 +14,9 @@ import {MDXProvider} from '@mdx-js/react'
 
 import snippets from "../../../../snippets";
 import code from "./md/core/code";
+import { ProgressPlugin } from "webpack";
+import TOC from "../TOC";
+import { replace_id } from "../../utils";
 
 const pageTransition = {
     type: "tween",
@@ -49,17 +52,15 @@ const blogVariants = {
     initial: {
         filter: 'blur(10px)',
         transform: 'translate(-80px, 5px)',
-        opacity: '0'
     },
     in: {
         filter: 'blur(0px)',
         transform: 'translate(0px, 0px)',
-        opacity: '1'
     },
     out: {
         filter: 'blur(10px)',
         transform: 'translate(-80px, 5px)',
-        opacity: '0'
+        opacity: 0
     }
 };
 
@@ -71,6 +72,8 @@ const blogTransition = {
 
 export default function() {
     const navigate = useNavigate();
+
+    let toc: any = [];
 
     let [id, setId] = useState(0);
     let [isSnippet, setIfSnippet] = useState(false);
@@ -135,21 +138,22 @@ export default function() {
         return id == cmp;
     }
 
-    const replace_id = (el: any) => {
-        if (typeof el == "string") {
-            return el.replace(/\W/g , '-').toLowerCase()
+    const add_to_toc = (level: number, name: string) => {
+        if (typeof name === "string") {
+            toc[toc.length] = {
+                level,
+                name
+            }
         }
-
-        return "";
     }
 
     const blog_props = {
         components: {
             code,
-            h1: (props: any) => (<section id={replace_id(props.children)}><h1>{props.children}</h1></section>),
-            h2: (props: any) => (<section id={replace_id(props.children)}><h2>{props.children}</h2></section>),
-            h3: (props: any) => (<section id={replace_id(props.children)}><h3>{props.children}</h3></section>),
-            h4: (props: any) => (<section id={replace_id(props.children)}><h4>{props.children}</h4></section>),
+            h1: (props: any) => {add_to_toc(1, props.children); return (<section id={replace_id(props.children)}><h1>{props.children}</h1></section>)},
+            h2: (props: any) => {add_to_toc(2, props.children); return (<section id={replace_id(props.children)}><h2>{props.children}</h2></section>)},
+            h3: (props: any) => {add_to_toc(3, props.children); return (<section id={replace_id(props.children)}><h3>{props.children}</h3></section>)},
+            h4: (props: any) => {add_to_toc(4, props.children); return (<section id={replace_id(props.children)}><h4>{props.children}</h4></section>)},
         },
     }
 
@@ -205,22 +209,32 @@ export default function() {
             </Wrapper>
             <BlogWrapper>
                 {id != 0 ? (
-                    <Blog
-                        initial="initial"
-                        animate="in"
-                        exit="out"
-                        variants={blogVariants}
-                        transition={blogTransition}
-                        key={isSnippet ? id + blogs.length : id }>
-                        <GoBackHome style={{ transform: 'translateY(15px)' }} onClick={() => setId(0)}>
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
-                            <span>Close {isSnippet ? "Snippet" : "Article"}</span>
-                        </GoBackHome>
-                        {isSnippet && (<br/>)}
-                        <MDXProvider>
-                            {isSnippet ? snippets[id-1].default(blog_props) : blogs[id-1].default(blog_props)}
-                        </MDXProvider>
-                    </Blog>
+                    <>
+                        <Blog
+                            initial="initial"
+                            animate="in"
+                            exit="out"
+                            variants={blogVariants}
+                            transition={blogTransition}
+                            key={isSnippet ? id + blogs.length : id }>
+                            <GoBackHome style={{ transform: 'translateY(15px)' }} onClick={() => setId(0)}>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+                                <span>Close {isSnippet ? "Snippet" : "Article"}</span>
+                            </GoBackHome>
+                            {isSnippet && (<br/>)}
+                            <MDXProvider>
+                                {isSnippet ? snippets[id-1].default(blog_props) : blogs[id-1].default(blog_props)}
+                            </MDXProvider>
+                        </Blog>
+                        <TOC
+                            initial="initial"
+                            animate="in"
+                            exit="out"
+                            variants={blogVariants}
+                            transition={blogTransition}
+                            key={`toc-${isSnippet ? id + blogs.length : id}`}
+                            contents={toc} />
+                    </>
                 ) : null}
             </BlogWrapper>
         </div>

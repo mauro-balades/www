@@ -4,6 +4,8 @@ import * as operator_overload from "./operator_overload.mdx";
 import * as styled_components from "./styled_components.mdx";
 import * as the_c_preprocessor from "./the_c_preprocessor.mdx";
 
+console.log(hello_world)
+
 export default [
     the_c_preprocessor,
     operator_overload,
