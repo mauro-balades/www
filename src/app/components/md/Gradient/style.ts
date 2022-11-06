@@ -8,9 +8,6 @@ export const Wrapper = styled.div`
     position: relative;
     overflow: hidden;
 
-    user-select: none;
-    cursor: default;
-
     ${(props: any) => props.colors.map((el: string, i: number) => `
         --gradient-color-${i}: ${el};
     `)}
@@ -18,5 +15,10 @@ export const Wrapper = styled.div`
     & canvas {
         width: 100%;
         height: 100%;
+    }
+
+    & * {
+        user-select: none;
+        cursor: default;
     }
 `

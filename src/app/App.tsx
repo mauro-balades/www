@@ -4,6 +4,7 @@ import Home from './components/Home';
 import { useLocation } from "react-router-dom";
 import Blog from "./components/Blog";
 import { AnimatePresence } from "framer-motion"
+import Projects from "./components/Projects";
 
 function App() {
     const location = useLocation();
@@ -13,7 +14,7 @@ function App() {
             <Routes location={location} key={location.pathname}>
                 <Route path="/" element={<Home />} />
                 <Route path="/blog" element={<Blog />} />
-                <Route path="/projects" element={<Home />} />
+                <Route path="/projects" element={<Projects />} />
             </Routes>
         </AnimatePresence>
     );
