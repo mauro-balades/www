@@ -6,7 +6,15 @@ export const Wrapper = styled.div`
     top: 0;
     left: 0;
 
-    padding: 10px ${alignment.BIG};
+    padding: 10px ${alignment.LG};
+
+    @media ${alignment.device.laptopL} {
+        padding: 10px ${alignment.MD};
+    }
+
+    @media ${alignment.device.laptop} {
+        padding: 10px ${alignment.SM};
+    }
 
     z-index: 2;
 

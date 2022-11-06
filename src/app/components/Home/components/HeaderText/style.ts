@@ -4,7 +4,16 @@ import styled from 'styled-components';
 import { alignment } from '../../../../const';
 
 export const Wrapper = styled.div`
-    margin: 0 ${alignment.BIG};
+    margin: 0 ${alignment.LG};
+
+    @media ${alignment.device.laptop} {
+        margin: 0 ${alignment.MD};
+    }
+
+    @media ${alignment.device.laptop} {
+        margin: 0 ${alignment.SM};
+    }
+
     width: 100%;
 `
 

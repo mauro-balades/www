@@ -38,7 +38,7 @@ export const Section = styled(NavHashLink)`
 
     font-size: ${(props: any) => (5-props.level) + 12}px;
     font-weight: 600;
-    opacity: .8;
+    opacity: .6;
 
     transition: .1s;
 
