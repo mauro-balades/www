@@ -16,6 +16,11 @@ export const Wrapper = styled.div`
     overflow: hidden;
     color: ${MAIN_TEXT_COLOR};
 
+    pointer-events: none;
+    & * {
+        pointer-events: auto;
+    }
+
     display: flex;
     align-items: center;
     justify-content: space-between;

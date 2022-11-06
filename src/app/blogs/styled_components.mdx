@@ -70,11 +70,17 @@ One thing great about styled components is thaty they are __functional__. This m
     files={{
         "/App.js": `import styled from "styled-components";
 
-const Button = styled.div\`
-    width: 100%;
-    height: 100vh;
+const Button = styled.button\`
+    width: 200px;
+    height: 100px;
 
-    background: \${(props: any) => props.primary ? "red" : "blue"};
+    border-radius: 5px;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: \${(props: any) => props.primary ? "black" : "blue"};
 \`
 
 const Text = styled.div\`
@@ -84,7 +90,7 @@ const Text = styled.div\`
 export default function App() {
     return (
         <Button primary>
-            <Text color={"blue"}>Hello, World!</Text>
+            <Text color={"white"}>Hello, World!</Text>
         </Button>
     )
 }`,

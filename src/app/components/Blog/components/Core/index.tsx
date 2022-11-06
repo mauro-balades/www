@@ -8,7 +8,6 @@ import { useNavigate, useNavigation } from "react-router-dom";
 import blogs from "../../../../blogs";
 
 import gsap from "gsap";
-import offset from "document-offset";
 
 import {MDXProvider} from '@mdx-js/react'
 
@@ -78,6 +77,7 @@ export default function() {
     let [id, setId] = useState(0);
     let [isSnippet, setIfSnippet] = useState(false);
     let highlightElement = useRef(null);
+    let highlightElement2 = useRef(null);
 
     const arrLength = blogs.length + snippets.length;
     const refs = useRef([] as any);
@@ -93,19 +93,20 @@ export default function() {
             gsap.config({ force3D: 'auto' })
 
             refs.current.map((el: any, i: number) => {
+                let hl_el = (i >= blogs.length) ? highlightElement2 : highlightElement;
+
                 el.addEventListener('mouseenter', (e: any) => {
-                    gsap.killTweensOf(highlightElement.current)
-                    let el_offset = offset(el);
+                    gsap.killTweensOf(hl_el.current)
 
                     if (refs.current.includes(e.relatedTarget) === true) {
-                        gsap.set(highlightElement.current, { opacity: 1, height: el.offsetHeight - 2 })
+                        gsap.set(hl_el.current, { opacity: 1, height: el.offsetHeight - 2 })
 
                         gsap.to(
-                            highlightElement.current,
+                            hl_el.current,
                                 {
                                     width: el.offsetWidth,
-                                    y: el_offset.top,
-                                    x: el_offset.left,
+                                    y: el.offsetTop,
+                                    x: el.offsetLeft,
                                     duration: 0.1
                                 }
                         )
@@ -115,20 +116,20 @@ export default function() {
 
 
                     gsap.set(
-                        highlightElement.current,
+                        hl_el.current,
                         {
                             opacity: 1,
                             width: el.offsetWidth,
                             height: el.offsetHeight - 2,
-                            y: el_offset.top,
-                            x: el_offset.left,
+                            y: el.offsetTop,
+                            x: el.offsetLeft,
                         }
                     )
 
                 })
 
                 el.addEventListener('mouseleave', (_: any) => {
-                    gsap.to(highlightElement.current, { opacity: 0, duration: 0.1 })
+                    gsap.to(hl_el.current, { opacity: 0, duration: 0.1 })
                 })
             })
         }
@@ -191,6 +192,8 @@ export default function() {
                 </Links>
                 <SectionTitle>Code Snippets</SectionTitle>
                 <Links>
+                    <HighlightElement ref={highlightElement2}></HighlightElement>
+
                     {snippets.map((data: any, i) => (
                         <NavLink ref={addToRefs} onClick={() => {setIfSnippet(true); setId(i+1)}} className={(ifMatch(i+1) && isSnippet) ? "active" : ""}>
                             <BlogTitle>{data.meta.name}</BlogTitle>

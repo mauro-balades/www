@@ -67,6 +67,7 @@
     "react-input-switch": "^2.2.2",
     "react-refresh": "^0.11.0",
     "react-router-dom": "^6.4.3",
+    "react-router-hash-link": "^2.4.3",
     "react-static-container": "^1.0.2",
     "react-syntax-highlighter": "^15.5.0",
     "remark-rehype": "^10.1.0",

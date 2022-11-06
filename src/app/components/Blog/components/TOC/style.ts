@@ -1,6 +1,7 @@
 
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import {NavHashLink} from 'react-router-hash-link';
 
 export const Wrapepr = styled.div`
 
@@ -29,7 +30,9 @@ export const Title = styled.div`
     opacity: .8;
 `
 
-export const Section = styled.a`
+export const Section = styled(NavHashLink)`
+    cursor: pointer;
+
     padding-left: ${(props: any) => props.level === 1 ? '0' : (props.level * 15) - 8}px;
     margin-top: ${(props: any) => (5-props.level) + 6}px;
 

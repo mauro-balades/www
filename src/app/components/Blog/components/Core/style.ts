@@ -150,6 +150,8 @@ export const Link = styled.div`
 export const Links = styled.div`
     padding: 10px 0 10px 10px;
     z-index: 2;
+
+    position: relative;
 `;
 
 export const BlogWrapper = styled.div`
@@ -165,6 +167,10 @@ export const BlogWrapper = styled.div`
 
     position: relative;
     overflow-x: hidden;
+
+    & {
+        scroll-behavior: smooth;
+    }
 
     & .toc {
         position: sticky;
