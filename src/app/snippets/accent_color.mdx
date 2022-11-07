@@ -1,0 +1,41 @@
+
+import Alert from "../components/md/Alert/index";
+import Footer from "../components/md/Footer/index";
+import Playground from "../components/md/Playground/index";
+
+export const meta = {
+    name: "Accent color ",
+    date: "12 December, 2022",
+    tag: "css"
+}
+
+
+```css
+form { accent-color: gold; }
+```
+
+Since the start of CSS, customizing form elements have been a dificult job. By adding `accent-color`, the browser will try to change the looks of the inputs inside the form.
+
+Here you have a list of resources you can use:
+- [Browser support (most of modern browsers)](https://caniuse.com/mdn-css_properties_accent-color)
+- [`Accent color`'s properties](https://w3c.github.io/csswg-drafts/css-ui/#widget-accent)
+
+Note that the browser adapts the other colors of the form element to match the accent color. In the case of the above example, the checkbox tick and the background colors of my range and progress elements changed automatically to black.
+
+<Playground defaultEditorTab="css" html={`<form>
+    <input type="checkbox" checked />
+    <input type="range" />
+    <progress></progress>
+</form>
+
+With accent color:
+<form class="change">
+    <input type="checkbox" checked />
+    <input type="range" />
+    <progress></progress>
+</form>`} css={`form.change {
+    accent-color: gold;
+}`} />
+
+
+<Footer />
