@@ -1,0 +1,132 @@
+import Alert from "../components/md/Alert/index";
+import Footer from "../components/md/Footer/index";
+import {PythonPlayground} from "../components/md/ReactPlayground/index";
+
+export const meta = {
+    name: "All about f-strings",
+    date: "14 November, 2022",
+    tag: "python"
+}
+
+# All about f-strings 🐍
+
+F-strings provide a way to embed expressions inside string literals, using a minimal syntax. It should be noted that an f-string is really an expression evaluated at run time, not a constant value. In this article, I am going to explain you the basics about Python's f-strings and some more "expert" formating hacks you can benefit from.
+
+## How to create a basic f-string
+
+F-strings in Python are declared as a string constant with a f prefixed to it. Expressions can be declared inside f-strings by surrounding them inside `{}`. Note that the formating part of the string will be exactly the same as for using `str.format()`.
+
+```py
+def add(x, y):
+    return x + y
+
+n = 1
+s = f"{n} + {n * 2} = {add(n, n * 2)}" # 1 + 2 = ?
+```
+
+<Alert type="info">
+    **Not everything is *perfect***
+
+    In python's f-string backslash Cannot be used in format string directly.
+
+    ```py
+    f"Look at my new line: {ord('\n')}"
+    # Syntax Error: f-string expression part cannot include a backslash
+    ```
+
+    **Faster than format**
+
+    > “F-strings provide a way to embed expressions inside string literals, using a minimal syntax. It should be noted that an f-string is really an expression evaluated at run time, not a constant value. In Python source code, an f-string is a literal string, prefixed with f, which contains expressions inside braces. The expressions are replaced with their values.”
+    ~ [Source](https://peps.python.org/pep-0498/#abstract)
+
+    At runtime, the expression inside the curly braces is evaluated in its own scope and then put together with the string literal part of the f-string. By doing it this way, it allows f-string to be faster than `str.format()`
+
+    **How to ignore curly braces**
+
+    In order to ignore `{}`, we will need to surround those curly braces with __MORE__ curly braces.
+
+    ```py
+    f"Hey, {{name}}"
+    # >> Hey, {name}
+    ```
+</Alert>
+
+# Formating values in f-strings
+
+You can specify format inside f-strings that allows you to define you each of these values are represented. Note how in the last example, we make the use of `=`. This is because you can also add characters instead of white spaces.
+
+## Aligment
+
+```py
+print(f"|{variable:25}|")
+print(f"|{variable:<25}|")
+print(f"|{variable:>25}|")
+print(f"|{variable:=^25}|")
+```
+
+This code will output the following text in the terminal:
+
+```
+|HELLO                    |
+|HELLO                    |
+|                    HELLO|
+|==========HELLO==========|
+```
+
+- `^`: Forces the expression within the curly braces to be left-aligned. This is the default for strings.
+- `>`: Forces the expression within the curly braces to be right-aligned. This is the default for numbers.
+- `<`: Forces the expression within the curly braces to be centered.
+
+## Debugging format
+
+This formating argument can help the user to debug more effectively. By using the `=` symbol, you will be able to output the variable as follows:
+
+```py
+variable = "hello"
+print(f"My debug: {variable = }") # >> My debug: variable = "hello"
+```
+
+## Formating data types
+
+There are many ways to represent strings and numbers when using f-strings. The most common
+ones that you will need for this course are shown below:
+
+- `%`: Percentage. Multiplies the number by 100 and displays in fixed ('f') format, followed by a percent sign.
+- `d`: Decimal Integer. This uses a comma as the number separator character.
+- `n`: Number. This is the same as d except that it uses the current locale setting toinsert the appropriate number separator characters.
+- `s`: String format—this is the default type for strings
+- `e`: Exponent notation. Prints the number in scientific notation using the letter ‘e’ to indicate the exponent. The default precision is 6. f Fixed-point notation. Displays the number as a fixed-point number. The default precision is 6.
+
+```py
+import math
+variable = math.pi
+
+print(f"Using Numeric {variable = }")
+print(f"With two decimal places: {variable:.2f}")
+print(f"With four decimal places: {variable:.3f}")
+print(f"With two decimal places and a comma: {variable:,.2f}")
+print(f"With a forced plus sign: {variable:+.2f}\n")
+```
+
+```
+>> Using Numeric variable = 3.141592653589793
+>> With two decimal places: 3.14
+>> With four decimal places: 3.142
+>> With two decimal places and a comma: 3.14
+>> With a forced plus sign: +3.14
+```
+
+## Use of Tabs and Spacing
+
+Program output is often required to be in tabular form. f-strings are very useful in formatting
+this kind of output. The following lines produce a tidily aligned set of columns with integers and
+their squares and cubes, using spaces to align the columns. Notice the use of the field width to
+ensure that all the numbers are right-aligned:
+
+```py
+print(f'Number Square Cube')
+for x in range(1, 11):
+    print(f'{x:2d} {x*x:3d} {x*x*x:4d}')
+```
+
+<Footer />

@@ -3,7 +3,10 @@ import { Sandpack } from "@codesandbox/sandpack-react";
 import { atomDark } from "@codesandbox/sandpack-themes";
 import { TopPart, Wrapper } from "./style";
 
-export default function({style, template, ...props}: any) {
+import { python } from "@codemirror/lang-python";
+
+
+export default function Playground({style, template, ...props}: any) {
 
     return (
         <Wrapper style={style}>

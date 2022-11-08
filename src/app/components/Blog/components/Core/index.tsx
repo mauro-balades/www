@@ -16,6 +16,7 @@ import code from "./md/core/code";
 import { ProgressPlugin } from "webpack";
 import TOC from "../TOC";
 import { replace_id } from "../../utils";
+import mdLink from "./md/mdLink";
 
 const pageTransition = {
     type: "tween",
@@ -151,6 +152,7 @@ export default function() {
     const blog_props = {
         components: {
             code,
+            a: mdLink,
             h1: (props: any) => {add_to_toc(1, props.children); return (<section id={replace_id(props.children)}><h1>{props.children}</h1></section>)},
             h2: (props: any) => {add_to_toc(2, props.children); return (<section id={replace_id(props.children)}><h2>{props.children}</h2></section>)},
             h3: (props: any) => {add_to_toc(3, props.children); return (<section id={replace_id(props.children)}><h3>{props.children}</h3></section>)},

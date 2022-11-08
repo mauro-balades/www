@@ -26,6 +26,7 @@ export const Title = styled.div`
 
     font-size: 16px;
     font-weight: 600;
+    user-select: none;
 
     opacity: .8;
 `
@@ -41,6 +42,7 @@ export const Section = styled(NavHashLink)`
     opacity: .6;
 
     transition: .1s;
+    user-select: none;
 
     &:hover {
         opacity: 1;
