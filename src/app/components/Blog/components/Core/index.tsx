@@ -77,6 +77,8 @@ export default function() {
 
     let [id, setId] = useState(0);
     let [isSnippet, setIfSnippet] = useState(false);
+
+    let blogref = useRef(null);
     let highlightElement = useRef(null);
     let highlightElement2 = useRef(null);
 
@@ -135,6 +137,12 @@ export default function() {
             })
         }
     }, [refs])
+
+    useEffect(() => {
+        (blogref as any).current.classList.add("disable-smooth-scroll");
+        (blogref as any).current.scrollTop = 0;
+        (blogref as any).current.classList.remove("disable-smooth-scroll");
+    }, [id]);
 
     const ifMatch = (cmp: number) => {
         return id == cmp;
@@ -212,7 +220,7 @@ export default function() {
                 </Links>
                 {/* TODO: snippets */}
             </Wrapper>
-            <BlogWrapper>
+            <BlogWrapper ref={blogref}>
                 {id != 0 ? (
                     <>
                         <Blog

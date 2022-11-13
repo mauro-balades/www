@@ -172,6 +172,10 @@ export const BlogWrapper = styled.div`
         scroll-behavior: smooth;
     }
 
+    &.disable-smooth-scroll {
+        scroll-behavior: auto;
+    }
+
     & .toc {
         position: sticky;
         margin: 30px;
