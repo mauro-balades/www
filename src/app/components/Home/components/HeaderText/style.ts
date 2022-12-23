@@ -1,7 +1,7 @@
 
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import { alignment } from '../../../../const';
+import { alignment } from '../../../../theme';
 
 export const Wrapper = styled.div`
     margin: 0 ${alignment.LG};

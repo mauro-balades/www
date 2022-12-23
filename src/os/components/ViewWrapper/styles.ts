@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {get} from "../../configuration";
+import {get} from "../../../configuration";
 
 const WRAPPER_TEMPLATE = `
 

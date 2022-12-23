@@ -3,7 +3,7 @@ import Window from "../../Window";
 import { Wrapper } from "./styles";
 import Button from "../../Button";
 
-import { set, get } from "../../../configuration";
+import { set, get } from "../../../../configuration";
 
 function WelcomeDialog(props: any) {
     return (

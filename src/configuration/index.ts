@@ -1,4 +1,4 @@
-import { themeKeys } from "../theme/theming";
+import { themeKeys } from "../os/theme/theming";
 
 export function set(key: string, value: string) {
     localStorage.setItem(key, value);
@@ -17,11 +17,14 @@ export function remove(key: string) {
 }
 
 export function defaultSettings() {
-    set("theme", themeKeys[0]);
+    console.log("call")
+    set("os-theme", themeKeys[0]);
     set("cookies", "0");
     set("pong", "0");
+    set("app-theme", "light");
+    console.log(get("app-theme"))
 }
 
 export function settingsExists() {
-    return get("theme") && get("cookies") && get("pong");
+    return get("os-theme") && get("app-theme") && get("cookies") && get("pong");
 }

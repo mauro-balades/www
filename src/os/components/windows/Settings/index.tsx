@@ -3,7 +3,7 @@ import Button from "../../Button";
 import Window from "../../Window";
 import { SectionTitle, Separator, Wrapper } from "./styles";
 import Switch from "../../Switch";
-import { get, set } from "../../../configuration";
+import { get, set } from "../../../../configuration";
 import { requestExitFullScreen, requestFullScreen } from "../../../utils";
 
 function Settings(props: any) {

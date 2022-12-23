@@ -1,6 +1,5 @@
 
 import styled from "styled-components";
-import { MAIN_BACKGROUND } from "../../../const";
 
 const INFO_BG = "hsl(210deg, 38%, 15%)"
 const INFO_BR = "hsl(230deg, 100%, 69%)"
@@ -41,7 +40,7 @@ export const Icon = styled.div`
 
     padding: ${(props: any) => props.type == "warn" ? "6px" : "3px"};
 
-    background: #050505;
+    background: ${(props: any) => props.theme.colors.HOME_BACKGROUND};
 
     border-radius: 50%;
     ${(props: any) =>

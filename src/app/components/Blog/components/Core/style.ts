@@ -2,12 +2,9 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 import {
-    BLOG_BACKGROUND,
-    BLOG_BORDER_CLR,
-    BLOG_NAV_WIDTH,
-    MAIN_BACKGROUND_INVERTED,
-    MAIN_TEXT_COLOR,
-} from "../../../../const";
+    BLOG_NAV_WIDTH
+} from "../../../../theme";
+import { BG } from "../../../md/constants";
 
 export const Wrapper = styled(motion.div)`
     padding: 20px;
@@ -18,9 +15,9 @@ export const Wrapper = styled(motion.div)`
     height: 100%;
 
     overflow: hidden;
-    color: ${MAIN_TEXT_COLOR};
-    background: ${BLOG_BACKGROUND} none repeat scroll 0% 0%;
-    border-right: 2px solid ${BLOG_BORDER_CLR};
+    color: ${(props: any) => props.theme.colors.MAIN_TEXT_COLOR};
+    background: ${(props: any) => props.theme.colors.BLOG_BACKGROUND} none repeat scroll 0% 0%;
+    border-right: 2px solid ${(props: any) => props.theme.colors.BLOG_BORDER_CLR};
 
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
@@ -35,7 +32,7 @@ export const GoBackHome = styled.div`
 
     position: relative;
 
-    border-bottom: 1px solid ${BLOG_BORDER_CLR};
+    border-bottom: 1px solid ${(props: any) => props.theme.colors.BLOG_BORDER_CLR};
     margin-bottom: 5px;
 
     align-items: center;
@@ -61,7 +58,7 @@ export const GoBackHome = styled.div`
 
         width: -webkit-fill-available;
         transition: 0.2s;
-        background: ${MAIN_BACKGROUND_INVERTED};
+        background: ${(props: any) => props.theme.colors.MAIN_BACKGROUND_INVERTED};
 
         margin: 0 100% 0 100%;
     }
@@ -88,7 +85,7 @@ export const HighlightElement = styled.div`
     top: 0;
 
 	position: absolute;
-	background: #222;
+	background: ${(props: any) => props.theme.theme === "light" ? "rgba(0,0,0,.2)" : "#222"};
 	z-index: 4;
 	border-radius: 0.6ch;
 	opacity: 0;
@@ -120,7 +117,7 @@ export const Link = styled.div`
     margin: 5px 0;
 
     &:hover {
-        color: ${MAIN_TEXT_COLOR};
+        color: ${(props: any) => props.theme.colors.MAIN_TEXT_COLOR};
         // background: rgba(255, 255, 255, 0.2);
     }
 
@@ -135,7 +132,7 @@ export const Link = styled.div`
 
         width: 3px;
         transition: 1s;
-        background: ${MAIN_BACKGROUND_INVERTED};
+        background: ${(props: any) => props.theme.colors.MAIN_BACKGROUND_INVERTED};
 
         margin: 100% 0;
     }
@@ -1030,12 +1027,13 @@ export const Blog = styled(motion.div)`
 
     & .highlight pre,
     & pre {
-        padding: 16px;
+        padding: 16px 0 16px 20px;
         overflow: auto;
         font-size: 85%;
         line-height: 1.45;
-        background-color: #161b22;
+        background-color: ${BG};
         border-radius: 6px;
+        // border: 1px solid #fff;
     }
 
     & pre code,

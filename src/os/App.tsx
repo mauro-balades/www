@@ -28,7 +28,7 @@ import { initializeFiles } from "./fs";
 import initializeSounds from "./sounds";
 
 import { WINDOW_CLASS, focusWindow } from "./utils/index";
-import { defaultSettings, get, set, settingsExists } from "./configuration";
+import { defaultSettings, get, set, settingsExists } from "../configuration";
 
 import "normalize.css";
 import "./css/default.css";
@@ -42,6 +42,7 @@ import MauroDotCC from "./components/windows/MauroDotCC";
 
 const HANDS_AVAILABLE = 2;
 
+// TODO: clean this into different components
 function App() {
     if (!settingsExists()) defaultSettings();
 

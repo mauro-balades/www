@@ -4,7 +4,7 @@ import Window from "../../Window";
 import { Wrapper, ThemePreview, WindowPreviewTitle } from "./styles";
 import * as window from "../../Window/styles";
 
-import { set } from "../../../configuration";
+import { set } from "../../../../configuration";
 
 import { themeKeys } from "../../../theme/theming";
 import { LogoImage } from "../../NavigationBarComponents";

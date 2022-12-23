@@ -4,7 +4,7 @@ import { DefaultBlob, SimpleBlob, SimpleBlob2 } from "../../../blobs";
 import { BigText, SmallText, Wrapper, EasterEgg } from "./style";
 import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
-import { BLOG_NAV_WIDTH } from "../../../../const";
+import { BLOG_NAV_WIDTH } from "../../../../theme";
 
 function getTransitions(delay: number) {
 

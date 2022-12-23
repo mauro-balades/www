@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { matchPath, Link, useLocation } from "react-router-dom";
 import { Links, Blog, Link as NavLink, Wrapper, GoBackHome, BlogTitle, BlogDate, BlogWrapper, SectionTitle, HighlightElement } from "./style";
 import { motion } from "framer-motion";
-import { BLOG_NAV_WIDTH } from "../../../../const";
+import { BLOG_NAV_WIDTH } from "../../../../theme";
 import { useNavigate, useNavigation } from "react-router-dom";
 import blogs from "../../../../blogs";
 

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { matchPath, Link, useLocation } from "react-router-dom";
 import { Links, Logo, Link as NavLink, Wrapper, LastLink } from "./style";
 import { motion } from "framer-motion";
+import ThemeToggle from "../ThemeToggle";
 
 function animationWithDelat(_delay: number = 0) {
     const pageTransition = {
@@ -105,6 +106,7 @@ export default function(props: any) {
                         </NavLink>
                     </Link>
                 </LinkWrapper>
+                <ThemeToggle />
             </Links>
             <LinkWrapper
                 initial="initial"

@@ -1,2 +1,2 @@
-export const BG = 'hsl(210deg,15%,20%)';
-export const BG2 = 'hsl(210deg,30%,12%)';
+export const BG = '#0D0D0D';
+export const BG2 = '#121212';

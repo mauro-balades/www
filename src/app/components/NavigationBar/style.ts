@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { alignment, MAIN_BACKGROUND, MAIN_BACKGROUND_INVERTED, MAIN_TEXT_COLOR } from "../../const";
+import { alignment } from "../../theme";
 
 export const Wrapper = styled.div`
     position: absolute;
@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
     height: 5rem;
 
     overflow: hidden;
-    color: ${MAIN_TEXT_COLOR};
+    color: ${(props: any) => props.theme.colors.MAIN_TEXT_COLOR};
 
     pointer-events: none;
     & * {
@@ -60,7 +60,7 @@ export const Link = styled.div`
 
         width: -webkit-fill-available;
         transition: .2s;
-        background: ${MAIN_BACKGROUND_INVERTED};
+        background: ${(props: any) => props.theme.colors.MAIN_BACKGROUND_INVERTED};
 
         margin: 0 100% 0 100%;
     }
@@ -93,7 +93,7 @@ export const LastLink = styled.div`
 
         width: -webkit-fill-available;
         transition: .2s;
-        background: ${MAIN_BACKGROUND_INVERTED};
+        background: ${(props: any) => props.theme.colors.MAIN_BACKGROUND_INVERTED};
 
         margin: 0 100% 0 100%;
     }
