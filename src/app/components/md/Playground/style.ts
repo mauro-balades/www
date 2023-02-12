@@ -5,11 +5,12 @@ import { BG, BG2 } from "../constants";
 export const Wrapper = styled.div`
     border: 6px solid ${BG};
     border-radius: 5px;
+    overflow: hidden;
 
     position: relative;
 
-    background: ${BG};
-    border: 1px solid #fff;
+    background: ${(props: any) => props.theme.theme === "light" ? "transparent" : BG};
+    border: 1px solid ${(props: any) => props.theme.theme === "light" ? BG2 : "#ddd"};
 
     margin-bottom: 20px;
 `
@@ -18,10 +19,11 @@ export const TopPart = styled.div`
     color: ${(props: any) => props.theme.colors.MAIN_TEXT_COLOR};
     font-weight: 600;
 
-    background: ${BG};
-    padding: 2px 10px 5px 10px;
+    background: ${(props: any) => props.theme.theme === "light" ? "transparent" : BG};
+    padding: 5px 10px 5px 10px;
+    border-bottom: 1px solid ${(props: any) => props.theme.theme === "light" ? BG2 : "#ddd"};
 
-    font-size: 15px;
+    font-size: 14px;
 
     & div:nth-child(1) {
         opacity: .6;
@@ -37,6 +39,7 @@ export const StyleMePlease = styled.div`
 
     & .playground * {
         overflow: auto;
+        background: ${(props: any) => props.theme.theme === "light" ? "transparent" : BG2};
 
         &::-webkit-scrollbar {
             width: 3px;
@@ -60,8 +63,10 @@ export const StyleMePlease = styled.div`
         background: none !important;
         border: none !important;
 
-        background: ${BG2} !important;
+        background: ${(props: any) => props.theme.theme === "light" ? "transparent" : BG2} !important;
         padding-left: 5px;
+        margin: 0;
+        border-bottom: 1px solid ${(props: any) => props.theme.theme === "light" ? BG2 : "#ddd"} !important;
     }
 
     & .playground > div > div:first-child {
@@ -92,7 +97,7 @@ export const StyleMePlease = styled.div`
     }
 
     & .playground div[role="tablist"] button[data-selected] {
-        background: ${BG} !important;
+        background: ${(props: any) => props.theme.theme === "light" ? "#ddd" : "black"} !important;
     }
 
     & .playground textarea:focus {

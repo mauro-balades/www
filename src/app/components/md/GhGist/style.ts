@@ -25,7 +25,7 @@ export const ThemedGist = styled.div`
     & article h2 {
         color: ${(props: any) => props.theme.colors.MAIN_TEXT_COLOR};
         font-weight: 600;
-    
+
         background: ${(props: any) => props.theme.theme === "light" ? "transparent" : BG};
         padding: 8px;
 

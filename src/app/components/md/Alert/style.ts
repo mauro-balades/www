@@ -7,8 +7,11 @@ const INFO_DARK_BR = "hsl(230deg, 100%, 69%)"
 const INFO_LIGHT_BG = "hsl(220, 14%, 90%)"
 const INFO_LIGHT_BR = "hsl(13, 22%, 13%)"
 
-const WARN_BG = "hsl(56, 100%, 5%)"
-const WARN_BR = "hsl(59, 100%, 75%)"
+const WARN_DARK_BG = "hsl(56, 100%, 5%)";
+const WARN_DARK_BR = "hsl(59, 100%, 75%)";
+
+const WARN_LIGHT_BG = "rgba(255,255,0,.2)";
+const WARN_LIGHT_BR = "rgba(255,255,0,.5)";
 
 export const Alert = styled.div`
     width: 100%;
@@ -25,8 +28,8 @@ export const Alert = styled.div`
             border-left: 4px solid ${props.theme === "light" ? INFO_LIGHT_BR : INFO_DARK_BR};
         ` :
         props.type == "warn" ? `
-            background: ${WARN_BG};
-            border-left: 4px solid ${WARN_BR};
+            background: ${props.theme.theme === "light" ? WARN_LIGHT_BG : WARN_DARK_BG};
+            border-left: 4px solid ${props.theme === "light" ? WARN_LIGHT_BR : WARN_DARK_BR};
         ` :
         ""}
 
@@ -51,7 +54,7 @@ export const Icon = styled.div`
             color: ${props.theme === "light" ? INFO_LIGHT_BR : INFO_DARK_BR};
         ` :
         props.type == "warn" ? `
-            color: ${WARN_BR};
+            color: ${props.theme === "light" ? WARN_LIGHT_BR : WARN_DARK_BR};
         ` :
         ""}
 
