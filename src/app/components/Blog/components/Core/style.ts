@@ -17,7 +17,7 @@ export const Wrapper = styled(motion.div)`
     overflow: hidden;
     color: ${(props: any) => props.theme.colors.MAIN_TEXT_COLOR};
     background: ${(props: any) => props.theme.colors.BLOG_BACKGROUND} none repeat scroll 0% 0%;
-    border-right: 2px solid ${(props: any) => props.theme.colors.BLOG_BORDER_CLR};
+    border-right: ${(props: any) => props.theme.theme === "light" ? "1px" : "2px"} solid ${(props: any) => props.theme.colors.BLOG_BORDER_CLR};
 
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
@@ -500,7 +500,7 @@ export const Blog = styled(motion.div)`
         margin: 0;
         padding: 0 1em;
         color: #8b949e;
-        border-left: 0.25em solid #30363d;
+        border-left: ${(props: any) => props.theme.theme === "light" ? "0.2em solid rgba(0,0,0,.2)" : "0.25em solid #30363d"};
     }
 
     & ul,
@@ -1027,13 +1027,17 @@ export const Blog = styled(motion.div)`
 
     & .highlight pre,
     & pre {
-        padding: 16px 0 16px 20px;
+        padding: 15px 0 15px 20px;
         overflow: auto;
         font-size: 85%;
-        line-height: 1.45;
-        background-color: ${BG};
-        border-radius: 6px;
-        // border: 1px solid #fff;
+        // line-height: 1.45;
+        background-color: ${(props: any) => props.theme.theme === "light" ? "transparent" : BG};
+        border: 1px solid ${(props: any) => props.theme.theme === "light" ? "hsl(0, 0%, 78%)" : "none"};
+        border-radius: 5px;
+
+        & * {
+            text-shadow: none !important;
+        }
     }
 
     & pre code,

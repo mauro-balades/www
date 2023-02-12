@@ -30,7 +30,7 @@ export const light_theme: Theme = {
     MAIN_BACKGROUND: '#fff',
     MAIN_TEXT_COLOR: '#000',
 
-    BLOG_BACKGROUND:'#D6D6D6',
+    BLOG_BACKGROUND:'hsl(0, 0%, 93%)',
     BLOG_BORDER_CLR:'rgb(24,24,24,.6)',
 
     HOME_BACKGROUND: '#EDEDED',
@@ -39,47 +39,18 @@ export const light_theme: Theme = {
     MAIN_TEXT_COLOR_INVERTED: '#000',
 }
 
-var MAIN_BACKGROUND = '';
-var MAIN_TEXT_COLOR = '';
-
-var HOME_BACKGROUND = '';
-
-var BLOG_BACKGROUND = '';
-var BLOG_BORDER_CLR = '';
+var theme: Theme;
 
 export var BLOG_NAV_WIDTH  = '350px';
 
-var MAIN_BACKGROUND_INVERTED = '';
-var MAIN_TEXT_COLOR_INVERTED = '';
-
 export const setColors = (colors: Theme) => {
-    MAIN_BACKGROUND = colors.MAIN_BACKGROUND;
-    MAIN_TEXT_COLOR = colors.MAIN_TEXT_COLOR;
-
-    BLOG_BACKGROUND = colors.BLOG_BACKGROUND;
-    BLOG_BORDER_CLR = colors.BLOG_BORDER_CLR;
-
-    MAIN_BACKGROUND_INVERTED = colors.MAIN_BACKGROUND_INVERTED;
-    MAIN_TEXT_COLOR_INVERTED = colors.MAIN_TEXT_COLOR_INVERTED;
-
-    HOME_BACKGROUND = colors.HOME_BACKGROUND;
+    theme = colors;
 }
 
 setColors(get("app-theme") === "light" ? light_theme : dark_theme);
 
 export const getColors = () => {
-    return {
-        MAIN_BACKGROUND,
-        MAIN_TEXT_COLOR,
-
-        BLOG_BACKGROUND,
-        BLOG_BORDER_CLR,
-
-        MAIN_BACKGROUND_INVERTED,
-        MAIN_TEXT_COLOR_INVERTED,
-
-        HOME_BACKGROUND
-    }
+    return theme;
 }
 
 export namespace alignment {

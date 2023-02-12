@@ -10,6 +10,7 @@ declare module 'framer-motion';
 declare module 'document-offset';
 declare module 'react-embed-gist';
 declare module 'react-router-hash-link';
+declare module 'react-rangeslider';
 
 declare module 'react-syntax-highlighter/dist/esm/styles/prism/*';
 declare module 'react-syntax-highlighter/dist/esm/styles/hljs/*';

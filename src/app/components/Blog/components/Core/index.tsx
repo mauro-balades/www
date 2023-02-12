@@ -10,6 +10,7 @@ import blogs from "../../../../blogs";
 import gsap from "gsap";
 
 import {MDXProvider} from '@mdx-js/react'
+import { useTheme } from 'styled-components'
 
 import snippets from "../../../../snippets";
 import code from "./md/core/code";
@@ -17,6 +18,7 @@ import { ProgressPlugin } from "webpack";
 import TOC from "../TOC";
 import { replace_id } from "../../utils";
 import mdLink from "./md/mdLink";
+import { LightThemeNoise } from "../../style";
 
 const pageTransition = {
     type: "tween",
@@ -71,6 +73,7 @@ const blogTransition = {
 };
 
 export default function() {
+    const theme = useTheme()
     const navigate = useNavigate();
 
     let toc: any = [];
@@ -170,7 +173,9 @@ export default function() {
 
     return (
         <div style={{ overflowY: 'hidden', display: 'flex', width: '100%' }}>
-
+            {theme.theme === "light" && (
+                <LightThemeNoise></LightThemeNoise>
+            )}
             <Wrapper
                 initial="initial"
                 animate="in"

@@ -1,14 +1,17 @@
 import styled from 'styled-components';
+import { css } from 'styled-components';
 
 export const PageWrapper = styled.div`
 
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
 
-    background: linear-gradient(90deg,${(props: any) => props.theme.colors.HOME_BACKGROUND} 15px,transparent 1%) 50%,linear-gradient(${(props: any) => props.theme.colors.HOME_BACKGROUND} 15px,transparent 1%) 50%,hsla(0,0%,100%,.16);
-    background-size: 16px 16px;
+    background: ${(props: any) => props.theme.colors.HOME_BACKGROUND};
 
-    animation: background-fade 1s forwards 1s;
+    animation: ${(props: any) =>
+        props.animate &&
+        css`background-fade 1s forwards 1s;
+    `};
 
     width: 100%;
     height: 100vh;
@@ -34,4 +37,12 @@ export const PageWrapper = styled.div`
             background: ${(props: any) => props.theme.colors.HOME_BACKGROUND};
         }
     }
+`
+
+export const LightThemeNoise = styled.div`
+    background-image: url(/static/images/noise.png);
+    position: fixed;
+    inset: 0px;
+    mix-blend-mode: hard-light;
+    pointer-events: none;
 `

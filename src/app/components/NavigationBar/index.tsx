@@ -100,9 +100,9 @@ export default function(props: any) {
                     key="navbar-l-contact"
                     exit="out"
                     variants={animationWithDelat(0.8)}>
-                    <Link to="/contact">
-                        <NavLink className={ifMatch("/contact") ? "active" : ""}>
-                            Contact
+                    <Link to="/about">
+                        <NavLink className={ifMatch("/about") ? "active" : ""}>
+                            About me
                         </NavLink>
                     </Link>
                 </LinkWrapper>

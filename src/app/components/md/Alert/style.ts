@@ -1,8 +1,11 @@
 
 import styled from "styled-components";
 
-const INFO_BG = "hsl(210deg, 38%, 15%)"
-const INFO_BR = "hsl(230deg, 100%, 69%)"
+const INFO_DARK_BG = "hsl(210deg, 38%, 15%)"
+const INFO_DARK_BR = "hsl(230deg, 100%, 69%)"
+
+const INFO_LIGHT_BG = "hsl(220, 14%, 90%)"
+const INFO_LIGHT_BR = "hsl(13, 22%, 13%)"
 
 const WARN_BG = "hsl(56, 100%, 5%)"
 const WARN_BR = "hsl(59, 100%, 75%)"
@@ -18,8 +21,8 @@ export const Alert = styled.div`
 
     ${(props: any) =>
         props.type == "info" ? `
-            background: ${INFO_BG};
-            border-left: 4px solid ${INFO_BR};
+            background: ${props.theme.theme === "light" ? INFO_LIGHT_BG : INFO_DARK_BG};
+            border-left: 4px solid ${props.theme === "light" ? INFO_LIGHT_BR : INFO_DARK_BR};
         ` :
         props.type == "warn" ? `
             background: ${WARN_BG};
@@ -45,7 +48,7 @@ export const Icon = styled.div`
     border-radius: 50%;
     ${(props: any) =>
         props.type == "info" ? `
-            color: ${INFO_BR};
+            color: ${props.theme === "light" ? INFO_LIGHT_BR : INFO_DARK_BR};
         ` :
         props.type == "warn" ? `
             color: ${WARN_BR};

@@ -8,6 +8,7 @@ import Projects from "./components/Projects";
 import { defaultSettings, get, set, settingsExists } from "../configuration";
 import { ThemeProvider } from "styled-components";
 import { dark_theme, getColors, light_theme, setColors } from "./theme";
+import About from "./components/About";
 
 const ThemeWrapper = ({ children, _theme }: any) => {
     const { theme, setTheme } = _theme;
@@ -43,8 +44,6 @@ function App() {
         }
 
         setColors(new_theme)
-        document.body.style.background = new_theme.HOME_BACKGROUND;
-
         _setTheme(mode);
     }
 
@@ -54,6 +53,7 @@ function App() {
                 <Route path="/" element={<ThemeWrapper _theme={{theme, setTheme}}><Home /></ThemeWrapper>} />
                 <Route path="/blog" element={<ThemeWrapper _theme={{theme, setTheme}}><Blog /></ThemeWrapper>} />
                 <Route path="/projects" element={<ThemeWrapper _theme={{theme, setTheme}}><Projects /></ThemeWrapper>} />
+                <Route path="/about" element={<ThemeWrapper _theme={{theme, setTheme}}><About /></ThemeWrapper>} />
             </Routes>
         </AnimatePresence>
     );
