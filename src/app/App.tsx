@@ -9,6 +9,7 @@ import { defaultSettings, get, set, settingsExists } from "../configuration";
 import { ThemeProvider } from "styled-components";
 import { dark_theme, getColors, light_theme, setColors } from "./theme";
 import About from "./components/About";
+import OS from "../os/App";
 
 const ThemeWrapper = ({ children, _theme }: any) => {
     const { theme, setTheme } = _theme;
@@ -54,6 +55,7 @@ function App() {
                 <Route path="/blog" element={<ThemeWrapper _theme={{theme, setTheme}}><Blog /></ThemeWrapper>} />
                 <Route path="/projects" element={<ThemeWrapper _theme={{theme, setTheme}}><Projects /></ThemeWrapper>} />
                 <Route path="/about" element={<ThemeWrapper _theme={{theme, setTheme}}><About /></ThemeWrapper>} />
+                <Route path="/os" element={<OS />} />
             </Routes>
         </AnimatePresence>
     );

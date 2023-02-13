@@ -17,7 +17,6 @@ export function remove(key: string) {
 }
 
 export function defaultSettings() {
-    console.log("call")
     set("os-theme", themeKeys[0]);
     set("cookies", "0");
     set("pong", "0");

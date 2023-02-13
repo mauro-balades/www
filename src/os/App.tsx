@@ -39,6 +39,7 @@ import CPPHack from "./components/hacks/CPP";
 import DataHack from "./components/hacks/data";
 import SQLMap from "./components/hacks/sql";
 import MauroDotCC from "./components/windows/MauroDotCC";
+import { useNavigate } from "react-router-dom";
 
 const HANDS_AVAILABLE = 2;
 
@@ -47,6 +48,7 @@ function App() {
     if (!settingsExists()) defaultSettings();
 
     var hasVisited = get("visited") == "yes";
+    const navigate = useNavigate();
 
     window.addEventListener("beforeunload", function(e){
         if (!hasVisited) set("visited", "yes");
@@ -71,7 +73,7 @@ function App() {
     useEffect(setRandomHand, []);
 
     const [isLoading, setLoading] = useState(true);
-    const [theme, setTheme] = useState(get("theme"));
+    const [theme, setTheme] = useState(get("os-theme"));
     const [vintage, setVintage] = useState(get("vintage"));
 
     const [cookies_closed, cookies_setClosed] = useState(false);
@@ -175,6 +177,7 @@ function App() {
         />,
     ];
 
+    console.log(theme)
     return (
         <ThemeProvider theme={theme}>
             <div style={{ ...(vintage == "1" && {filter: 'grayscale(1)'}) }}>
@@ -285,21 +288,14 @@ function App() {
                                 <svg
                                     className="pointer"
                                     style={{ marginRight: "10px" }}
-                                    onClick={() => window.location.reload()}
+                                    onClick={() => {
+                                        (navigate(-1) || navigate("/"))
+                                    }}
                                     width="18"
                                     height="18"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                                    />
-                                </svg>
+                                    fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M5.636 5.636a9 9 0 1012.728 0M12 3v9" />
+                                    </svg>
                             </NavigationSection>
                         </NavigationBar>
                         <ViewWrapper>

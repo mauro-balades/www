@@ -114,12 +114,14 @@ export default function(props: any) {
                 exit="out"
                 key="navbar-interactive-website"
                 variants={animationWithDelat(1)}>
-                <LastLink>
-                    <span>
-                        Interactive Website
-                    </span>
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-                </LastLink>
+                <Link to="/os">
+                    <LastLink>
+                        <span>
+                            Interactive Website
+                        </span>
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                    </LastLink>
+                </Link>
             </LinkWrapper>
         </Wrapper>
     )
