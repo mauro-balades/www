@@ -18,7 +18,7 @@ import { ProgressPlugin } from "webpack";
 import TOC from "../TOC";
 import { replace_id } from "../../utils";
 import mdLink from "./md/mdLink";
-import { LightThemeNoise } from "../../style";
+import { LightThemeNoise } from "../../../CommonStyles";
 
 const pageTransition = {
     type: "tween",
@@ -78,7 +78,7 @@ export default function() {
 
     let toc: any = [];
 
-    let [id, setId] = useState(0);
+    let [id, setId] = useState(blogs.length /* hello world blog */);
     let [isSnippet, setIfSnippet] = useState(false);
 
     let blogref = useRef(null);
