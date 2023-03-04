@@ -105,7 +105,7 @@ export default function() {
                     gsap.killTweensOf(hl_el.current)
 
                     if (refs.current.includes(e.relatedTarget) === true) {
-                        gsap.set(hl_el.current, { opacity: 1, height: el.offsetHeight - 2 })
+                        gsap.set(hl_el.current, { opacity: 1, height: el.offsetHeight + 4 })
 
                         gsap.to(
                             hl_el.current,
@@ -120,13 +120,12 @@ export default function() {
                         return;
                     }
 
-
                     gsap.set(
                         hl_el.current,
                         {
                             opacity: 1,
                             width: el.offsetWidth,
-                            height: el.offsetHeight - 2,
+                            height: el.offsetHeight + 4,
                             y: el.offsetTop,
                             x: el.offsetLeft,
                         }
