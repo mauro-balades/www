@@ -23,7 +23,6 @@ export const SmallText = styled(motion.div)`
 
     font-weight: 500;
     margin-bottom: 20px;
-    font-family: 'Poppins', sans-serif;
 `
 
 
@@ -32,7 +31,6 @@ export const BigText = styled(motion.div)`
     font-weight: 700;
 
     line-height: 1.4;
-    font-family: 'Poppins', sans-serif;
 `
 
 export const EasterEgg = styled.span`

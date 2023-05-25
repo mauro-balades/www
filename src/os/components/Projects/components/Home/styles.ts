@@ -17,7 +17,7 @@ export const CenteredText = styled.div`
     letter-spacing: .075em;
 
     font-size: 1em;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: "Quicksand",sans-serif;
 
     width: 25%;
 `

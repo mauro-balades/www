@@ -33,13 +33,11 @@ export const Wrapper = styled.div`
     align-items: center;
     justify-content: space-between;
 
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-        Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: "Quicksand",sans-serif;
 `
 
 export const Logo = styled.div`
     font-weight: 600;
-    font-family: 'Poppins', sans-serif;
 `
 
 export const Link = styled.div`

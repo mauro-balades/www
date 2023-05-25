@@ -3,7 +3,7 @@ import {get} from "../../../configuration";
 
 const WRAPPER_TEMPLATE = `
 
-    font-family: 'Roboto', sans-serif;
+    font-family: "Quicksand",sans-serif;
     font-weight: 500;
 
     cursor: url("/static/images/cursor_auto.png"), auto;
