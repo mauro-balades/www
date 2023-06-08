@@ -35,6 +35,7 @@ export const BigText = styled(motion.div)`
 
 export const EasterEgg = styled.span`
     position: relative;
+    z-index: 4;
 
     & span {
         background: linear-gradient(0.25turn, #2193b0, #6dd5ed);

@@ -21,7 +21,8 @@ export function defaultSettings() {
     set("cookies", "0");
     set("pong", "0");
     set("app-theme", "light");
-    console.log(get("app-theme"))
+    
+    window.location.reload();
 }
 
 export function settingsExists() {

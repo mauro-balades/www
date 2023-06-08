@@ -44,7 +44,16 @@ function App() {
             new_theme = light_theme;
         }
 
-        setColors(new_theme)
+        setColors(new_theme);
+
+        // TODO:
+        // new (window as any).Cursora({
+        //     dot: mode === "dark" ? '#fff' : "#000",
+        //     bg: mode === "dark" ? 'rgba(255, 255, 255, .1)' : "rgba(0, 0, 0, .5)",
+        //     hoverOffset: { x: 10, y: 10 },
+        //     zIndex: 2
+        // });
+
         _setTheme(mode);
     }
 

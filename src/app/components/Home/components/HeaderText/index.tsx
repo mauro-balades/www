@@ -18,13 +18,14 @@ function getTransitions(delay: number) {
     const pageVariants = {
         initial: {
             transform: `translateX(-${BLOG_NAV_WIDTH})`,
-            transition: pageTransition
+            transition: pageTransition,
+            opacity: 0,
         },
         in: {
             filter: 'blur(0px)',
             transform: `translateX(0px)`,
-            opacity: '1',
-            transition: pageTransition
+            opacity: 1,
+            transition: pageTransition,
         },
         out: {
             trans: 'blur(15px)',
@@ -34,7 +35,8 @@ function getTransitions(delay: number) {
                 ease: "anticipate",
                 duration: 0.5,
                 delay: delay + 0,
-            }
+            },
+            opacity: '0'
         }
     };
 
@@ -60,7 +62,7 @@ export default function() {
                     exit="out"
                     key="home-text-main-2"
                     variants={getTransitions(0.1)}>
-                    <EasterEgg>
+                    <EasterEgg data-cursora>
                         <span>Software developer</span>
                         <img src="/static/gif/cat.gif" />
                     </EasterEgg> from Madrid, Spain.<br />
