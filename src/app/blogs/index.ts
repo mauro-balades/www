@@ -5,8 +5,10 @@ import * as styled_components from "./styled_components.mdx";
 import * as the_c_preprocessor from "./the_c_preprocessor.mdx";
 import * as infinite_projects from "./infinite_projects.mdx";
 import * as f_strings from "./f_strings.mdx";
+import * as coding_irl from "./coding_irl.mdx";
 
 export default [
+    coding_irl,
     infinite_projects,
     the_c_preprocessor,
     f_strings,
