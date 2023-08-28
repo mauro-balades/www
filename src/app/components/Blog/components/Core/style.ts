@@ -19,7 +19,7 @@ export const Wrapper = styled(motion.div)`
     background: ${(props: any) => props.theme.colors.BLOG_BACKGROUND} none repeat scroll 0% 0%;
     border-right: ${(props: any) => props.theme.theme === "light" ? "1px" : "2px"} solid ${(props: any) => props.theme.colors.BLOG_BORDER_CLR};
 
-    font-family: "Quicksand",sans-serif;
+    font-family: rubik,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
 `;
 
 export const GoBackHome = styled.div`

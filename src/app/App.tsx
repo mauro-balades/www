@@ -3,8 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import { useLocation } from "react-router-dom";
 import Blog from "./components/Blog";
-import { AnimatePresence } from "framer-motion"
-import Projects from "./components/Projects";
+import { AnimatePresence } from "framer-motion";
 import { defaultSettings, get, set, settingsExists } from "../configuration";
 import { ThemeProvider } from "styled-components";
 import { dark_theme, getColors, light_theme, setColors } from "./theme";
@@ -62,7 +61,6 @@ function App() {
             <Routes location={location} key={location.pathname}>
                 <Route path="/" element={<ThemeWrapper _theme={{theme, setTheme}}><Home /></ThemeWrapper>} />
                 <Route path="/blog" element={<ThemeWrapper _theme={{theme, setTheme}}><Blog /></ThemeWrapper>} />
-                <Route path="/projects" element={<ThemeWrapper _theme={{theme, setTheme}}><Projects /></ThemeWrapper>} />
                 <Route path="/about" element={<ThemeWrapper _theme={{theme, setTheme}}><About /></ThemeWrapper>} />
                 <Route path="/os" element={<OS />} />
             </Routes>

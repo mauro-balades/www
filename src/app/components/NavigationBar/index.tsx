@@ -85,18 +85,6 @@ export default function(props: any) {
                 <LinkWrapper
                     initial="initial"
                     animate="in"
-                    exit="out"
-                    key="navbar-l-projects"
-                    variants={animationWithDelat(0.6)}>
-                    <Link to="/projects">
-                        <NavLink className={ifMatch("/projects") ? "active" : ""}>
-                            Projects
-                        </NavLink>
-                    </Link>
-                </LinkWrapper>
-                <LinkWrapper
-                    initial="initial"
-                    animate="in"
                     key="navbar-l-contact"
                     exit="out"
                     variants={animationWithDelat(0.8)}>
