@@ -64,7 +64,7 @@ export default function() {
                     variants={getTransitions(0.1)}>
                     A 
                     <EasterEgg data-cursora>
-                        <span>Software developer</span>
+                        <span> Software developer</span>
                         <img src="/static/gif/cat.gif" />
                     </EasterEgg> that makes stuff. <br />
                 </BigText>
