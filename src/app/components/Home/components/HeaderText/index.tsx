@@ -62,12 +62,11 @@ export default function() {
                     exit="out"
                     key="home-text-main-2"
                     variants={getTransitions(0.1)}>
+                    A 
                     <EasterEgg data-cursora>
                         <span>Software developer</span>
                         <img src="/static/gif/cat.gif" />
-                    </EasterEgg> from Madrid, Spain.<br />
-                    I love to make software in any sort of <br />
-                    branch
+                    </EasterEgg> that makes stuff. <br />
                 </BigText>
             </div>
         </Wrapper>
