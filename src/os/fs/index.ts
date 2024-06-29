@@ -31,21 +31,18 @@ export const initializeFiles = (props: any) => {
                                                     __type: "folder",
                                                     infinite: {
                                                         __type: "folder",
-                                                        infinite: {
+                                                        "for real, it's infinite": {
                                                             __type: "folder",
-                                                            "for real, it's infinite": {
+                                                            "infinite": {
                                                                 __type: "folder",
-                                                                "infinite": {
+                                                                "omg": {
                                                                     __type: "folder",
-                                                                    "omg": {
-                                                                        __type: "folder",
-                                                                        "readme[DOT]txt":
-                                                                        {
-                                                                            __type: "file",
-                                                                            __handle: () => {
-                                                                                easterEgg_setClosed(false);
-                                                                            }
-                                                                        },
+                                                                    "readme[DOT]txt":
+                                                                    {
+                                                                        __type: "file",
+                                                                        __handle: () => {
+                                                                            easterEgg_setClosed(false);
+                                                                        }
                                                                     },
                                                                 },
                                                             },
@@ -59,15 +56,6 @@ export const initializeFiles = (props: any) => {
                             },
                         },
                     },
-                },
-            },
-            code: {
-                __type: "folder",
-                "cv[DOT]cc": {
-                    __type: "file",
-                    __handle: () => {
-                        mauroDotCC_setClosed(false);
-                    }
                 },
             },
             "mauro[DOT]7": {
