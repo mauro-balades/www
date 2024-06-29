@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from 'react-router-dom';
-import Home from './components/Home';
 import { useLocation } from "react-router-dom";
 import Blog from "./components/Blog";
 import { AnimatePresence } from "framer-motion";
@@ -58,9 +57,8 @@ function App() {
     return (
         <AnimatePresence exitBeforeEnter>
             <Routes location={location} key={location.pathname}>
-                <Route path="/" element={<ThemeWrapper _theme={{theme, setTheme}}><Home /></ThemeWrapper>} />
+                <Route path="/" element={<ThemeWrapper _theme={{theme, setTheme}}><OS /></ThemeWrapper>} />
                 <Route path="/blog" element={<ThemeWrapper _theme={{theme, setTheme}}><Blog /></ThemeWrapper>} />
-                <Route path="/os" element={<OS />} />
             </Routes>
         </AnimatePresence>
     );
