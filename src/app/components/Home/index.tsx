@@ -5,14 +5,11 @@ import { useTheme } from "styled-components";
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-
+import { OutlinePass } from 'three/addons/postprocessing/OutlinePass.js';
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
-import { OutlinePass } from "three/examples/jsm/postprocessing/OutlinePass";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass";
-//Modules below are regarded to shader
-import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass";
-import { FXAAShader } from "three/examples/jsm/shaders/FXAAShader";
 
+//Modules below are regarded to shader
 export default function() {
     let theme = useTheme();
     const refContainer = useRef(null);
@@ -20,7 +17,8 @@ export default function() {
     useEffect(() => {
       // === THREE.JS CODE START ===
       var scene = new THREE.Scene();
-      var renderer = new THREE.WebGLRenderer();
+      var renderer = new THREE.WebGLRenderer( { antialias: true });
+      renderer.setPixelRatio( window.devicePixelRatio );
       renderer.setSize(window.innerWidth, window.innerHeight);
       // document.body.appendChild( renderer.domElement );
       // use ref as a mount point of the Three.js scene instead of the document.body
@@ -37,7 +35,6 @@ export default function() {
         // called when the resource is loaded
         function ( gltf: any ) {
           console.log(gltf);
-          scene.add( gltf.scene );
           const light = new THREE.AmbientLight( 0xFFFFFF ); // soft white light
           scene.add( light );
           
@@ -46,15 +43,23 @@ export default function() {
           const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 100 );
           camera.position.set( 5, 2, 8 );
 
-          const renderPass = new RenderPass( gltf.scene, camera );
-        composer.addPass( renderPass );
 
-        const outlinePass= new OutlinePass(
-              new THREE.Vector2(window.innerWidth, window.innerHeight), //resolution parameter
-              gltf.scene,
-              camera)
-        ;
-        composer.addPass( outlinePass );
+          const outlinePass = new OutlinePass( new THREE.Vector2( window.innerWidth, window.innerHeight ), scene, camera );
+          outlinePass.renderToScreen = true;
+          composer.addPass( outlinePass );
+          
+          const renderPass = new RenderPass( gltf.scene, camera );
+          composer.addPass( renderPass );
+
+          scene.add( gltf.scene );
+          outlinePass.selectedObjects = scene;
+          scene.traverse( function( node: any ) {
+            if ( node instanceof THREE.Mesh ) {
+              console.log("Setting new material")
+              // insert your code here, for example:
+              node.material = new THREE.MeshToonMaterial({ color: node.material.color });
+            }
+          });
     
           const controls = new OrbitControls( camera, renderer.domElement );
           controls.target.set( 0, 0.5, 0 );
@@ -67,8 +72,8 @@ export default function() {
           var animate = function () {
             requestAnimationFrame(animate);
             composer.render(); //If you don't put delta time to render function, it use default delta time parameter.
-
             renderer.render(scene, camera);
+            
           };
           animate();
 
