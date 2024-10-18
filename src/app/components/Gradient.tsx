@@ -27,7 +27,7 @@ export const Wrapper = styled.div`
     }
 `
 
-export default function Gradient({ id, colors = ["#ef008f", "#6ec3f4", "#7038ff", "#ffba27"], toggle_darken_top = false, ...props }: any) {
+export default function Gradient({ id, canvasClassName="", colors = ["#ef008f", "#6ec3f4", "#7038ff", "#ffba27"], toggle_darken_top = false, ...props }: any) {
     useEffect(() => {
         const gradient = new GradientWrapper()
 
@@ -37,7 +37,7 @@ export default function Gradient({ id, colors = ["#ef008f", "#6ec3f4", "#7038ff"
 
     return (
         <Wrapper {...props} colors={colors}>
-            <canvas id={id} data-js-darken-top={toggle_darken_top} data-transition-in></canvas>
+            <canvas className={canvasClassName} id={id} data-js-darken-top={toggle_darken_top} data-transition-in></canvas>
         </Wrapper>
     )
 }
