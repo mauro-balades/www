@@ -6,29 +6,7 @@
   <title>Mauro Baladés - Portfolio</title>
   <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    * {
-      font-family: SF Pro,ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
-      font-feature-settings: normal;
-      font-variation-settings: normal;
-      -moz-tab-size: 4;
-      tab-size: 4;
-      -webkit-text-size-adjust: 100%;
-
-      color: rgb(41 37 36);
-    }
-
-    body {
-      background-color: rgba(255, 240, 223, .95);
-    }
-
-    #links > a {
-      transition: scale 0.05s ease-out;
-      &:hover {
-        scale: 1.1;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
   <div class="min-h-screen h-screen flex items-center space-between w-full flex-col">
@@ -82,56 +60,69 @@
             <i class="fa-solid fa-arrow-right"></i>
           </div>
         </a>
+        <div class="flex font-bold text-sm items-center gap-4">
+          <div class="line-holder">
+            <div class="smallLine smallLine1"></div>
+            <div class="smallLine smallLine2"></div>
+          </div>
+          <div class="hidden md:block whitespace-nowrap opacity-20">
+            Blog Posts
+          </div>
+        </div>
+        <a class="flex gap-2 flex-col" href="https://github.com/snowball-lang">
+          <h3 class="font-bold text-xl">
+            Why i've built zen
+          </h3>
+          <p class="opacity-50 text-sm max-w-81">
+            Why would a no-name developer decide to build a web browser?
+          </p>
+          <div class="flex text-sm font-bold items-center gap-2">
+            Read Post
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </a>
+        <a class="flex gap-2 flex-col" href="https://github.com/snowball-lang">
+          <h3 class="font-bold text-xl">
+            Customization is a double-edged sword
+          </h3>
+          <p class="opacity-50 text-sm max-w-81">
+            How much customization is too much customization?
+          </p>
+          <div class="flex text-sm font-bold items-center gap-2">
+            Read Post
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </a>
       </section>
     </main>
-    <footer class="flex justify-center gap-4 items-center font-semibold py-12 opacity-70">
+    <footer class="flex justify-center gap-4 items-center font-semibold py-6 opacity-70">
       <p style="opacity: 0;">
-        Made with love by Mauro B.
+        Made with love by Mauro Baladés
       </p>
       <p style="opacity: 0;">
         •
       </p>
       <p style="opacity: 0;">
-        2025
+        2025 - <script>document.write(new Date().getFullYear())</script>
       </p>
     </footer>
   </div>
-  <script async type="module">
-    import { animate, stagger, hover } from "https://cdn.jsdelivr.net/npm/motion@latest/+esm";
-
-    await animate("#logo > *, #links > *, #content > h1:first-child > *, #content > p", {
-      opacity: [0, 1],
-      y: [20, 0],
-      blur: [1, 0],
-    }, {
-      delay: stagger(0.15)
-    });
-
-    await animate("#latest-project a", {
-      opacity: [0, 1],
-      scale: [0.9, 1],
-      blur: [1, 0],
-    });
-
-    await animate("#projects > a *", {
-      opacity: [0, 1],
-      blur: [1, 0],
-      x: [-20, 0]
-    }, {
-      delay: stagger(0.15)
-    });
-
-    await animate("footer > *", {
-      opacity: [0, 1],
-      y: [20, 0],
-      blur: [1, 0],
-    }, {
-      delay: stagger(0.15)
-    });
-  </script>
+  <script async type="module" src="./script.js"></script>
   <style>
-    #projects > a * {
+    #projects > a *, #projects > div {
       opacity: 0;
+    }
+
+    #projects > a {
+      i {
+        transition: margin 0.3s;
+      }
+
+      &:hover {
+        i {
+          margin-left: 5px;
+        }
+      }
     }
   </style>
 </body>

@@ -1,0 +1,46 @@
+* {
+  font-family: SF Pro,ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  -moz-tab-size: 4;
+  tab-size: 4;
+  -webkit-text-size-adjust: 100%;
+
+  color: rgb(41 37 36);
+}
+
+body {
+  background-color: rgb(255, 240, 223);
+}
+
+#links > a {
+  transition: scale 0.05s ease-out;
+  &:hover {
+    scale: 1.1;
+  }
+}
+
+.line-holder {
+  position: relative;
+  width: min(300px, 100%);
+  height: 10px;
+}
+
+.smallLine {
+  position: absolute;
+  height: 10px;
+  width: 200%;
+  transform: translate(-25%) scale(0.5)
+}
+
+.smallLine1 {
+  background: linear-gradient(45deg, transparent, transparent 49%, rgb(51, 46, 41) 49%, transparent 51%);
+}
+.smallLine2 {
+  background: linear-gradient(-45deg, transparent, transparent 49%, rgb(51, 46, 41) 49%, transparent 51%);
+}
+
+.smallLine {
+  background-size: 20px 20px;
+}
+
