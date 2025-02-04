@@ -125,6 +125,8 @@ async function main() {
 
 document.getElementById("back").onclick = async () => {
   insideBlog = false;
+  beforeLoadBlog = null;
+  history.pushState({}, "", "/");
   const elements = Array.from(document.querySelectorAll("#back, #blog-content > *")).reverse();
   await animate(
     elements,
@@ -167,7 +169,6 @@ window.addEventListener("popstate", (event) => {
   } else {
     if (insideBlog) {
       document.getElementById("back").click();
-      history.pushState({}, "", "/");
     }
   }
 });
