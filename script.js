@@ -1,6 +1,9 @@
 import { animate, stagger, hover } from "https://cdn.jsdelivr.net/npm/motion@latest/+esm";
 
+var insideBlog = false;
+
 async function animateAndOpenBlog(blogid) {
+  insideBlog = true;
   await animate("#content > *, #projects > *", {
     opacity: [1, 0],
     x: [0, -50],
@@ -48,26 +51,52 @@ for (const blog of document.querySelectorAll("[blog]")) {
   };
 }
 
-await animate("#logo > *, #links > *, #content > h1:first-child > *, #content > p", {
-  opacity: [0, 1],
-  y: [20, 0],
-  blur: [1, 0],
-}, {
-  delay: stagger(0.15)
-});
 
-await animate("#projects > a *, #projects > div", {
-  opacity: [0, 1],
-  blur: [1, 0],
-  x: [-20, 0]
-}, {
-  delay: stagger(0.15)
-});
+async function main() {
+  await animate("#logo > *, #links > *, #content > h1:first-child > *, #content > p", {
+    opacity: [0, 1],
+    y: [20, 0],
+    blur: [1, 0],
+  }, {
+    delay: stagger(0.15)
+  });
 
-await animate("footer > *", {
-  opacity: [0, 1],
-  y: [20, 0],
-  blur: [1, 0],
-}, {
-  delay: stagger(0.15)
-});
+  await animate("#projects > a *, #projects > div", {
+    opacity: [0, 1],
+    blur: [1, 0],
+    x: [-20, 0]
+  }, {
+    delay: stagger(0.15)
+  });
+
+  await animate("footer > *", {
+    opacity: [0, 1],
+    y: [20, 0],
+    blur: [1, 0],
+  }, {
+    delay: stagger(0.15)
+  });
+}
+
+document.getElementById("back").onclick = async () => {
+  insideBlog = false;
+  await animate("#blog-content > *", {
+    opacity: [1, 0],
+    x: [0, -50],
+    blur: [0, 1],
+  }, {
+    delay: stagger(0.05)
+  });
+  document.getElementById("content").classList.remove("hidden");
+  document.getElementById("projects").classList.remove("hidden");
+  document.getElementById("blog-space").classList.add("hidden");
+  await animate("#content > *, #projects > *", {
+    opacity: [0, 1],
+    x: [-50, 0],
+    blur: [1, 0],
+  }, {
+    delay: stagger(0.05)
+  });
+}
+
+main();
