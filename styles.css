@@ -66,13 +66,13 @@ body {
 
 #back {
   i {
-    transition: transform 0.05s ease-out;
+    transition: transform 0.1s ease-out;
     margin-right: 4px;
   }
 
   &:hover {
     i {
-      transform: translateX(-5px);
+      transform: translateX(-2px);
     }
   }
 }

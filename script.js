@@ -6,27 +6,29 @@ import {
 
 var insideBlog = false;
 
-async function animateAndOpenBlog(blogid, blogElem) {
+async function animateAndOpenBlog(blogid, blogElem, fromLoad = false) {
   insideBlog = true;
-  await animate(
-    "#footer",
-    {
-      opacity: [1, 0],
-      y: [0, 20],
-      blur: [0, 1],
-    },
-  );
-  await animate(
-    "#content > *, #projects > *",
-    {
-      opacity: [1, 0],
-      x: [0, -60],
-      blur: [0, 1],
-    },
-    {
-      delay: stagger(0.05),
-    },
-  );
+  if (!fromLoad) {
+    await animate(
+      "#footer",
+      {
+        opacity: [1, 0],
+        y: [0, 20],
+        blur: [0, 1],
+      },
+    );
+    await animate(
+      "#content > *, #projects > *",
+      {
+        opacity: [1, 0],
+        x: [0, -60],
+        blur: [0, 1],
+      },
+      {
+        delay: stagger(0.05),
+      },
+    );
+  }
   document.getElementById("content").classList.add("hidden");
   document.getElementById("projects").classList.add("hidden");
   document.getElementById("blog-space").classList.remove("hidden");
@@ -76,8 +78,12 @@ for (const blog of document.querySelectorAll("[blog]")) {
     const blogElem = event.target.closest("[blog]");
     const blogid = blogElem.getAttribute("blog");
     animateAndOpenBlog(blogid, blogElem);
+    history.pushState({ blogid }, "", `?blog=${blogid}`);
   };
 }
+
+const urlParams = new URLSearchParams(window.location.search);
+const beforeLoadBlog = urlParams.get("blog");
 
 async function main() {
   await animate(
@@ -91,7 +97,6 @@ async function main() {
       delay: stagger(0.05),
     },
   );
-
   await animate(
     "#projects > a *, #projects > div",
     {
@@ -148,4 +153,9 @@ document.getElementById("back").onclick = async () => {
   );
 };
 
-main();
+if (beforeLoadBlog) {
+  const blogElem = document.querySelector(`[blog="${beforeLoadBlog}"]`);
+  animateAndOpenBlog(beforeLoadBlog, blogElem, true);
+} else {
+  main();
+}
