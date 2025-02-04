@@ -9,6 +9,14 @@ var insideBlog = false;
 async function animateAndOpenBlog(blogid, blogElem) {
   insideBlog = true;
   await animate(
+    "#footer",
+    {
+      opacity: [1, 0],
+      y: [0, 20],
+      blur: [0, 1],
+    },
+  );
+  await animate(
     "#content > *, #projects > *",
     {
       opacity: [1, 0],
@@ -49,7 +57,7 @@ async function animateAndOpenBlog(blogid, blogElem) {
     }
   }
   await animate(
-    "#blog-content > *",
+    "#back, #blog-content > *",
     {
       opacity: [0, 1],
       x: [-60, 0],
@@ -59,6 +67,7 @@ async function animateAndOpenBlog(blogid, blogElem) {
       delay: stagger(0.05),
     },
   );
+  document.getElementById("footer").removeAttribute("style");
 }
 
 for (const blog of document.querySelectorAll("[blog]")) {
@@ -110,8 +119,9 @@ async function main() {
 
 document.getElementById("back").onclick = async () => {
   insideBlog = false;
+  const elements = Array.from(document.querySelectorAll("#back, #blog-content > *")).reverse();
   await animate(
-    "#blog-content > *",
+    elements,
     {
       opacity: [1, 0],
       x: [0, -50],
