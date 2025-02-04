@@ -88,7 +88,7 @@ async function main() {
       blur: [1, 0],
     },
     {
-      delay: stagger(0.15),
+      delay: stagger(0.05),
     },
   );
 
@@ -100,7 +100,7 @@ async function main() {
       x: [-20, 0],
     },
     {
-      delay: stagger(0.1),
+      delay: stagger(0.05),
     },
   );
 
@@ -113,6 +113,7 @@ async function main() {
     },
     {
       delay: stagger(0.15),
+      duration: 0.1,
     },
   );
 }
