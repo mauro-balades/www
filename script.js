@@ -167,6 +167,7 @@ window.addEventListener("popstate", (event) => {
   } else {
     if (insideBlog) {
       document.getElementById("back").click();
+      history.pushState({}, "", "/");
     }
   }
 });
