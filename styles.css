@@ -44,3 +44,35 @@ body {
   background-size: 20px 20px;
 }
 
+#back {
+  i {
+    transition: transform 0.1s ease-out;
+    margin-right: 4px;
+  }
+
+  &:hover {
+    i {
+      transform: translateX(-5px);
+    }
+  }
+}
+
+#blog-content {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+
+  .line-holder {
+    margin: 20px auto;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+}
