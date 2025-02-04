@@ -6,7 +6,7 @@ async function animateAndOpenBlog(blogid) {
   insideBlog = true;
   await animate("#content > *, #projects > *", {
     opacity: [1, 0],
-    x: [0, -50],
+    x: [0, -60],
     blur: [0, 1],
   }, {
     delay: stagger(0.05)
@@ -32,11 +32,13 @@ async function animateAndOpenBlog(blogid) {
       <div class="smallLine smallLine1"></div>
       <div class="smallLine smallLine2"></div>
     </div>`;
-    contentWrapper.appendChild(separator);
+    if (paragraph !== content[content.length - 1]) {
+      contentWrapper.appendChild(separator);
+    }
   }
   await animate("#blog-content > *", {
     opacity: [0, 1],
-    x: [-50, 0],
+    x: [-60, 0],
     blur: [1, 0],
   }, {
     delay: stagger(0.05)
@@ -66,7 +68,7 @@ async function main() {
     blur: [1, 0],
     x: [-20, 0]
   }, {
-    delay: stagger(0.15)
+    delay: stagger(0.1)
   });
 
   await animate("footer > *", {

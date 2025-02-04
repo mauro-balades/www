@@ -63,7 +63,8 @@ body {
   flex-direction: column;
 
   .line-holder {
-    margin: 20px auto;
+    margin: 30px auto;
+    width: 200px;
   }
 
   h1 {
@@ -73,6 +74,7 @@ body {
 
   p {
     font-size: 1.1rem;
+    opacity: 0.6;
     line-height: 1.5;
   }
 }
