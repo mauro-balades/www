@@ -13,6 +13,32 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="./styles.css" />
+    <meta name="description" content="Hi! I'm Mauro Baladés, a software engineer acting like a designer." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <script is:inline type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"WebSite",
+      "name":"Mauro Baladés",
+      "url":"https://cheff.dev",
+    }
+    </script>
+
+    <!-- ICO favicon as a fallback for browsers that don't support SVG favicons (Safari) -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/share-pic.png" />
+    <meta
+      property="og:description"
+      content="Hi! I'm Mauro Baladés, a software engineer acting like a designer."
+    />
+    <meta property="og:color" content="#da755b" />
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
     <div class="flex items-center space-between w-full flex-col">
