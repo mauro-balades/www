@@ -83,7 +83,7 @@ for (const blog of document.querySelectorAll("[blog]")) {
 }
 
 const urlParams = new URLSearchParams(window.location.search);
-const beforeLoadBlog = urlParams.get("blog");
+var beforeLoadBlog = urlParams.get("blog");
 
 async function main() {
   await animate(
