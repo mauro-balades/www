@@ -159,3 +159,14 @@ if (beforeLoadBlog) {
 } else {
   main();
 }
+
+window.addEventListener("popstate", (event) => {
+  if (event.state && event.state.blogid) {
+    const blogElem = document.querySelector(`[blog="${event.state.blogid}"]`);
+    animateAndOpenBlog(event.state.blogid, blogElem, true);
+  } else {
+    if (insideBlog) {
+      document.getElementById("back").click();
+    }
+  }
+});
