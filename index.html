@@ -1,131 +1,195 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mauro Baladés - Portfolio</title>
-  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="./styles.css">
-</head>
-<body>
-  <div class="flex items-center space-between w-full flex-col">
-    <main class="mx-auto w-full px-12 md:px-0 md:w-2/3 lg:w-1/3 h-full relative gap-16 py-18 flex flex-col">
-      <nav class="flex justify-between">
-        <a id="logo" href="/">
-          <h2 class="text-2xl font-semibold leading-none">mr. m</h2>
-          <h3 class="text-base opacity-50 italic leading-none">mauro baladés</h3>
-        </a>
-        <div id="links" class="gap-5 flex items-center">
-          <a href="https://github.com/mauro-balades"><i class="fa-brands fa-github"></i></a>
-          <a href="https://x.com/_mrm__0"><i class="fa-brands fa-twitter"></i></a>
-          <a href="https://reddit.com/maubg"><i class="fa-brands fa-reddit"></i></a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mauro Baladés - Portfolio</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="flex items-center space-between w-full flex-col">
+      <main
+        class="mx-auto w-full px-12 md:px-0 md:w-2/3 lg:w-1/3 h-full relative gap-16 py-18 flex flex-col"
+      >
+        <nav class="flex justify-between">
+          <a id="logo" href="/">
+            <h2 class="text-2xl font-semibold leading-none">mr. m</h2>
+            <h3 class="text-base opacity-50 italic leading-none">
+              mauro baladés
+            </h3>
+          </a>
+          <div id="links" class="gap-5 flex items-center">
+            <a href="https://github.com/mauro-balades"
+              ><i class="fa-brands fa-github"></i
+            ></a>
+            <a href="https://x.com/_mrm__0"
+              ><i class="fa-brands fa-twitter"></i
+            ></a>
+            <a href="https://reddit.com/maubg"
+              ><i class="fa-brands fa-reddit"></i
+            ></a>
+          </div>
+        </nav>
+        <section id="content">
+          <h1 class="text-xl font-bold flex gap-2">
+            <div>What's up?</div>
+            <div>👋</div>
+          </h1>
+          <p class="text-base opacity-50">
+            I'm a software engineer, acting like a designer.
+          </p>
+        </section>
+        <section id="projects" class="ml-4 flex flex-col gap-10">
+          <a class="flex gap-2 flex-col" href="https://zen-browser.app">
+            <h3 class="font-bold text-xl">zen browser</h3>
+            <p class="opacity-50 text-sm max-w-81">
+              A beautifully designed, productivity centered web browser with
+              true privacy.
+            </p>
+            <div class="flex text-sm font-bold items-center gap-2">
+              Learn More
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
+          <a
+            class="flex gap-2 flex-col"
+            href="https://github.com/snowball-lang"
+          >
+            <h3 class="font-bold text-xl">snowball</h3>
+            <p class="opacity-50 text-sm max-w-81">
+              A low-level programming language with all the high-level
+              constructs.
+            </p>
+            <div class="flex text-sm font-bold items-center gap-2">
+              Learn More
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
+          <div class="flex font-bold text-sm items-center gap-4">
+            <div class="line-holder">
+              <div class="smallLine smallLine1"></div>
+              <div class="smallLine smallLine2"></div>
+            </div>
+            <div class="hidden md:block whitespace-nowrap opacity-20">
+              Blog Posts
+            </div>
+          </div>
+          <a class="flex gap-2 flex-col" href="#?blog=01" blog="01">
+            <h3 class="font-bold text-xl">
+              Building a Browser That Respects You
+            </h3>
+            <p class="opacity-50 text-sm max-w-81">
+              Why would a no-name developer decide to build a web browser?
+            </p>
+            <div class="flex text-sm font-bold items-center gap-2">
+              Read Post
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </a>
+        </section>
+      </main>
+      <section
+        id="blog-space"
+        class="hidden mx-auto w-full px-12 md:px-0 md:w-2/3 lg:w-1/3 h-full relative gap-16 py-18 flex flex-col"
+      >
+        <div class="w-full flex justify-between" id="blog-nav">
+          <a id="back" href="#">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span> Back </span>
+          </a>
         </div>
-      </nav>
-      <section id="content">
-        <h1 class="text-xl font-bold flex gap-2">
-          <div>
-            What's up?
-          </div>
-          <div>
-            👋
-          </div>
-        </h1>
-        <p class="text-base opacity-50">
-          I'm a software engineer, acting like a designer.
-        </p>
+        <div id="blog-content"></div>
       </section>
-      <section id="projects" class="ml-4 flex flex-col gap-10">
-        <a class="flex gap-2 flex-col" href="https://zen-browser.app">
-          <h3 class="font-bold text-xl">
-            zen browser
-          </h3>
-          <p class="opacity-50 text-sm max-w-81">
-            A beautifully designed, productivity centered web browser with true privacy.
-          </p>
-          <div class="flex text-sm font-bold items-center gap-2">
-            Learn More
-            <i class="fa-solid fa-arrow-right"></i>
-          </div>
-        </a>
-        <a class="flex gap-2 flex-col" href="https://github.com/snowball-lang">
-          <h3 class="font-bold text-xl">
-            snowball
-          </h3>
-          <p class="opacity-50 text-sm max-w-81">
-            A low-level programming language with all the high-level constructs.
-          </p>
-          <div class="flex text-sm font-bold items-center gap-2">
-            Learn More
-            <i class="fa-solid fa-arrow-right"></i>
-          </div>
-        </a>
-        <div class="flex font-bold text-sm items-center gap-4">
-          <div class="line-holder">
-            <div class="smallLine smallLine1"></div>
-            <div class="smallLine smallLine2"></div>
-          </div>
-          <div class="hidden md:block whitespace-nowrap opacity-20">
-            Blog Posts
-          </div>
-        </div>
-        <a class="flex gap-2 flex-col" href="#?blog=01" blog="01">
-          <h3 class="font-bold text-xl">
-            Building a Browser That Respects You
-          </h3>
-          <p class="opacity-50 text-sm max-w-81">
-            Why would a no-name developer decide to build a web browser?
-          </p>
-          <div class="flex text-sm font-bold items-center gap-2">
-            Read Post
-            <i class="fa-solid fa-arrow-right"></i>
-          </div>
-        </a>
-      </section>
-    </main>
-    <section id="blog-space" class="hidden mx-auto w-full px-12 md:px-0 md:w-2/3 lg:w-1/3 h-full relative gap-16 py-18 flex flex-col">
-      <div class="w-full flex justify-between" id="blog-nav">
-        <a id="back" href="#">
-          <i class="fa-solid fa-arrow-left"></i>
-          <span>
-            Back
-          </span>
-        </a>
+      <footer
+        class="flex flex-col md:flex-row justify-center gap-4 items-center font-semibold pb-6 opacity-70"
+      >
+        <p style="opacity: 0">Made with love by Mauro Baladés</p>
+        <p style="opacity: 0" class="hidden md:block">•</p>
+        <p style="opacity: 0">2025</p>
+      </footer>
+    </div>
+    <section id="blog-01">
+      <div>
+        There was a time when the internet felt different—when it wasn’t a maze
+        of dark patterns designed to manipulate your attention, when software
+        was built for the user, not for the highest bidder. Back then, a browser
+        was simply a tool, a window to the world, not a marketplace disguised as
+        an app.<br /><br /><strong
+          >Somewhere along the way, that changed.</strong
+        ><br /><br />Today, browsers are riddled with engagement traps. They
+        track you, sell your data, shove crypto schemes in your face, and call
+        it ‘innovation.’ But real innovation isn’t about bloated AI assistants
+        or endless monetization tricks. Real innovation makes life simpler, not
+        more exhausting.
       </div>
-      <div id="blog-content">
-
+      <div>
+        I built Zen because I believe the browser should serve you. It should be
+        fast, transparent, and private by design—not as a checkbox feature, but
+        as a philosophy. It should get out of your way, so you can get in, do
+        what you need to do, and step away from the screen without feeling
+        drained.<br /><br />I’m not a corporation. I don’t have a marketing team
+        crafting sleek slogans, nor a boardroom plotting engagement metrics. I’m
+        just a developer who saw what was wrong and decided to fix it. Zen isn’t
+        about gimmicks. It’s about respect—for your time, your privacy, and your
+        right to a better web.<br /><br />It won’t be perfect, and I won’t
+        pretend to have all the answers. But with the help of a passionate
+        community, I know we can build something that matters. A browser that
+        doesn’t fight against you, but works with you.<br /><br /><br />
+        <h1>There was a browser that kind of did this—Arc.</h1>
+        <br />For a while, it felt like a breath of fresh air: a browser that
+        challenged conventions, that cared about design, that aimed to make
+        browsing feel intentional rather than chaotic. It rethought the
+        interface, introduced thoughtful features, and for a moment, it seemed
+        like someone finally got it.<br /><br /><strong
+          >But then, things changed.</strong
+        ><br /><br />Arc was discontinued for Mac, leaving its early adopters
+        stranded. The Windows version, when it finally arrived, was a shadow of
+        what was promised—slow, unstable, missing core features. What started as
+        a vision for a better browser quickly became yet another company chasing
+        after monetization, pivoting to AI gimmicks and engagement loops instead
+        of refining the core experience.
       </div>
+      <div>
+        I won’t pretend Arc didn’t inspire me. It did. There’s a lot to admire
+        in its design philosophy, in its willingness to rethink how we interact
+        with the web. But inspiration isn’t imitation. I’m taking the
+        good—thoughtful UX, a clean interface, a focus on user control—and
+        cutting out the bad. No forced online accounts. No feature bloat
+        disguised as innovation. No chasing trends just to stay relevant.<br /><br />Zen
+        isn’t about maximizing engagement. It’s about minimizing friction. It’s
+        about building a browser that works with you, not on you. And beyond
+        that, I’m exploring my own ideas—rethinking not just how a browser
+        looks, but how it feels to use. How it fits into your life without
+        demanding more of your attention than necessary.
+      </div>
+      <div><strong>The internet deserves better. So do you.</strong></div>
     </section>
-    <footer class="flex flex-col md:flex-row justify-center gap-4 items-center font-semibold pb-6 opacity-70">
-      <p style="opacity: 0;">
-        Made with love by Mauro Baladés
-      </p>
-      <p style="opacity: 0;" class="hidden md:block">
-        •
-      </p>
-      <p style="opacity: 0;">
-        2025
-      </p>
-    </footer>
-  </div>
-  <script src="./blog-01.js"></script>
-  <script async type="module" src="./script.js" defer></script>
-  <style>
-    #projects > a *, #projects > div {
-      opacity: 0;
-    }
-
-    #projects > a {
-      i {
-        transition: margin 0.3s;
+    <script async type="module" src="./script.js" defer></script>
+    <style>
+      #projects > a *,
+      #projects > div {
+        opacity: 0;
       }
 
-      &:hover {
+      #projects > a {
         i {
-          margin-left: 5px;
+          transition: margin 0.3s;
+        }
+
+        &:hover {
+          i {
+            margin-left: 5px;
+          }
         }
       }
-    }
-  </style>
-</body>
+    </style>
+  </body>
 </html>

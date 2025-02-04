@@ -1,22 +1,34 @@
-import { animate, stagger, hover } from "https://cdn.jsdelivr.net/npm/motion@latest/+esm";
+import {
+  animate,
+  stagger,
+  hover,
+} from "https://cdn.jsdelivr.net/npm/motion@latest/+esm";
 
 var insideBlog = false;
 
-async function animateAndOpenBlog(blogid) {
+async function animateAndOpenBlog(blogid, blogElem) {
   insideBlog = true;
-  await animate("#content > *, #projects > *", {
-    opacity: [1, 0],
-    x: [0, -60],
-    blur: [0, 1],
-  }, {
-    delay: stagger(0.05)
-  });
+  await animate(
+    "#content > *, #projects > *",
+    {
+      opacity: [1, 0],
+      x: [0, -60],
+      blur: [0, 1],
+    },
+    {
+      delay: stagger(0.05),
+    },
+  );
   document.getElementById("content").classList.add("hidden");
   document.getElementById("projects").classList.add("hidden");
   document.getElementById("blog-space").classList.remove("hidden");
   console.log(blogid);
-  const blogContent = window[`blog-${blogid}`];
-  const {title, content} = blogContent;
+  const title = blogElem.querySelector("h3").textContent;
+  const content = [];
+  const blogParent = document.getElementById(`blog-${blogid}`);
+  for (const child of blogParent.children) {
+    content.push(child.innerHTML);
+  }
   const contentWrapper = document.getElementById("blog-content");
   contentWrapper.innerHTML = "";
   const titleElement = document.createElement("h1");
@@ -36,69 +48,93 @@ async function animateAndOpenBlog(blogid) {
       contentWrapper.appendChild(separator);
     }
   }
-  await animate("#blog-content > *", {
-    opacity: [0, 1],
-    x: [-60, 0],
-    blur: [1, 0],
-  }, {
-    delay: stagger(0.05)
-  });
+  await animate(
+    "#blog-content > *",
+    {
+      opacity: [0, 1],
+      x: [-60, 0],
+      blur: [1, 0],
+    },
+    {
+      delay: stagger(0.05),
+    },
+  );
 }
 
 for (const blog of document.querySelectorAll("[blog]")) {
   blog.onclick = (event) => {
     event.preventDefault();
-    const blogid = event.target.closest("[blog]").getAttribute("blog");
-    animateAndOpenBlog(blogid);
+    const blogElem = event.target.closest("[blog]");
+    const blogid = blogElem.getAttribute("blog");
+    animateAndOpenBlog(blogid, blogElem);
   };
 }
 
-
 async function main() {
-  await animate("#logo > *, #links > *, #content > h1:first-child > *, #content > p", {
-    opacity: [0, 1],
-    y: [20, 0],
-    blur: [1, 0],
-  }, {
-    delay: stagger(0.15)
-  });
+  await animate(
+    "#logo > *, #links > *, #content > h1:first-child > *, #content > p",
+    {
+      opacity: [0, 1],
+      y: [20, 0],
+      blur: [1, 0],
+    },
+    {
+      delay: stagger(0.15),
+    },
+  );
 
-  await animate("#projects > a *, #projects > div", {
-    opacity: [0, 1],
-    blur: [1, 0],
-    x: [-20, 0]
-  }, {
-    delay: stagger(0.1)
-  });
+  await animate(
+    "#projects > a *, #projects > div",
+    {
+      opacity: [0, 1],
+      blur: [1, 0],
+      x: [-20, 0],
+    },
+    {
+      delay: stagger(0.1),
+    },
+  );
 
-  await animate("footer > *", {
-    opacity: [0, 1],
-    y: [20, 0],
-    blur: [1, 0],
-  }, {
-    delay: stagger(0.15)
-  });
+  await animate(
+    "footer > *",
+    {
+      opacity: [0, 1],
+      y: [20, 0],
+      blur: [1, 0],
+    },
+    {
+      delay: stagger(0.15),
+    },
+  );
 }
 
 document.getElementById("back").onclick = async () => {
   insideBlog = false;
-  await animate("#blog-content > *", {
-    opacity: [1, 0],
-    x: [0, -50],
-    blur: [0, 1],
-  }, {
-    delay: stagger(0.05)
-  });
+  await animate(
+    "#blog-content > *",
+    {
+      opacity: [1, 0],
+      x: [0, -50],
+      blur: [0, 1],
+    },
+    {
+      delay: stagger(0.05),
+    },
+  );
   document.getElementById("content").classList.remove("hidden");
   document.getElementById("projects").classList.remove("hidden");
   document.getElementById("blog-space").classList.add("hidden");
-  await animate("#content > *, #projects > *", {
-    opacity: [0, 1],
-    x: [-50, 0],
-    blur: [1, 0],
-  }, {
-    delay: stagger(0.05)
-  });
-}
+  await animate(
+    "#content > *, #projects > *",
+    {
+      opacity: [0, 1],
+      x: [-50, 0],
+      blur: [1, 0],
+    },
+    {
+      delay: stagger(0.05),
+    },
+  );
+};
 
 main();

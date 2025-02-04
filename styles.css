@@ -1,5 +1,13 @@
 * {
-  font-family: SF Pro,ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+  font-family:
+    SF Pro,
+    ui-sans-serif,
+    system-ui,
+    sans-serif,
+    Apple Color Emoji,
+    Segoe UI Emoji,
+    Segoe UI Symbol,
+    Noto Color Emoji;
   font-feature-settings: normal;
   font-variation-settings: normal;
   -moz-tab-size: 4;
@@ -30,14 +38,26 @@ body {
   position: absolute;
   height: 10px;
   width: 200%;
-  transform: translate(-25%) scale(0.5)
+  transform: translate(-25%) scale(0.5);
 }
 
 .smallLine1 {
-  background: linear-gradient(45deg, transparent, transparent 49%, rgb(51, 46, 41) 49%, transparent 51%);
+  background: linear-gradient(
+    45deg,
+    transparent,
+    transparent 49%,
+    rgb(63, 41, 27) 49%,
+    transparent 51%
+  );
 }
 .smallLine2 {
-  background: linear-gradient(-45deg, transparent, transparent 49%, rgb(51, 46, 41) 49%, transparent 51%);
+  background: linear-gradient(
+    -45deg,
+    transparent,
+    transparent 49%,
+    rgb(63, 41, 27) 49%,
+    transparent 51%
+  );
 }
 
 .smallLine {
@@ -74,7 +94,17 @@ body {
 
   p {
     font-size: 1.1rem;
-    opacity: 0.6;
+    color: rgba(68, 40, 23, 0.6);
     line-height: 1.5;
   }
+}
+
+section[id^="blog-0"] {
+  opacity: 0;
+  pointer-events: none;
+  max-height: 0;
+  position: absolute;
+  visibility: hidden;
+  overflow: hidden;
+  max-width: 0;
 }
