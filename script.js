@@ -130,6 +130,7 @@ async function main() {
 document.getElementById("back").onclick = async () => {
   insideBlog = false;
   beforeLoadBlog = null;
+  document.getElementById("projects").setAttribute("gone-back", "");
   history.pushState({}, "", "/");
   const elements = Array.from(document.querySelectorAll("#back, #blog-content > *")).reverse();
   await animate(
