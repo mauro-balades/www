@@ -32,15 +32,19 @@ async function animateAndOpenBlog(blogid, blogElem, fromLoad = false) {
   document.getElementById("content").classList.add("hidden");
   document.getElementById("projects").classList.add("hidden");
   document.getElementById("blog-space").classList.remove("hidden");
-  console.log(blogid);
+  const img = document.querySelector(`#blog-${blogid} > img`);
   const title = blogElem.querySelector("h3").textContent;
   const content = [];
   const blogParent = document.getElementById(`blog-${blogid}`);
   for (const child of blogParent.children) {
+    if (child.tagName === "IMG") {
+      continue;
+    }
     content.push(child.innerHTML);
   }
   const contentWrapper = document.getElementById("blog-content");
   contentWrapper.innerHTML = "";
+  contentWrapper.appendChild(img.cloneNode());
   const titleElement = document.createElement("h1");
   titleElement.textContent = title;
   contentWrapper.appendChild(titleElement);
