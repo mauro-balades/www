@@ -130,7 +130,6 @@ async function main() {
 document.getElementById("back").onclick = async () => {
   insideBlog = false;
   beforeLoadBlog = null;
-  document.getElementById("projects").setAttribute("gone-back", "");
   history.pushState({}, "", "/");
   const elements = Array.from(document.querySelectorAll("#back, #blog-content > *")).reverse();
   await animate(
@@ -147,6 +146,7 @@ document.getElementById("back").onclick = async () => {
   document.getElementById("content").classList.remove("hidden");
   document.getElementById("projects").classList.remove("hidden");
   document.getElementById("blog-space").classList.add("hidden");
+  document.getElementById("projects").setAttribute("gone-back", "");
   await animate(
     "#content > *, #projects > *",
     {
