@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+
 :root {
   --border-color: rgb(41, 37, 36);
 }
@@ -18,11 +20,14 @@
   tab-size: 4;
   -webkit-text-size-adjust: 100%;
 
-  color: rgb(41 37 36);
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
+
+  color: #3e3e3e;
 }
 
 body {
-  background-color: rgb(255, 240, 223);
+  background-color: rgb(255, 245, 245);
 }
 
 #links > a {
@@ -95,15 +100,24 @@ body {
     opacity: 0;
   }
 
-  h1 {
-    font-size: 1.5rem;
-    font-weight: 600;
+  h1, h2, strong {
+    font-size: 4rem;
+    font-weight: 500;
+    font-family: "EB Garamond", serif;
+    font-optical-sizing: auto;
+    line-height: 1em;
+  }
+
+  h2, strong {
+    font-size: 2.5rem;
   }
 
   p {
-    font-size: 1.1rem;
-    color: rgba(68, 40, 23, 0.6);
+    color: rgb(104, 102, 102);
     line-height: 1.5;
+    font-family: "EB Garamond", serif;
+    font-size: 1.5rem;
+    text-wrap: balance;
   }
 }
 

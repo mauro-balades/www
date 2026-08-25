@@ -39,7 +39,9 @@ async function animateAndOpenBlog(blogid, blogElem, fromLoad = false) {
   }
   const contentWrapper = document.getElementById("blog-content");
   contentWrapper.innerHTML = "";
-  contentWrapper.appendChild(img.cloneNode());
+  if (img) {
+    contentWrapper.appendChild(img.cloneNode());
+  }
   const titleElement = document.createElement("h1");
   titleElement.textContent = title;
   contentWrapper.appendChild(titleElement);
